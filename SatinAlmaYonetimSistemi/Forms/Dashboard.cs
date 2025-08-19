@@ -61,7 +61,7 @@ namespace SatinAlmaYonetimSistemi.Forms
 
         private void button7_Click(object sender, EventArgs e)
         {
-            PurchaseOrders purchaseOrders = new PurchaseOrders();
+            PurchaseReq purchaseOrders = new PurchaseReq();
             purchaseOrders.Show();
             this.Close();
         }
@@ -78,6 +78,11 @@ namespace SatinAlmaYonetimSistemi.Forms
             Users users = new Users();
             users.Show();
             this.Close();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
