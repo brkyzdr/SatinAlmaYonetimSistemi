@@ -76,11 +76,11 @@
     <Compile Include="Forms\Orders.Designer.cs">
       <DependentUpon>Orders.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\PurchaseOrders.cs">
+    <Compile Include="Forms\PurchaseReq.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\PurchaseOrders.Designer.cs">
-      <DependentUpon>PurchaseOrders.cs</DependentUpon>
+    <Compile Include="Forms\PurchaseReq.Designer.cs">
+      <DependentUpon>PurchaseReq.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Requests.cs">
       <SubType>Form</SubType>
@@ -119,6 +119,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MyRequisitions.resx">
+      <DependentUpon>MyRequisitions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Offers.resx">
+      <DependentUpon>Offers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Orders.resx">
+      <DependentUpon>Orders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PurchaseReq.resx">
+      <DependentUpon>PurchaseReq.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Requests.resx">
+      <DependentUpon>Requests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Roles.resx">
+      <DependentUpon>Roles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Stocks.resx">
+      <DependentUpon>Stocks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Suppliers.resx">
+      <DependentUpon>Suppliers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users.resx">
+      <DependentUpon>Users.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
