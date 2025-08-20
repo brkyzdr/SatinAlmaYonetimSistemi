@@ -23,5 +23,10 @@ namespace SatinAlmaYonetimSistemi.Forms
             dashboard.Show();
             this.Close();
         }
+
+        private void MyRequisitions_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
