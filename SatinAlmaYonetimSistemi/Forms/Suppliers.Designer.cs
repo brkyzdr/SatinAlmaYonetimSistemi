@@ -33,14 +33,17 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.BackColor = System.Drawing.Color.OldLace;
-            this.button4.Location = new System.Drawing.Point(1079, 12);
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(1061, 19);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(109, 50);
             this.button4.TabIndex = 15;
@@ -51,7 +54,8 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.LightCoral;
-            this.button3.Location = new System.Drawing.Point(188, 12);
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Location = new System.Drawing.Point(224, 19);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(68, 53);
             this.button3.TabIndex = 12;
@@ -61,7 +65,8 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.button2.Location = new System.Drawing.Point(102, 12);
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(115, 19);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(68, 53);
             this.button2.TabIndex = 13;
@@ -71,7 +76,8 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.button1.Location = new System.Drawing.Point(12, 12);
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(6, 19);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(68, 53);
             this.button1.TabIndex = 14;
@@ -83,22 +89,32 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.Linen;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(311, 68);
+            this.dataGridView1.Location = new System.Drawing.Point(311, 101);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(893, 759);
+            this.dataGridView1.Size = new System.Drawing.Size(877, 687);
             this.dataGridView1.TabIndex = 11;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.button4);
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1176, 83);
+            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabStop = false;
             // 
             // Suppliers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SeaShell;
             this.ClientSize = new System.Drawing.Size(1200, 800);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Suppliers";
@@ -106,6 +122,7 @@
             this.Text = "Suppliers";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -117,5 +134,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
