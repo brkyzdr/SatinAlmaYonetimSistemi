@@ -47,9 +47,7 @@
             this.textBoxSurname = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxPhoneNumber = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBoxCreatedAt = new System.Windows.Forms.TextBox();
             this.comboBoxRole = new System.Windows.Forms.ComboBox();
             this.comboBoxIsActive = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -253,35 +251,16 @@
             this.textBoxPhoneNumber.Size = new System.Drawing.Size(284, 20);
             this.textBoxPhoneNumber.TabIndex = 13;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(15, 483);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(95, 16);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "Oluşturan Kişi";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(15, 533);
+            this.label9.Location = new System.Drawing.Point(15, 483);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(51, 16);
             this.label9.TabIndex = 14;
             this.label9.Text = "Aktiflik";
-            // 
-            // textBoxCreatedAt
-            // 
-            this.textBoxCreatedAt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxCreatedAt.Location = new System.Drawing.Point(18, 502);
-            this.textBoxCreatedAt.Name = "textBoxCreatedAt";
-            this.textBoxCreatedAt.Size = new System.Drawing.Size(284, 20);
-            this.textBoxCreatedAt.TabIndex = 15;
             // 
             // comboBoxRole
             // 
@@ -302,7 +281,7 @@
             this.comboBoxIsActive.Items.AddRange(new object[] {
             "Aktif",
             "Pasif"});
-            this.comboBoxIsActive.Location = new System.Drawing.Point(18, 552);
+            this.comboBoxIsActive.Location = new System.Drawing.Point(18, 502);
             this.comboBoxIsActive.Name = "comboBoxIsActive";
             this.comboBoxIsActive.Size = new System.Drawing.Size(284, 21);
             this.comboBoxIsActive.TabIndex = 17;
@@ -319,14 +298,12 @@
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.textBoxPassword);
-            this.Controls.Add(this.textBoxCreatedAt);
             this.Controls.Add(this.textBoxUsername);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxPhoneNumber);
             this.Controls.Add(this.label7);
@@ -367,9 +344,7 @@
         private System.Windows.Forms.TextBox textBoxSurname;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBoxPhoneNumber;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBoxCreatedAt;
         private System.Windows.Forms.ComboBox comboBoxRole;
         private System.Windows.Forms.ComboBox comboBoxIsActive;
     }
