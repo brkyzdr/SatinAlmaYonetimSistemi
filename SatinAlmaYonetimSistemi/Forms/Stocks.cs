@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,20 @@ namespace SatinAlmaYonetimSistemi.Forms
         public Stocks()
         {
             InitializeComponent();
+            LoadData();
+        }
+        private void LoadData()
+        {
+            DataTable dt = CRUD.Read("SELECT * FROM Items");
+            dataGridView1.DataSource = dt;
+            dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
+            dataGridView1.AutoGenerateColumns = true;
+
+            dataGridView1.Columns["ID"].HeaderText = "ID";
+            dataGridView1.Columns["Name"].HeaderText = "Ürün";
+            dataGridView1.Columns["Unit"].HeaderText = "Birim";
+            dataGridView1.Columns["Quantity"].HeaderText = "Miktar";
+            dataGridView1.Columns["IsActive"].HeaderText = "Aktiflik";
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -22,6 +37,11 @@ namespace SatinAlmaYonetimSistemi.Forms
             Dashboard dashboard = new Dashboard();
             dashboard.Show();
             this.Close();
+        }
+
+        private void Stocks_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

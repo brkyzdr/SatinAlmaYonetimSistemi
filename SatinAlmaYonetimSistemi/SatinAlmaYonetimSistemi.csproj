@@ -88,12 +88,6 @@
     <Compile Include="Forms\Requests.Designer.cs">
       <DependentUpon>Requests.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Roles.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Roles.Designer.cs">
-      <DependentUpon>Roles.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Stocks.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,9 +128,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Requests.resx">
       <DependentUpon>Requests.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Roles.resx">
-      <DependentUpon>Roles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Stocks.resx">
       <DependentUpon>Stocks.cs</DependentUpon>

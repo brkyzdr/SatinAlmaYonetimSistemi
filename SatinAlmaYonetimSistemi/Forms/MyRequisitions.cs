@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Data;
 
 namespace SatinAlmaYonetimSistemi.Forms
 {
@@ -15,6 +16,25 @@ namespace SatinAlmaYonetimSistemi.Forms
         public MyRequisitions()
         {
             InitializeComponent();
+            LoadData();
+        }
+        private void LoadData()
+        {
+            DataTable dt = CRUD.Read("SELECT * FROM Requisitions");
+            dataGridView1.DataSource = dt;
+            dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
+            dataGridView1.AutoGenerateColumns = true;
+
+            dataGridView1.Columns["ID"].HeaderText = "ID";
+            dataGridView1.Columns["UserID"].HeaderText = "Talep Eden Kişi";
+            dataGridView1.Columns["Item"].HeaderText = "Ürün";
+            dataGridView1.Columns["Unit"].HeaderText = "Birim";
+            dataGridView1.Columns["Quantity"].HeaderText = "Miktar";
+            dataGridView1.Columns["Description"].HeaderText = "Açıklama";
+            dataGridView1.Columns["Status"].HeaderText = "Durum";
+            dataGridView1.Columns["ApprovedAt"].HeaderText = "Satın Alma Sorumlusu";
+            dataGridView1.Columns["DateTime"].HeaderText = "Talep Tarihi";
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -25,6 +45,11 @@ namespace SatinAlmaYonetimSistemi.Forms
         }
 
         private void MyRequisitions_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

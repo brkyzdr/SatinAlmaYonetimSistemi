@@ -66,13 +66,6 @@ namespace SatinAlmaYonetimSistemi.Forms
             this.Close();
         }
 
-        private void button9_Click(object sender, EventArgs e)
-        {
-            Roles roles = new Roles();
-            roles.Show();
-            this.Close();
-        }
-
         private void button10_Click(object sender, EventArgs e)
         {
             Users users = new Users();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,27 @@ namespace SatinAlmaYonetimSistemi.Forms
         public Orders()
         {
             InitializeComponent();
+            LoadData();
+        }
+        private void LoadData()
+        {
+            DataTable dt = CRUD.Read("SELECT * FROM PurchaseOrders");
+            dataGridView1.DataSource = dt;
+            dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
+            dataGridView1.AutoGenerateColumns = true;
+
+            dataGridView1.Columns["ID"].HeaderText = "ID";
+            dataGridView1.Columns["SupplierID"].HeaderText = "Tedarikçi";
+            dataGridView1.Columns["UserID"].HeaderText = "Kullanıcı";
+            dataGridView1.Columns["InvoiceID"].HeaderText = "Fatura Kodu";
+            dataGridView1.Columns["Unit"].HeaderText = "Birim";
+            dataGridView1.Columns["Quantity"].HeaderText = "Miktar";
+            dataGridView1.Columns["Price"].HeaderText = "Fiyat";
+            dataGridView1.Columns["Currency"].HeaderText = "Para Birimi";
+            dataGridView1.Columns["Status"].HeaderText = "Durum";
+            dataGridView1.Columns["CreatedAt"].HeaderText = "Oluşturan Kişi";
+            dataGridView1.Columns["Date"].HeaderText = "Tarih";
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -22,6 +44,11 @@ namespace SatinAlmaYonetimSistemi.Forms
             Dashboard dashboard = new Dashboard();
             dashboard.Show();
             this.Close();
+        }
+
+        private void Orders_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
