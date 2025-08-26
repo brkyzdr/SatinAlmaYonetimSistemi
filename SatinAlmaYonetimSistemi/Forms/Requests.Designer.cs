@@ -41,9 +41,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Linen;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(286, 101);
+            this.dataGridView1.Location = new System.Drawing.Point(288, 88);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(902, 687);
+            this.dataGridView1.Size = new System.Drawing.Size(900, 700);
             this.dataGridView1.TabIndex = 6;
             // 
             // button2
@@ -51,9 +51,9 @@
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button2.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(47, 735);
+            this.button2.Location = new System.Drawing.Point(9, 735);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(188, 53);
+            this.button2.Size = new System.Drawing.Size(270, 53);
             this.button2.TabIndex = 7;
             this.button2.Text = "Kaydet";
             this.button2.UseVisualStyleBackColor = false;
@@ -63,7 +63,7 @@
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.BackColor = System.Drawing.Color.OldLace;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(1079, 28);
+            this.button4.Location = new System.Drawing.Point(1079, 22);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(109, 50);
             this.button4.TabIndex = 8;

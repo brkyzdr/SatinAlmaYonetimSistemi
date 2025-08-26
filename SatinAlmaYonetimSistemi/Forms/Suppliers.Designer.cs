@@ -55,7 +55,7 @@
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.BackColor = System.Drawing.Color.OldLace;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(1061, 19);
+            this.button4.Location = new System.Drawing.Point(1061, 16);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(109, 50);
             this.button4.TabIndex = 15;
@@ -67,7 +67,7 @@
             // 
             this.button3.BackColor = System.Drawing.Color.LightCoral;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(224, 19);
+            this.button3.Location = new System.Drawing.Point(224, 16);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(68, 53);
             this.button3.TabIndex = 12;
@@ -78,7 +78,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.LightSkyBlue;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(115, 19);
+            this.button2.Location = new System.Drawing.Point(115, 16);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(68, 53);
             this.button2.TabIndex = 13;
@@ -89,7 +89,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(6, 19);
+            this.button1.Location = new System.Drawing.Point(6, 16);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(68, 53);
             this.button1.TabIndex = 14;
@@ -144,9 +144,9 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.textBoxSupplier);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(12, 101);
+            this.groupBox2.Location = new System.Drawing.Point(12, 95);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(293, 687);
+            this.groupBox2.Size = new System.Drawing.Size(292, 693);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             // 
@@ -155,7 +155,7 @@
             this.textBoxAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxAddress.Location = new System.Drawing.Point(6, 179);
             this.textBoxAddress.Name = "textBoxAddress";
-            this.textBoxAddress.Size = new System.Drawing.Size(278, 20);
+            this.textBoxAddress.Size = new System.Drawing.Size(280, 20);
             this.textBoxAddress.TabIndex = 24;
             // 
             // textBoxEmail
@@ -163,7 +163,7 @@
             this.textBoxEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxEmail.Location = new System.Drawing.Point(6, 130);
             this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(278, 20);
+            this.textBoxEmail.Size = new System.Drawing.Size(280, 20);
             this.textBoxEmail.TabIndex = 24;
             // 
             // label5
@@ -191,7 +191,7 @@
             this.textBoxPhoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxPhoneNumber.Location = new System.Drawing.Point(6, 81);
             this.textBoxPhoneNumber.Name = "textBoxPhoneNumber";
-            this.textBoxPhoneNumber.Size = new System.Drawing.Size(281, 20);
+            this.textBoxPhoneNumber.Size = new System.Drawing.Size(283, 20);
             this.textBoxPhoneNumber.TabIndex = 22;
             // 
             // label3
@@ -209,7 +209,7 @@
             this.comboBoxIsActive.FormattingEnabled = true;
             this.comboBoxIsActive.Location = new System.Drawing.Point(6, 228);
             this.comboBoxIsActive.Name = "comboBoxIsActive";
-            this.comboBoxIsActive.Size = new System.Drawing.Size(281, 21);
+            this.comboBoxIsActive.Size = new System.Drawing.Size(283, 21);
             this.comboBoxIsActive.TabIndex = 20;
             // 
             // label2
@@ -227,7 +227,7 @@
             this.textBoxSupplier.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxSupplier.Location = new System.Drawing.Point(6, 32);
             this.textBoxSupplier.Name = "textBoxSupplier";
-            this.textBoxSupplier.Size = new System.Drawing.Size(281, 20);
+            this.textBoxSupplier.Size = new System.Drawing.Size(283, 20);
             this.textBoxSupplier.TabIndex = 18;
             // 
             // Suppliers

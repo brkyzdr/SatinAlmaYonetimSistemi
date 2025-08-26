@@ -42,8 +42,10 @@
             this.textBoxItem = new System.Windows.Forms.TextBox();
             this.comboBoxUnit = new System.Windows.Forms.ComboBox();
             this.textBoxQuantity = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -63,7 +65,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(6, 16);
+            this.button1.Location = new System.Drawing.Point(6, 15);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(68, 53);
             this.button1.TabIndex = 1;
@@ -74,7 +76,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.LightSkyBlue;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(112, 16);
+            this.button2.Location = new System.Drawing.Point(115, 15);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(68, 53);
             this.button2.TabIndex = 1;
@@ -85,7 +87,7 @@
             // 
             this.button3.BackColor = System.Drawing.Color.LightCoral;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(218, 16);
+            this.button3.Location = new System.Drawing.Point(224, 15);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(68, 53);
             this.button3.TabIndex = 1;
@@ -97,7 +99,7 @@
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.BackColor = System.Drawing.Color.OldLace;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(1054, 16);
+            this.button4.Location = new System.Drawing.Point(1054, 15);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(109, 50);
             this.button4.TabIndex = 2;
@@ -126,7 +128,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(15, 115);
+            this.label2.Location = new System.Drawing.Point(6, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 16);
             this.label2.TabIndex = 6;
@@ -136,7 +138,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(15, 165);
+            this.label3.Location = new System.Drawing.Point(6, 66);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 16);
             this.label3.TabIndex = 4;
@@ -146,7 +148,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(15, 214);
+            this.label4.Location = new System.Drawing.Point(6, 115);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 16);
             this.label4.TabIndex = 6;
@@ -156,7 +158,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(15, 264);
+            this.label5.Location = new System.Drawing.Point(6, 165);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 16);
             this.label5.TabIndex = 4;
@@ -165,7 +167,7 @@
             // textBoxDescription
             // 
             this.textBoxDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxDescription.Location = new System.Drawing.Point(18, 283);
+            this.textBoxDescription.Location = new System.Drawing.Point(9, 184);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.Size = new System.Drawing.Size(277, 79);
@@ -174,7 +176,7 @@
             // textBoxItem
             // 
             this.textBoxItem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxItem.Location = new System.Drawing.Point(18, 134);
+            this.textBoxItem.Location = new System.Drawing.Point(9, 35);
             this.textBoxItem.Name = "textBoxItem";
             this.textBoxItem.Size = new System.Drawing.Size(277, 20);
             this.textBoxItem.TabIndex = 5;
@@ -183,7 +185,7 @@
             // comboBoxUnit
             // 
             this.comboBoxUnit.FormattingEnabled = true;
-            this.comboBoxUnit.Location = new System.Drawing.Point(18, 184);
+            this.comboBoxUnit.Location = new System.Drawing.Point(9, 85);
             this.comboBoxUnit.Name = "comboBoxUnit";
             this.comboBoxUnit.Size = new System.Drawing.Size(277, 21);
             this.comboBoxUnit.TabIndex = 7;
@@ -191,11 +193,28 @@
             // textBoxQuantity
             // 
             this.textBoxQuantity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxQuantity.Location = new System.Drawing.Point(18, 233);
+            this.textBoxQuantity.Location = new System.Drawing.Point(9, 134);
             this.textBoxQuantity.Name = "textBoxQuantity";
             this.textBoxQuantity.Size = new System.Drawing.Size(277, 20);
             this.textBoxQuantity.TabIndex = 5;
             this.textBoxQuantity.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.comboBoxUnit);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.textBoxItem);
+            this.groupBox2.Controls.Add(this.textBoxDescription);
+            this.groupBox2.Controls.Add(this.textBoxQuantity);
+            this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox2.Location = new System.Drawing.Point(13, 95);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(292, 693);
+            this.groupBox2.TabIndex = 8;
+            this.groupBox2.TabStop = false;
             // 
             // MyRequisitions
             // 
@@ -203,14 +222,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaShell;
             this.ClientSize = new System.Drawing.Size(1200, 800);
-            this.Controls.Add(this.comboBoxUnit);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBoxDescription);
-            this.Controls.Add(this.textBoxQuantity);
-            this.Controls.Add(this.textBoxItem);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -222,8 +234,9 @@
             this.Load += new System.EventHandler(this.MyRequisitions_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -243,5 +256,6 @@
         private System.Windows.Forms.TextBox textBoxItem;
         private System.Windows.Forms.ComboBox comboBoxUnit;
         private System.Windows.Forms.TextBox textBoxQuantity;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
