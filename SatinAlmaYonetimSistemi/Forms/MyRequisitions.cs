@@ -13,6 +13,7 @@ namespace SatinAlmaYonetimSistemi.Forms
             InitializeComponent();
             ReadData();
         }
+
         private void ReadData()
         {
             DataTable dt = CRUD.Read("SELECT * FROM Requisitions");

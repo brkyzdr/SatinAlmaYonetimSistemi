@@ -66,6 +66,7 @@
             this.buttonDelete.TabIndex = 7;
             this.buttonDelete.Text = "Sil";
             this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonUpdate
             // 
@@ -77,6 +78,7 @@
             this.buttonUpdate.TabIndex = 8;
             this.buttonUpdate.Text = "Düzenle";
             this.buttonUpdate.UseVisualStyleBackColor = false;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // buttonCreate
             // 
@@ -88,6 +90,7 @@
             this.buttonCreate.TabIndex = 9;
             this.buttonCreate.Text = "Ekle";
             this.buttonCreate.UseVisualStyleBackColor = false;
+            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
             // dataGridView1
             // 
@@ -98,6 +101,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(311, 101);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(877, 687);
             this.dataGridView1.TabIndex = 6;
             // 
@@ -249,6 +253,7 @@
             // 
             this.textBoxPhoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxPhoneNumber.Location = new System.Drawing.Point(9, 335);
+            this.textBoxPhoneNumber.MaxLength = 15;
             this.textBoxPhoneNumber.Name = "textBoxPhoneNumber";
             this.textBoxPhoneNumber.Size = new System.Drawing.Size(278, 20);
             this.textBoxPhoneNumber.TabIndex = 13;
@@ -266,11 +271,12 @@
             // 
             // comboBoxRole
             // 
+            this.comboBoxRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxRole.FormattingEnabled = true;
             this.comboBoxRole.Items.AddRange(new object[] {
             "Admin",
-            "İşçi",
-            "Satın Alma",
+            "Normal Kullanıcı",
+            "Satın Alma Sorumlusu",
             "Patron"});
             this.comboBoxRole.Location = new System.Drawing.Point(9, 35);
             this.comboBoxRole.Name = "comboBoxRole";

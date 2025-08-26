@@ -73,6 +73,7 @@
             this.buttonDelete.TabIndex = 12;
             this.buttonDelete.Text = "Sil";
             this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonUpdate
             // 
@@ -84,6 +85,7 @@
             this.buttonUpdate.TabIndex = 13;
             this.buttonUpdate.Text = "Düzenle";
             this.buttonUpdate.UseVisualStyleBackColor = false;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // buttonCreate
             // 
@@ -95,6 +97,7 @@
             this.buttonCreate.TabIndex = 14;
             this.buttonCreate.Text = "Ekle";
             this.buttonCreate.UseVisualStyleBackColor = false;
+            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
             // dataGridView1
             // 
@@ -155,17 +158,17 @@
             // textBoxAddress
             // 
             this.textBoxAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxAddress.Location = new System.Drawing.Point(6, 179);
+            this.textBoxAddress.Location = new System.Drawing.Point(6, 182);
             this.textBoxAddress.Name = "textBoxAddress";
-            this.textBoxAddress.Size = new System.Drawing.Size(280, 20);
+            this.textBoxAddress.Size = new System.Drawing.Size(283, 20);
             this.textBoxAddress.TabIndex = 24;
             // 
             // textBoxEmail
             // 
             this.textBoxEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxEmail.Location = new System.Drawing.Point(6, 130);
+            this.textBoxEmail.Location = new System.Drawing.Point(6, 133);
             this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(280, 20);
+            this.textBoxEmail.Size = new System.Drawing.Size(283, 20);
             this.textBoxEmail.TabIndex = 24;
             // 
             // label5
@@ -191,7 +194,8 @@
             // textBoxPhoneNumber
             // 
             this.textBoxPhoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxPhoneNumber.Location = new System.Drawing.Point(6, 81);
+            this.textBoxPhoneNumber.Location = new System.Drawing.Point(6, 84);
+            this.textBoxPhoneNumber.MaxLength = 15;
             this.textBoxPhoneNumber.Name = "textBoxPhoneNumber";
             this.textBoxPhoneNumber.Size = new System.Drawing.Size(283, 20);
             this.textBoxPhoneNumber.TabIndex = 22;
@@ -208,8 +212,12 @@
             // 
             // comboBoxIsActive
             // 
+            this.comboBoxIsActive.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxIsActive.FormattingEnabled = true;
-            this.comboBoxIsActive.Location = new System.Drawing.Point(6, 228);
+            this.comboBoxIsActive.Items.AddRange(new object[] {
+            "Aktif",
+            "Pasif"});
+            this.comboBoxIsActive.Location = new System.Drawing.Point(6, 231);
             this.comboBoxIsActive.Name = "comboBoxIsActive";
             this.comboBoxIsActive.Size = new System.Drawing.Size(283, 21);
             this.comboBoxIsActive.TabIndex = 20;
@@ -227,7 +235,7 @@
             // textBoxSupplier
             // 
             this.textBoxSupplier.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxSupplier.Location = new System.Drawing.Point(6, 32);
+            this.textBoxSupplier.Location = new System.Drawing.Point(6, 35);
             this.textBoxSupplier.Name = "textBoxSupplier";
             this.textBoxSupplier.Size = new System.Drawing.Size(283, 20);
             this.textBoxSupplier.TabIndex = 18;
@@ -246,7 +254,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Suppliers";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Suppliers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

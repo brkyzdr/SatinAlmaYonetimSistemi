@@ -56,6 +56,7 @@
             this.buttonDelete.TabIndex = 3;
             this.buttonDelete.Text = "Sil";
             this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonUpdate
             // 
@@ -67,6 +68,7 @@
             this.buttonUpdate.TabIndex = 4;
             this.buttonUpdate.Text = "Düzenle";
             this.buttonUpdate.UseVisualStyleBackColor = false;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // buttonCreate
             // 
@@ -78,6 +80,7 @@
             this.buttonCreate.TabIndex = 5;
             this.buttonCreate.Text = "Ekle";
             this.buttonCreate.UseVisualStyleBackColor = false;
+            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
             // dataGridView1
             // 
@@ -88,6 +91,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(311, 101);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(877, 687);
             this.dataGridView1.TabIndex = 2;
             // 
@@ -130,7 +134,18 @@
             // 
             // comboBoxUnit
             // 
+            this.comboBoxUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxUnit.FormattingEnabled = true;
+            this.comboBoxUnit.Items.AddRange(new object[] {
+            "Adet",
+            "Kg",
+            "Gr",
+            "L",
+            "Ml",
+            "M",
+            "Cm",
+            "Metrekare",
+            "Metreküp"});
             this.comboBoxUnit.Location = new System.Drawing.Point(10, 83);
             this.comboBoxUnit.Name = "comboBoxUnit";
             this.comboBoxUnit.Size = new System.Drawing.Size(277, 21);
