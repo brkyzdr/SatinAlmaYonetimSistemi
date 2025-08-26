@@ -29,9 +29,13 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonExit = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -41,35 +45,53 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Linen;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(288, 88);
+            this.dataGridView1.Location = new System.Drawing.Point(311, 101);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(900, 700);
+            this.dataGridView1.Size = new System.Drawing.Size(877, 687);
             this.dataGridView1.TabIndex = 6;
             // 
-            // button2
+            // buttonSave
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button2.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(9, 735);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(270, 53);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Kaydet";
-            this.button2.UseVisualStyleBackColor = false;
+            this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonSave.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSave.Location = new System.Drawing.Point(6, 635);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(281, 53);
+            this.buttonSave.TabIndex = 7;
+            this.buttonSave.Text = "Kaydet";
+            this.buttonSave.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // buttonExit
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.BackColor = System.Drawing.Color.OldLace;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(1079, 22);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(109, 50);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "Geri";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.buttonExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonExit.BackColor = System.Drawing.Color.OldLace;
+            this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonExit.Location = new System.Drawing.Point(1061, 19);
+            this.buttonExit.Name = "buttonExit";
+            this.buttonExit.Size = new System.Drawing.Size(109, 50);
+            this.buttonExit.TabIndex = 8;
+            this.buttonExit.Text = "Geri";
+            this.buttonExit.UseVisualStyleBackColor = false;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.buttonExit);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1176, 82);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.buttonSave);
+            this.groupBox2.Location = new System.Drawing.Point(12, 94);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(293, 694);
+            this.groupBox2.TabIndex = 10;
+            this.groupBox2.TabStop = false;
             // 
             // Requests
             // 
@@ -77,8 +99,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaShell;
             this.ClientSize = new System.Drawing.Size(1200, 800);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Requests";
@@ -87,13 +109,17 @@
             this.Text = "Requests";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Button buttonExit;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

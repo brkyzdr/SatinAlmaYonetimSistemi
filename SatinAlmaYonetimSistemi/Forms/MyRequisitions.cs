@@ -37,26 +37,11 @@ namespace SatinAlmaYonetimSistemi.Forms
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void buttonExit_Click(object sender, EventArgs e)
         {
             Dashboard dashboard = new Dashboard();
             dashboard.Show();
             this.Close();
-        }
-
-        private void MyRequisitions_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

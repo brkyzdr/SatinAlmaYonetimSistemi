@@ -40,15 +40,10 @@ namespace SatinAlmaYonetimSistemi.Forms
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void buttonExit_Click(object sender, EventArgs e)
         {
             Dashboard dashboard = new Dashboard();
             dashboard.Show();
-        }
-
-        private void Offers_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

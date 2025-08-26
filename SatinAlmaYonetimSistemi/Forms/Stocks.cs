@@ -32,16 +32,11 @@ namespace SatinAlmaYonetimSistemi.Forms
             dataGridView1.Columns["IsActive"].HeaderText = "Aktiflik";
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void buttonExit_Click(object sender, EventArgs e)
         {
             Dashboard dashboard = new Dashboard();
             dashboard.Show();
             this.Close();
-        }
-
-        private void Stocks_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

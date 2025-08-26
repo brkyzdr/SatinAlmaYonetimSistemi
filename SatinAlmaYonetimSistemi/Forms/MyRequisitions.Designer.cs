@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.buttonCreate = new System.Windows.Forms.Button();
+            this.buttonUpdate = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonExit = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -59,63 +59,62 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(877, 687);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // button1
+            // buttonCreate
             // 
-            this.button1.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(6, 15);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(68, 53);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Ekle";
-            this.button1.UseVisualStyleBackColor = false;
+            this.buttonCreate.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.buttonCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCreate.Location = new System.Drawing.Point(6, 15);
+            this.buttonCreate.Name = "buttonCreate";
+            this.buttonCreate.Size = new System.Drawing.Size(68, 53);
+            this.buttonCreate.TabIndex = 1;
+            this.buttonCreate.Text = "Ekle";
+            this.buttonCreate.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // buttonUpdate
             // 
-            this.button2.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(115, 15);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(68, 53);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Düzenle";
-            this.button2.UseVisualStyleBackColor = false;
+            this.buttonUpdate.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUpdate.Location = new System.Drawing.Point(115, 15);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(68, 53);
+            this.buttonUpdate.TabIndex = 1;
+            this.buttonUpdate.Text = "Düzenle";
+            this.buttonUpdate.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // buttonDelete
             // 
-            this.button3.BackColor = System.Drawing.Color.LightCoral;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(224, 15);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(68, 53);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Sil";
-            this.button3.UseVisualStyleBackColor = false;
+            this.buttonDelete.BackColor = System.Drawing.Color.LightCoral;
+            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelete.Location = new System.Drawing.Point(224, 15);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(68, 53);
+            this.buttonDelete.TabIndex = 1;
+            this.buttonDelete.Text = "Sil";
+            this.buttonDelete.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // buttonExit
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.BackColor = System.Drawing.Color.OldLace;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(1054, 15);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(109, 50);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "Geri";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.buttonExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonExit.BackColor = System.Drawing.Color.OldLace;
+            this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonExit.Location = new System.Drawing.Point(1054, 15);
+            this.buttonExit.Name = "buttonExit";
+            this.buttonExit.Size = new System.Drawing.Size(109, 50);
+            this.buttonExit.TabIndex = 2;
+            this.buttonExit.Text = "Geri";
+            this.buttonExit.UseVisualStyleBackColor = false;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.Color.SeaShell;
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.buttonCreate);
+            this.groupBox1.Controls.Add(this.buttonExit);
+            this.groupBox1.Controls.Add(this.buttonUpdate);
+            this.groupBox1.Controls.Add(this.buttonDelete);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
@@ -180,7 +179,6 @@
             this.textBoxItem.Name = "textBoxItem";
             this.textBoxItem.Size = new System.Drawing.Size(277, 20);
             this.textBoxItem.TabIndex = 5;
-            this.textBoxItem.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // comboBoxUnit
             // 
@@ -197,7 +195,6 @@
             this.textBoxQuantity.Name = "textBoxQuantity";
             this.textBoxQuantity.Size = new System.Drawing.Size(277, 20);
             this.textBoxQuantity.TabIndex = 5;
-            this.textBoxQuantity.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // groupBox2
             // 
@@ -231,7 +228,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MyRequisitions";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.MyRequisitions_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -243,10 +239,10 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button buttonCreate;
+        private System.Windows.Forms.Button buttonUpdate;
+        private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
