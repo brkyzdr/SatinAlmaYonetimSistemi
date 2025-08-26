@@ -59,6 +59,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(877, 687);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // buttonCreate
             // 
@@ -70,6 +71,7 @@
             this.buttonCreate.TabIndex = 1;
             this.buttonCreate.Text = "Ekle";
             this.buttonCreate.UseVisualStyleBackColor = false;
+            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
             // buttonUpdate
             // 
@@ -81,6 +83,7 @@
             this.buttonUpdate.TabIndex = 1;
             this.buttonUpdate.Text = "Düzenle";
             this.buttonUpdate.UseVisualStyleBackColor = false;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // buttonDelete
             // 
@@ -92,6 +95,7 @@
             this.buttonDelete.TabIndex = 1;
             this.buttonDelete.Text = "Sil";
             this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonExit
             // 
@@ -167,9 +171,10 @@
             // 
             this.textBoxDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxDescription.Location = new System.Drawing.Point(9, 184);
+            this.textBoxDescription.MaxLength = 500;
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.Size = new System.Drawing.Size(277, 79);
+            this.textBoxDescription.Size = new System.Drawing.Size(277, 130);
             this.textBoxDescription.TabIndex = 5;
             // 
             // textBoxItem
@@ -182,7 +187,19 @@
             // 
             // comboBoxUnit
             // 
+            this.comboBoxUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxUnit.FormattingEnabled = true;
+            this.comboBoxUnit.Items.AddRange(new object[] {
+            "Adet",
+            "Kg",
+            "Gr",
+            "L",
+            "Ml",
+            "M",
+            "Cm",
+            "Metrekare",
+            "Metreküp",
+            ""});
             this.comboBoxUnit.Location = new System.Drawing.Point(9, 85);
             this.comboBoxUnit.Name = "comboBoxUnit";
             this.comboBoxUnit.Size = new System.Drawing.Size(277, 21);
@@ -198,6 +215,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.comboBoxUnit);
             this.groupBox2.Controls.Add(this.label3);
