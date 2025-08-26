@@ -290,6 +290,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.comboBoxIsActive);
             this.groupBox2.Controls.Add(this.label7);
