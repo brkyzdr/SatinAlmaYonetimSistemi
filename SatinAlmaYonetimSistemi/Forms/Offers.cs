@@ -22,23 +22,27 @@ namespace SatinAlmaYonetimSistemi.Forms
 
         private void ReadData()
         {
-            DataTable dt = CRUD.Read("SELECT * FROM Offers");
-            //dt = DataManipulation(dt); // bunu kullanma sqlde hallet
+            DataTable dt = CRUD.Read
+                ("SELECT s.Name AS SupplierName," +
+                "COALESCE(u.Name, '') + ' ' + COALESCE(u.Surname, '') + '(#' + CAST(u.ID AS varchar(20)) + ')' AS UserName," +
+                "o.Unit, o.Quantity, o.Price, o.Currency, o.Status,o.ApprovedAt, o.Date  " +
+                "FROM Offers o " +
+                "INNER JOIN Suppliers s ON o.SupplierID = s.ID " +
+                "INNER JOIN Users u ON o.UserID = u.ID");
+            
             dataGridView1.DataSource= dt;
             dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
             dataGridView1.AutoGenerateColumns = true;
 
-            dataGridView1.Columns["ID"].Visible = false;
-            dataGridView1.Columns["SupplierID"].HeaderText = "Tedarikçi";
-            dataGridView1.Columns["UserID"].HeaderText = "Satınalma Sorumlusu";
-            dataGridView1.Columns["ItemID"].HeaderText = "Ürün";
+            dataGridView1.Columns["SupplierName"].HeaderText = "Tedarikçi";
+            dataGridView1.Columns["UserName"].HeaderText = "Satınalma Sorumlusu";
             dataGridView1.Columns["Unit"].HeaderText = "Birim";
             dataGridView1.Columns["Quantity"].HeaderText = "Miktar";
             dataGridView1.Columns["Price"].HeaderText = "Fiyat";
             dataGridView1.Columns["Currency"].HeaderText = "Para Birimi";
             dataGridView1.Columns["Status"].HeaderText = "Durum";
-            dataGridView1.Columns["Date"].HeaderText = "Tarih";
-            dataGridView1.Columns["ApprovedAt"].HeaderText = "Onaylayan Kişi";                    
+            dataGridView1.Columns["ApprovedAt"].HeaderText = "Onaylayan Kişi";
+            dataGridView1.Columns["Date"].HeaderText = "Tarih";                            
         }
 
         private void CreateData()
@@ -165,22 +169,7 @@ namespace SatinAlmaYonetimSistemi.Forms
             comboBoxSuppliers.DataSource = supplierName;
             comboBoxSuppliers.DisplayMember = "Name";
             comboBoxSuppliers.ValueMember = "ID";
-            comboBoxSuppliers.SelectedItem = null;
-
-            DataTable itemName = CRUD.Read("SELECT ID, Name FROM Stocks ORDER BY Name");
-            comboBoxItem.DataSource= itemName;
-            comboBoxItem.DisplayMember = "Name";
-            comboBoxItem.ValueMember = "ID";
-            comboBoxItem.SelectedItem = null;
-        }
-
-        private DataTable DataManipulation(DataTable dt)
-        {
-            
-
-
-
-            return dt;
+            comboBoxSuppliers.SelectedItem = null;   
         }
 
         private void buttonExit_Click(object sender, EventArgs e)
@@ -194,8 +183,7 @@ namespace SatinAlmaYonetimSistemi.Forms
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-                comboBoxSuppliers.Text = row.Cells["SupplierID"].Value.ToString();
-                comboBoxItem.Text = row.Cells["ItemID"].Value.ToString();
+                comboBoxSuppliers.Text = row.Cells["SupplierName"].Value.ToString();
                 comboBoxUnit.Text = row.Cells["Unit"].Value.ToString();
                 textBoxQuantity.Text = row.Cells["Quantity"].Value.ToString();
                 textBoxPrice.Text = row.Cells["Price"].Value.ToString();
@@ -216,6 +204,16 @@ namespace SatinAlmaYonetimSistemi.Forms
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             DeleteData();
+        }
+
+        private void comboBoxSuppliers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBoxItem.Enabled = true;
+            DataTable itemName = CRUD.Read("SELECT ID, Name FROM Stocks ORDER BY Name");
+            comboBoxItem.DataSource = itemName;
+            comboBoxItem.DisplayMember = "Name";
+            comboBoxItem.ValueMember = "ID";
+            comboBoxItem.SelectedItem = null;
         }
     }
 }

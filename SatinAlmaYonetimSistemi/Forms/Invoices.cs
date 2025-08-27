@@ -11,24 +11,22 @@ using System.Windows.Forms;
 
 namespace SatinAlmaYonetimSistemi.Forms
 {
-    public partial class Stocks : Form
-    {
-        public Stocks()
+    public partial class Invoices : Form
+    {//en son tamamlanacak
+        public Invoices()
         {
             InitializeComponent();
             ReadData();
         }
         private void ReadData()
         {
-            DataTable dt = CRUD.Read("SELECT * FROM Stocks");
+            DataTable dt = CRUD.Read("SELECT * FROM Invoices");
             dataGridView1.DataSource = dt;
             dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
             dataGridView1.AutoGenerateColumns = true;
 
-            dataGridView1.Columns["ID"].Visible = false;
-            dataGridView1.Columns["Name"].HeaderText = "Ürün";
-            dataGridView1.Columns["Unit"].HeaderText = "Birim";
-            dataGridView1.Columns["Quantity"].HeaderText = "Miktar";
+            
+            dataGridView1.Columns["Name"].HeaderText = "Fatura";
         }
         
         private void CreateData()
@@ -159,10 +157,10 @@ namespace SatinAlmaYonetimSistemi.Forms
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-                textBoxItem.Text = row.Cells["Name"].Value.ToString();
-                comboBoxUnit.Text = row.Cells["Unit"].Value.ToString();
-                textBoxQuantity.Text = row.Cells["Quantity"].Value.ToString();
+                //DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                //textBoxItem.Text = row.Cells["Name"].Value.ToString();
+                //comboBoxUnit.Text = row.Cells["Unit"].Value.ToString();
+                //textBoxQuantity.Text = row.Cells["Quantity"].Value.ToString();
             }
         }
     }
