@@ -142,6 +142,7 @@
             // 
             // comboBoxSuppliers
             // 
+            this.comboBoxSuppliers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSuppliers.FormattingEnabled = true;
             this.comboBoxSuppliers.Location = new System.Drawing.Point(9, 35);
             this.comboBoxSuppliers.Name = "comboBoxSuppliers";
@@ -185,6 +186,7 @@
             // 
             // comboBoxItem
             // 
+            this.comboBoxItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxItem.FormattingEnabled = true;
             this.comboBoxItem.Location = new System.Drawing.Point(9, 92);
             this.comboBoxItem.Name = "comboBoxItem";

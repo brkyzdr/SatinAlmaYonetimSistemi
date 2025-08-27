@@ -17,6 +17,7 @@ namespace SatinAlmaYonetimSistemi.Forms
         {
             InitializeComponent();
             ReadData();
+            SetComboBoxData();
         }
 
         private void ReadData()
@@ -156,6 +157,21 @@ namespace SatinAlmaYonetimSistemi.Forms
             {
                 MessageBox.Show("Lütfen bir satır seçin.");
             }
+        }
+
+        private void SetComboBoxData()
+        {
+            DataTable supplierName = CRUD.Read("SELECT ID, Name FROM Suppliers ORDER BY Name");
+            comboBoxSuppliers.DataSource = supplierName;
+            comboBoxSuppliers.DisplayMember = "Name";
+            comboBoxSuppliers.ValueMember = "ID";
+            comboBoxSuppliers.SelectedItem = null;
+
+            DataTable itemName = CRUD.Read("SELECT ID, Name FROM Stocks ORDER BY Name");
+            comboBoxItem.DataSource = itemName;
+            comboBoxItem.DisplayMember = "Name";
+            comboBoxItem.ValueMember = "ID";
+            comboBoxItem.SelectedItem = null;
         }
 
         private void buttonExit_Click(object sender, EventArgs e)

@@ -17,17 +17,20 @@ namespace SatinAlmaYonetimSistemi.Forms
         {
             InitializeComponent();
             ReadData();
+            SetComboBoxData();
         }
+
         private void ReadData()
         {
             DataTable dt = CRUD.Read("SELECT * FROM Offers");
+            //dt = DataManipulation(dt); // bunu kullanma sqlde hallet
             dataGridView1.DataSource= dt;
             dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
             dataGridView1.AutoGenerateColumns = true;
 
             dataGridView1.Columns["ID"].Visible = false;
             dataGridView1.Columns["SupplierID"].HeaderText = "Tedarikçi";
-            dataGridView1.Columns["UserID"].Visible = false;
+            dataGridView1.Columns["UserID"].HeaderText = "Satınalma Sorumlusu";
             dataGridView1.Columns["ItemID"].HeaderText = "Ürün";
             dataGridView1.Columns["Unit"].HeaderText = "Birim";
             dataGridView1.Columns["Quantity"].HeaderText = "Miktar";
@@ -35,8 +38,7 @@ namespace SatinAlmaYonetimSistemi.Forms
             dataGridView1.Columns["Currency"].HeaderText = "Para Birimi";
             dataGridView1.Columns["Status"].HeaderText = "Durum";
             dataGridView1.Columns["Date"].HeaderText = "Tarih";
-            dataGridView1.Columns["ApprovedAt"].Visible = false;
-
+            dataGridView1.Columns["ApprovedAt"].HeaderText = "Onaylayan Kişi";                    
         }
 
         private void CreateData()
@@ -155,6 +157,30 @@ namespace SatinAlmaYonetimSistemi.Forms
             {
                 MessageBox.Show("Lütfen bir satır seçin.");
             }
+        }
+        
+        private void SetComboBoxData()
+        {
+            DataTable supplierName = CRUD.Read("SELECT ID, Name FROM Suppliers ORDER BY Name");
+            comboBoxSuppliers.DataSource = supplierName;
+            comboBoxSuppliers.DisplayMember = "Name";
+            comboBoxSuppliers.ValueMember = "ID";
+            comboBoxSuppliers.SelectedItem = null;
+
+            DataTable itemName = CRUD.Read("SELECT ID, Name FROM Stocks ORDER BY Name");
+            comboBoxItem.DataSource= itemName;
+            comboBoxItem.DisplayMember = "Name";
+            comboBoxItem.ValueMember = "ID";
+            comboBoxItem.SelectedItem = null;
+        }
+
+        private DataTable DataManipulation(DataTable dt)
+        {
+            
+
+
+
+            return dt;
         }
 
         private void buttonExit_Click(object sender, EventArgs e)

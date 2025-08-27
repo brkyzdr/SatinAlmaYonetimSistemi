@@ -55,6 +55,15 @@ namespace SatinAlmaYonetimSistemi.Forms
                 // Kullanıcı "Yes" derse kayıt işlemi yapılır
                 if (result == DialogResult.Yes)
                 {
+                    int isActive;
+                    if (comboBoxIsActive.Text=="Aktif")
+                    {
+                        isActive = 1;
+                    }
+                    else
+                    {
+                        isActive=0;
+                    }
 
                     var data = new Dictionary<string, object>
                     {
@@ -62,8 +71,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                         {"Phone" ,textBoxPhoneNumber.Text },
                         {"Email" ,textBoxEmail.Text },
                         {"Address" ,textBoxAddress.Text },
-                        {"IsActive", 1},//değişecek
-                        //{"IsActive", comboBoxIsActive},
+                        {"IsActive", isActive},
                     };
                     CRUD.Create("Suppliers", data);
 
@@ -95,15 +103,23 @@ namespace SatinAlmaYonetimSistemi.Forms
                 // Kullanıcı "Yes" derse kayıt işlemi yapılır
                 if (result == DialogResult.Yes)
                 {
-                    // Buraya kayıt kodlarını yaz
+                    int isActive;
+                    if (comboBoxIsActive.Text == "Aktif")
+                    {
+                        isActive = 1;
+                    }
+                    else
+                    {
+                        isActive = 0;
+                    }
+
                     var data = new Dictionary<string, object>
                     {
                         {"Name" ,textBoxSupplier.Text },
                         {"Phone" ,textBoxPhoneNumber.Text },
                         {"Email" ,textBoxEmail.Text },
                         {"Address" ,textBoxAddress.Text },
-                        {"IsActive", 1},//değişceek
-                        //{"IsActive", comboBoxIsActive},
+                        {"IsActive", isActive},
                     };
                     string condition = $"ID = '{dataGridView1.SelectedRows[0].Cells["ID"].Value}'";
                     CRUD.Update("Suppliers", data, condition);
@@ -180,7 +196,10 @@ namespace SatinAlmaYonetimSistemi.Forms
                 textBoxPhoneNumber.Text = row.Cells["Phone"].Value.ToString();
                 textBoxEmail.Text = row.Cells["Email"].Value.ToString();
                 textBoxAddress.Text = row.Cells["Address"].Value.ToString();
-                comboBoxIsActive.Text = row.Cells["IsActive"].Value.ToString();
+                if (row.Cells["IsActive"].Value.ToString() == "1")
+                    comboBoxIsActive.Text = "Aktif";
+                else
+                    comboBoxIsActive.Text = "Pasif";
             }
         }
     }
