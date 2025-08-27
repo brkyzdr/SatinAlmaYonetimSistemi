@@ -197,9 +197,9 @@
             this.label1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(396, 98);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(400, 25);
+            this.label1.Size = new System.Drawing.Size(394, 25);
             this.label1.TabIndex = 8;
-            this.label1.Text = "SATIN ALMA YÖNETİM UYGULAMASI";
+            this.label1.Text = "SATINALMA YÖNETİM UYGULAMASI";
             // 
             // Dashboard
             // 

@@ -154,5 +154,16 @@ namespace SatinAlmaYonetimSistemi.Forms
         {
             DeleteData();
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                textBoxItem.Text = row.Cells["Name"].Value.ToString();
+                comboBoxUnit.Text = row.Cells["Unit"].Value.ToString();
+                textBoxQuantity.Text = row.Cells["Quantity"].Value.ToString();
+            }
+        }
     }
 }

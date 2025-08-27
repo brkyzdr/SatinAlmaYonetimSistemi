@@ -51,7 +51,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                 && !string.IsNullOrEmpty(textBoxPhoneNumber.Text)
                 && !string.IsNullOrEmpty(comboBoxIsActive.Text))
             {
-                // Kullanıcıya emin misiniz? sorusu sorulur
+
                 DialogResult result = MessageBox.Show(
                     "Kaydı oluşturmak istediğinize emin misiniz?",   // Mesaj
                     "Onay",                                          // Başlık
@@ -59,7 +59,6 @@ namespace SatinAlmaYonetimSistemi.Forms
                     MessageBoxIcon.Question                          // Soru ikonu
                 );
 
-                // Kullanıcı "Yes" derse kayıt işlemi yapılır
                 if (result == DialogResult.Yes)
                 {
 
@@ -69,10 +68,11 @@ namespace SatinAlmaYonetimSistemi.Forms
                         {"Username" ,textBoxUsername.Text },
                         {"PasswordHash" ,textBoxPassword.Text },
                         {"Name" ,textBoxName.Text },
-                        {"Surname", textBoxSurname},
-                        {"Email", textBoxEmail},
-                        {"PhoneNum", textBoxPhoneNumber},
-                        {"IsActive", comboBoxIsActive},
+                        {"Surname", textBoxSurname.Text},
+                        {"Email", textBoxEmail.Text},
+                        {"PhoneNum", textBoxPhoneNumber.Text},
+                        {"IsActive", 1},//değişecek
+                        {"CreatedAt", 1},//değişecek!!!!
                     };
                     CRUD.Create("Users", data);
 
@@ -111,10 +111,10 @@ namespace SatinAlmaYonetimSistemi.Forms
                         {"Username" ,textBoxUsername.Text },
                         {"PasswordHash" ,textBoxPassword.Text },
                         {"Name" ,textBoxName.Text },
-                        {"Surname", textBoxSurname},
-                        {"Email", textBoxEmail},
-                        {"PhoneNum", textBoxPhoneNumber},
-                        {"IsActive", comboBoxIsActive},
+                        {"Surname", textBoxSurname.Text},
+                        {"Email", textBoxEmail.Text},
+                        {"PhoneNum", textBoxPhoneNumber.Text},
+                        {"IsActive", 1},//değişecek
                         {"CreatedAt", 1},//kullanıcı id kaydı
 
                     };
@@ -183,6 +183,22 @@ namespace SatinAlmaYonetimSistemi.Forms
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             DeleteData();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                comboBoxRole.Text = row.Cells["Role"].Value.ToString();
+                textBoxUsername.Text = row.Cells["Username"].Value.ToString();
+                textBoxPassword.Text = row.Cells["PasswordHash"].Value.ToString();
+                textBoxEmail.Text = row.Cells["Email"].Value.ToString();
+                textBoxName.Text = row.Cells["Name"].Value.ToString();
+                textBoxSurname.Text = row.Cells["Surname"].Value.ToString();
+                textBoxPhoneNumber.Text = row.Cells["PhoneNum"].Value.ToString();
+                comboBoxIsActive.Text = row.Cells["IsActive"].Value.ToString();
+            }
         }
     }
 }

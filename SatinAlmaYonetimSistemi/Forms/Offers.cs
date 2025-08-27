@@ -20,7 +20,7 @@ namespace SatinAlmaYonetimSistemi.Forms
         }
         private void ReadData()
         {
-            DataTable dt = CRUD.Read("SELECT * FROM PurchaseOffers");
+            DataTable dt = CRUD.Read("SELECT * FROM Offers");
             dataGridView1.DataSource= dt;
             dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
             dataGridView1.AutoGenerateColumns = true;
@@ -71,7 +71,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                         {"Currency" ,comboBoxCurrency.Text },
                         {"Date", DateTime.Now},
                     };
-                    CRUD.Create("PurchaseOffers", data);
+                    CRUD.Create("Offers", data);
 
                     MessageBox.Show("Kayıt başarıyla oluşturuldu.", "Bilgi");
                     ReadData();
@@ -113,7 +113,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                         {"Date", DateTime.Now},
                     };
                     string condition = $"ID = '{dataGridView1.SelectedRows[0].Cells["ID"].Value}'";
-                    CRUD.Update("PurchaseOffers", data, condition);
+                    CRUD.Update("Offers", data, condition);
                     MessageBox.Show("Kayıt başarıyla güncellendi.", "Bilgi");
                     ReadData();
                 }
@@ -142,7 +142,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                 if (result == DialogResult.Yes)
                 {
                     string condition = $"ID = '{dataGridView1.SelectedRows[0].Cells["ID"].Value}'";
-                    CRUD.Delete("PurchaseOffers", condition);
+                    CRUD.Delete("Offers", condition);
                     MessageBox.Show("Veri başarıyla silindi.");
                     ReadData();
                 }

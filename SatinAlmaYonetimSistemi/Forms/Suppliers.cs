@@ -62,7 +62,8 @@ namespace SatinAlmaYonetimSistemi.Forms
                         {"Phone" ,textBoxPhoneNumber.Text },
                         {"Email" ,textBoxEmail.Text },
                         {"Address" ,textBoxAddress.Text },
-                        {"IsActive", comboBoxIsActive},
+                        {"IsActive", 1},//değişecek
+                        //{"IsActive", comboBoxIsActive},
                     };
                     CRUD.Create("Suppliers", data);
 
@@ -101,7 +102,8 @@ namespace SatinAlmaYonetimSistemi.Forms
                         {"Phone" ,textBoxPhoneNumber.Text },
                         {"Email" ,textBoxEmail.Text },
                         {"Address" ,textBoxAddress.Text },
-                        {"IsActive", comboBoxIsActive},
+                        {"IsActive", 1},//değişceek
+                        //{"IsActive", comboBoxIsActive},
                     };
                     string condition = $"ID = '{dataGridView1.SelectedRows[0].Cells["ID"].Value}'";
                     CRUD.Update("Suppliers", data, condition);
@@ -167,6 +169,19 @@ namespace SatinAlmaYonetimSistemi.Forms
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             DeleteData();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                textBoxSupplier.Text = row.Cells["Name"].Value.ToString();
+                textBoxPhoneNumber.Text = row.Cells["Phone"].Value.ToString();
+                textBoxEmail.Text = row.Cells["Email"].Value.ToString();
+                textBoxAddress.Text = row.Cells["Address"].Value.ToString();
+                comboBoxIsActive.Text = row.Cells["IsActive"].Value.ToString();
+            }
         }
     }
 }

@@ -104,6 +104,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(877, 687);
             this.dataGridView1.TabIndex = 6;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // buttonExit
             // 
@@ -276,7 +277,7 @@
             this.comboBoxRole.Items.AddRange(new object[] {
             "Admin",
             "Normal Kullanıcı",
-            "Satın Alma Sorumlusu",
+            "Satınalma Sorumlusu",
             "Patron"});
             this.comboBoxRole.Location = new System.Drawing.Point(9, 35);
             this.comboBoxRole.Name = "comboBoxRole";
@@ -285,6 +286,7 @@
             // 
             // comboBoxIsActive
             // 
+            this.comboBoxIsActive.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxIsActive.FormattingEnabled = true;
             this.comboBoxIsActive.Items.AddRange(new object[] {
             "Aktif",
