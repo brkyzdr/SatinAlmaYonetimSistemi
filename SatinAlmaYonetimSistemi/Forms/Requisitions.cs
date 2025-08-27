@@ -6,9 +6,9 @@ using Data;
 
 namespace SatinAlmaYonetimSistemi.Forms
 {
-    public partial class MyRequisitions : Form
+    public partial class Requisitions : Form
     {
-        public MyRequisitions()
+        public Requisitions()
         {
             InitializeComponent();
             ReadData();

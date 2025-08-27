@@ -1,6 +1,6 @@
 ﻿namespace SatinAlmaYonetimSistemi.Forms
 {
-    partial class MyRequisitions
+    partial class Requisitions
     {
         /// <summary>
         /// Required designer variable.

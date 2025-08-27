@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SatinAlmaYonetimSistemi.Forms
 {
-    public partial class Requests : Form
+    public partial class OffersAnswer : Form
     {
-        public Requests()
+        public OffersAnswer()
         {
             InitializeComponent();
         }
