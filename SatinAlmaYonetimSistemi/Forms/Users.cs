@@ -1,12 +1,7 @@
 ﻿using Data;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SatinAlmaYonetimSistemi.Forms
@@ -21,22 +16,26 @@ namespace SatinAlmaYonetimSistemi.Forms
 
         private void ReadData()
         {
-            DataTable dt = CRUD.Read("SELECT * FROM Users");
+            DataTable dt = CRUD.Read("SELECT " +
+                "u.ID, u.Role, u.Username, u.PasswordHash, u.Name, u.Surname, u.Email, u.PhoneNum, u.IsActive, " +
+                "CONCAT(c.Name, ' ', c.Surname, ' (#', c.ID, ')') AS CreatedBy, " +
+                "CASE WHEN u.IsActive = 1 THEN 'Aktif' ELSE 'Pasif' END AS Status " +
+                "FROM Users u " +
+                "LEFT JOIN Users c ON u.CreatedByID = c.ID;");
             dataGridView1.DataSource = dt;
             dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
             dataGridView1.AutoGenerateColumns = true;
-            
-
-            //dataGridView1.Columns["ID"].Visible = ;
+       
             dataGridView1.Columns["Role"].HeaderText = "Rol";
             dataGridView1.Columns["Username"].HeaderText = "Kullanıcı Adı";
-            dataGridView1.Columns["Passwordhash"].HeaderText = "Şifre";
+            dataGridView1.Columns["PasswordHash"].HeaderText = "Şifre";
             dataGridView1.Columns["Name"].HeaderText = "İsim";
             dataGridView1.Columns["Surname"].HeaderText = "Soyisim";
             dataGridView1.Columns["Email"].HeaderText = "E-posta";
             dataGridView1.Columns["PhoneNum"].HeaderText = "Telefon Numarası";
-            dataGridView1.Columns["CreatedAt"].HeaderText = "Oluşturan Kişi";
-            dataGridView1.Columns["IsActive"].HeaderText = "Aktiflik";
+            dataGridView1.Columns["CreatedBy"].HeaderText = "Oluşturan Kişi";
+            dataGridView1.Columns["IsActive"].Visible = false;
+            dataGridView1.Columns["Status"].HeaderText = "Aktiflik";
         }
 
         private void CreateData()
@@ -215,11 +214,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                 textBoxName.Text = row.Cells["Name"].Value.ToString();
                 textBoxSurname.Text = row.Cells["Surname"].Value.ToString();
                 textBoxPhoneNumber.Text = row.Cells["PhoneNum"].Value.ToString();
-
-                if (row.Cells["IsActive"].Value.ToString() == "1")               
-                    comboBoxIsActive.Text = "Aktif";
-                else
-                    comboBoxIsActive.Text = "Pasif";
+                comboBoxIsActive.Text = row.Cells["Status"].Value.ToString();
             }
         }
     }
