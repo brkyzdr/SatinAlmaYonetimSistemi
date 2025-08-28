@@ -24,17 +24,20 @@ namespace SatinAlmaYonetimSistemi.Forms
         {
             DataTable dt = CRUD.Read
                 ("SELECT s.Name AS SupplierName," +
+                "r.RequisitionOwner AS RequisitionsName," +
                 "COALESCE(u.Name, '') + ' ' + COALESCE(u.Surname, '') + '(#' + CAST(u.ID AS varchar(20)) + ')' AS UserName," +
                 "o.Unit, o.Quantity, o.Price, o.Currency, o.Status,o.ApprovedAt, o.Date  " +
                 "FROM Offers o " +
                 "INNER JOIN Suppliers s ON o.SupplierID = s.ID " +
-                "INNER JOIN Users u ON o.UserID = u.ID");
+                "INNER JOIN Requisitions r ON o.RequisitionsID = r.ID " +
+                "INNER JOIN Users u ON o.UserID = u.ID ");
             
             dataGridView1.DataSource= dt;
             dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
             dataGridView1.AutoGenerateColumns = true;
 
             dataGridView1.Columns["SupplierName"].HeaderText = "Tedarikçi";
+            dataGridView1.Columns["RequisitionsName"].HeaderText = "Ürünü Talep Eden Kişi";
             dataGridView1.Columns["UserName"].HeaderText = "Satınalma Sorumlusu";
             dataGridView1.Columns["Unit"].HeaderText = "Birim";
             dataGridView1.Columns["Quantity"].HeaderText = "Miktar";
