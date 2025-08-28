@@ -21,7 +21,9 @@ namespace SatinAlmaYonetimSistemi.Forms
         
         private void ReadData()
         {
-            DataTable dt = CRUD.Read("SELECT * FROM Suppliers");
+            DataTable dt = CRUD.Read("SELECT *,  " +
+                "CASE WHEN s.IsActive = 1 THEN 'Aktif' ELSE 'Pasif' END AS Status " +
+                "FROM Suppliers s");
             dataGridView1.DataSource = dt;
             dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
             dataGridView1.AutoGenerateColumns = true;
@@ -31,7 +33,8 @@ namespace SatinAlmaYonetimSistemi.Forms
             dataGridView1.Columns["Phone"].HeaderText = "Telefon Numarası";
             dataGridView1.Columns["Email"].HeaderText = "E-posta";
             dataGridView1.Columns["Address"].HeaderText = "Adres";
-            dataGridView1.Columns["IsActive"].HeaderText = "Aktiflik";
+            dataGridView1.Columns["IsActive"].Visible = false;
+            dataGridView1.Columns["Status"].HeaderText = "Aktiflik";
             
         }
 
@@ -196,10 +199,11 @@ namespace SatinAlmaYonetimSistemi.Forms
                 textBoxPhoneNumber.Text = row.Cells["Phone"].Value.ToString();
                 textBoxEmail.Text = row.Cells["Email"].Value.ToString();
                 textBoxAddress.Text = row.Cells["Address"].Value.ToString();
-                if (row.Cells["IsActive"].Value.ToString() == "1")
-                    comboBoxIsActive.Text = "Aktif";
-                else
-                    comboBoxIsActive.Text = "Pasif";
+                comboBoxIsActive.Text = row.Cells["Status"].Value.ToString();
+                //if (row.Cells["IsActive"].Value.ToString() == "1")
+                //    comboBoxIsActive.Text = "Aktif";
+                //else
+                //    comboBoxIsActive.Text = "Pasif";
             }
         }
     }
