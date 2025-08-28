@@ -1,12 +1,7 @@
 ﻿using Data;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SatinAlmaYonetimSistemi.Forms
@@ -21,12 +16,14 @@ namespace SatinAlmaYonetimSistemi.Forms
         }
 
         private void ReadData()
-        {
+        {///satın alma talep eden kişiyi manuel girsin
             DataTable dt = CRUD.Read
-                ("SELECT s.Name AS SupplierName," +
+                ("SELECT " +
+                "s.Name AS SupplierName," +
                 "r.RequisitionOwner AS RequisitionsName," +
                 "COALESCE(u.Name, '') + ' ' + COALESCE(u.Surname, '') + '(#' + CAST(u.ID AS varchar(20)) + ')' AS UserName," +
-                "o.Unit, o.Quantity, o.Price, o.Currency, o.Status,o.ApprovedAt, o.Date  " +
+                "o.Unit, o.Quantity, o.Price, o.Currency, o.Status, o.Date, " +
+                "CASE WHEN o.ApprovedByID = 0 THEN 'Beklemede' END AS ApprovedBy " +
                 "FROM Offers o " +
                 "INNER JOIN Suppliers s ON o.SupplierID = s.ID " +
                 "INNER JOIN Requisitions r ON o.RequisitionsID = r.ID " +
@@ -44,7 +41,7 @@ namespace SatinAlmaYonetimSistemi.Forms
             dataGridView1.Columns["Price"].HeaderText = "Fiyat";
             dataGridView1.Columns["Currency"].HeaderText = "Para Birimi";
             dataGridView1.Columns["Status"].HeaderText = "Durum";
-            dataGridView1.Columns["ApprovedAt"].HeaderText = "Onaylayan Kişi";
+            dataGridView1.Columns["ApprovedBy"].HeaderText = "Onaylayan Kişi";
             dataGridView1.Columns["Date"].HeaderText = "Tarih";                            
         }
 

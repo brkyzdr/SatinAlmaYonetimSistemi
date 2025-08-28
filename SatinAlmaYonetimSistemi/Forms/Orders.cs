@@ -22,15 +22,24 @@ namespace SatinAlmaYonetimSistemi.Forms
 
         private void ReadData()
         {
-            DataTable dt = CRUD.Read("SELECT * FROM Orders");
+            DataTable dt = CRUD.Read("SELECT " +
+                "o.Item, o.Unit, o.Quantity, o.Price, o.Currency, o.Status, o.Date, o.InvoiceID, " +
+                "s.Name AS Supplier, " +
+                "r.RequisitionOwner AS RequisitionName, " +
+                "COALESCE(u.Name, '') + ' ' + COALESCE(u.Surname, '') + '(#' + CAST(u.ID AS varchar(20)) + ')' AS UserName " +
+                "FROM Orders o " +
+                "INNER JOIN Suppliers s ON o.SupplierID = s.ID " +
+                "INNER JOIN Requisitions r ON o.RequisitionsID = r.ID " +
+                "INNER JOIN Users u ON o.UserID = u.ID");
             dataGridView1.DataSource = dt;
             dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
             dataGridView1.AutoGenerateColumns = true;
 
-            dataGridView1.Columns["ID"].Visible = false;
-            dataGridView1.Columns["SupplierID"].HeaderText = "Tedarikçi";
-            dataGridView1.Columns["UserID"].HeaderText = "Kullanıcı";
+            dataGridView1.Columns["Supplier"].HeaderText = "Tedarikçi";
+            dataGridView1.Columns["RequisitionName"].HeaderText = "Talep Eden Kişi";
+            dataGridView1.Columns["UserName"].HeaderText = "Kullanıcı";
             dataGridView1.Columns["InvoiceID"].HeaderText = "Fatura Kodu";
+            dataGridView1.Columns["Item"].HeaderText = "Ürün";
             dataGridView1.Columns["Unit"].HeaderText = "Birim";
             dataGridView1.Columns["Quantity"].HeaderText = "Miktar";
             dataGridView1.Columns["Price"].HeaderText = "Fiyat";
@@ -195,8 +204,8 @@ namespace SatinAlmaYonetimSistemi.Forms
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-                comboBoxSuppliers.Text = row.Cells["SupplierID"].Value.ToString();
-                textBoxItem.Text = row.Cells["ItemID"].Value.ToString();
+                comboBoxSuppliers.Text = row.Cells["Supplier"].Value.ToString();
+                textBoxItem.Text = row.Cells["Item"].Value.ToString();
                 comboBoxUnit.Text = row.Cells["Unit"].Value.ToString();
                 textBoxQuantity.Text = row.Cells["Quantity"].Value.ToString();
                 textBoxPrice.Text = row.Cells["Price"].Value.ToString();
