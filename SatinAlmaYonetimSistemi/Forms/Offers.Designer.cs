@@ -36,7 +36,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBoxItem = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBoxSuppliers = new System.Windows.Forms.ComboBox();
             this.textBoxQuantity = new System.Windows.Forms.TextBox();
@@ -47,6 +46,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.comboBoxCurrency = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBoxItem = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -151,16 +151,6 @@
             this.label2.TabIndex = 13;
             this.label2.Text = "Ürün";
             // 
-            // comboBoxItem
-            // 
-            this.comboBoxItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxItem.Enabled = false;
-            this.comboBoxItem.FormattingEnabled = true;
-            this.comboBoxItem.Location = new System.Drawing.Point(9, 92);
-            this.comboBoxItem.Name = "comboBoxItem";
-            this.comboBoxItem.Size = new System.Drawing.Size(278, 21);
-            this.comboBoxItem.TabIndex = 14;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -179,7 +169,6 @@
             this.comboBoxSuppliers.Name = "comboBoxSuppliers";
             this.comboBoxSuppliers.Size = new System.Drawing.Size(278, 21);
             this.comboBoxSuppliers.TabIndex = 14;
-            this.comboBoxSuppliers.SelectedIndexChanged += new System.EventHandler(this.comboBoxSuppliers_SelectedIndexChanged);
             // 
             // textBoxQuantity
             // 
@@ -268,6 +257,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.textBoxItem);
             this.groupBox2.Controls.Add(this.textBoxQuantity);
             this.groupBox2.Controls.Add(this.comboBoxSuppliers);
             this.groupBox2.Controls.Add(this.label2);
@@ -275,7 +265,6 @@
             this.groupBox2.Controls.Add(this.textBoxPrice);
             this.groupBox2.Controls.Add(this.comboBoxUnit);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.comboBoxItem);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Location = new System.Drawing.Point(12, 96);
@@ -283,6 +272,14 @@
             this.groupBox2.Size = new System.Drawing.Size(293, 692);
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
+            // 
+            // textBoxItem
+            // 
+            this.textBoxItem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxItem.Location = new System.Drawing.Point(9, 92);
+            this.textBoxItem.Name = "textBoxItem";
+            this.textBoxItem.Size = new System.Drawing.Size(278, 20);
+            this.textBoxItem.TabIndex = 11;
             // 
             // Offers
             // 
@@ -317,7 +314,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBoxItem;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBoxSuppliers;
         private System.Windows.Forms.TextBox textBoxQuantity;
@@ -328,5 +324,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBoxCurrency;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox textBoxItem;
     }
 }

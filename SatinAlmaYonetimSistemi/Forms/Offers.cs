@@ -48,7 +48,7 @@ namespace SatinAlmaYonetimSistemi.Forms
         private void CreateData()
         {
             if (!string.IsNullOrEmpty(comboBoxSuppliers.Text)
-                && !string.IsNullOrEmpty(comboBoxItem.Text)
+                && !string.IsNullOrEmpty(textBoxItem.Text)
                 && !string.IsNullOrEmpty(comboBoxUnit.Text)
                 && !string.IsNullOrEmpty(textBoxQuantity.Text)
                 && !string.IsNullOrEmpty(textBoxPrice.Text)
@@ -206,14 +206,5 @@ namespace SatinAlmaYonetimSistemi.Forms
             DeleteData();
         }
 
-        private void comboBoxSuppliers_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            comboBoxItem.Enabled = true;
-            DataTable itemName = CRUD.Read("SELECT ID, Name FROM Stocks ORDER BY Name");
-            comboBoxItem.DataSource = itemName;
-            comboBoxItem.DisplayMember = "Name";
-            comboBoxItem.ValueMember = "ID";
-            comboBoxItem.SelectedItem = null;
-        }
     }
 }

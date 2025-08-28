@@ -43,7 +43,7 @@ namespace SatinAlmaYonetimSistemi.Forms
         private void CreateData()
         {
             if (!string.IsNullOrEmpty(comboBoxSuppliers.Text)
-                && !string.IsNullOrEmpty(comboBoxItem.Text)
+                && !string.IsNullOrEmpty(textBoxItem.Text)
                 && !string.IsNullOrEmpty(comboBoxUnit.Text)
                 && !string.IsNullOrEmpty(textBoxQuantity.Text)
                 && !string.IsNullOrEmpty(textBoxPrice.Text)
@@ -166,12 +166,6 @@ namespace SatinAlmaYonetimSistemi.Forms
             comboBoxSuppliers.DisplayMember = "Name";
             comboBoxSuppliers.ValueMember = "ID";
             comboBoxSuppliers.SelectedItem = null;
-
-            DataTable itemName = CRUD.Read("SELECT ID, Name FROM Stocks ORDER BY Name");
-            comboBoxItem.DataSource = itemName;
-            comboBoxItem.DisplayMember = "Name";
-            comboBoxItem.ValueMember = "ID";
-            comboBoxItem.SelectedItem = null;
         }
 
         private void buttonExit_Click(object sender, EventArgs e)
@@ -202,7 +196,7 @@ namespace SatinAlmaYonetimSistemi.Forms
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
                 comboBoxSuppliers.Text = row.Cells["SupplierID"].Value.ToString();
-                comboBoxItem.Text = row.Cells["ItemID"].Value.ToString();
+                textBoxItem.Text = row.Cells["ItemID"].Value.ToString();
                 comboBoxUnit.Text = row.Cells["Unit"].Value.ToString();
                 textBoxQuantity.Text = row.Cells["Quantity"].Value.ToString();
                 textBoxPrice.Text = row.Cells["Price"].Value.ToString();
