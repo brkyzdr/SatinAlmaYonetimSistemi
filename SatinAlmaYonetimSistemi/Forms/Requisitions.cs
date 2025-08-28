@@ -16,20 +16,21 @@ namespace SatinAlmaYonetimSistemi.Forms
 
         private void ReadData()
         {
-            DataTable dt = CRUD.Read("SELECT * FROM Requisitions");
+            DataTable dt = CRUD.Read("SELECT " +
+                "r.Item, r.Unit, r.Quantity, r.Description, r.Status, r.Date," +
+                "CASE WHEN r.ApprovedByID = 0 THEN 'Beklemede' END AS ApprovedBy " +
+                "FROM Requisitions r");
             dataGridView1.DataSource = dt;
             dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
             dataGridView1.AutoGenerateColumns = true;
 
-            dataGridView1.Columns["ID"].Visible = false;
-            dataGridView1.Columns["UserID"].Visible = false;
             dataGridView1.Columns["Item"].HeaderText = "Ürün";
             dataGridView1.Columns["Unit"].HeaderText = "Birim";
             dataGridView1.Columns["Quantity"].HeaderText = "Miktar";
             dataGridView1.Columns["Description"].HeaderText = "Açıklama";
             dataGridView1.Columns["Status"].HeaderText = "Durum";
-            dataGridView1.Columns["ApprovedAt"].Visible = false;
-            dataGridView1.Columns["DateTime"].HeaderText = "Talep Tarihi";
+            dataGridView1.Columns["ApprovedBy"].HeaderText = "Onaylayan Kişi";
+            dataGridView1.Columns["Date"].HeaderText = "Talep Tarihi";
         }
 
         private void CreateData()
