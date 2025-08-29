@@ -47,6 +47,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBoxItem = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBoxInvoice = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -263,10 +265,12 @@
             this.groupBox2.Controls.Add(this.comboBoxSuppliers);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.comboBoxCurrency);
+            this.groupBox2.Controls.Add(this.textBoxInvoice);
             this.groupBox2.Controls.Add(this.textBoxPrice);
             this.groupBox2.Controls.Add(this.comboBoxUnit);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Location = new System.Drawing.Point(12, 95);
             this.groupBox2.Name = "groupBox2";
@@ -281,6 +285,24 @@
             this.textBoxItem.Name = "textBoxItem";
             this.textBoxItem.Size = new System.Drawing.Size(278, 20);
             this.textBoxItem.TabIndex = 18;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(6, 352);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(49, 16);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Fatura";
+            // 
+            // textBoxInvoice
+            // 
+            this.textBoxInvoice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxInvoice.Location = new System.Drawing.Point(9, 371);
+            this.textBoxInvoice.Name = "textBoxInvoice";
+            this.textBoxInvoice.Size = new System.Drawing.Size(278, 20);
+            this.textBoxInvoice.TabIndex = 17;
             // 
             // Orders
             // 
@@ -326,5 +348,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox textBoxItem;
+        private System.Windows.Forms.TextBox textBoxInvoice;
+        private System.Windows.Forms.Label label7;
     }
 }
