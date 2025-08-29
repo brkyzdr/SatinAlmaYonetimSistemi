@@ -163,5 +163,10 @@ namespace SatinAlmaYonetimSistemi.Forms
                 //textBoxQuantity.Text = row.Cells["Quantity"].Value.ToString();
             }
         }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
