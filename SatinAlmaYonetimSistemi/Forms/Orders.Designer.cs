@@ -301,6 +301,7 @@
             this.textBoxInvoice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxInvoice.Location = new System.Drawing.Point(9, 371);
             this.textBoxInvoice.Name = "textBoxInvoice";
+            this.textBoxInvoice.ReadOnly = true;
             this.textBoxInvoice.Size = new System.Drawing.Size(278, 20);
             this.textBoxInvoice.TabIndex = 17;
             // 

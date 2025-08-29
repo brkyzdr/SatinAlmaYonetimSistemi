@@ -1,12 +1,7 @@
 ﻿using Data;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SatinAlmaYonetimSistemi.Forms
@@ -23,7 +18,7 @@ namespace SatinAlmaYonetimSistemi.Forms
         private void ReadData()
         {
             DataTable dt = CRUD.Read("SELECT " +
-                "o.Item, o.Unit, o.Quantity, o.Price, o.Currency, o.Status, o.Date, " +
+                "o.ID, o.Item, o.Unit, o.Quantity, o.Price, o.Currency, o.Status, o.Date, " +
                 "s.Name AS Supplier, " +
                 "i.Name AS Invoice, " +
                 "COALESCE(u.Name, '') + ' ' + COALESCE(u.Surname, '') + '(#' + CAST(u.ID AS varchar(20)) + ')' AS UserName, " +
@@ -42,6 +37,7 @@ namespace SatinAlmaYonetimSistemi.Forms
             dataGridView1.Columns["RequisitionsOwner"].HeaderText = "Talep Eden Kişi";
             dataGridView1.Columns["UserName"].HeaderText = "Satınalma Sorumlusu";
             dataGridView1.Columns["Invoice"].HeaderText = "Fatura";
+            dataGridView1.Columns["ID"].Visible = false;
             dataGridView1.Columns["Item"].HeaderText = "Ürün";
             dataGridView1.Columns["Unit"].HeaderText = "Birim";
             dataGridView1.Columns["Quantity"].HeaderText = "Miktar";
@@ -75,7 +71,8 @@ namespace SatinAlmaYonetimSistemi.Forms
                     {
                         {"UserID",1  },//!!!! Login yapan kullanıcı eklenecek
                         {"SupplierID",comboBoxSuppliers.SelectedValue },
-                        {"InvoiceID",textBoxInvoice.Text  },
+                        {"InvoiceID",1  },
+                        {"RequisitionsID",4 },//talep eden kişi eklenecek
                         {"Item",textBoxItem.Text  },
                         {"Unit" ,comboBoxUnit.Text },
                         {"Quantity" ,textBoxQuantity.Text },
@@ -110,16 +107,15 @@ namespace SatinAlmaYonetimSistemi.Forms
                 MessageBoxIcon.Question                          // Soru ikonu
                 );
 
-                // Kullanıcı "Yes" derse kayıt işlemi yapılır
                 if (result == DialogResult.Yes)
                 {
-                    // Buraya kayıt kodlarını yaz
                     var data = new Dictionary<string, object>
                     {
                         {"UserID",1  },//!!!! Login yapan kullanıcı eklenecek
-                        {"SupplierID",1  },//!!!! Login yapan kullanıcı eklenecek
-                        {"InvoiceID",1  },//!!!! Login yapan kullanıcı eklenecek
-                        {"ItemID",1  },//!!!! Login yapan kullanıcı eklenecek
+                        {"SupplierID",comboBoxSuppliers.SelectedValue  },
+                        {"InvoiceID",1},
+                        {"RequisitionsID",4},//talep eden kişi eklenecek
+                        {"Item",textBoxItem.Text  },
                         {"Unit" ,comboBoxUnit.Text },
                         {"Quantity" ,textBoxQuantity.Text },
                         {"Price" ,textBoxPrice.Text },
