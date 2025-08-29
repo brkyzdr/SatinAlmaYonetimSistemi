@@ -16,26 +16,29 @@ namespace SatinAlmaYonetimSistemi.Forms
         }
 
         private void ReadData()
-        {///satın alma talep eden kişiyi manuel girsin
+        {
             DataTable dt = CRUD.Read
                 ("SELECT " +
                 "s.Name AS SupplierName," +
-                "r.RequisitionOwner AS RequisitionsName," +
                 "COALESCE(u.Name, '') + ' ' + COALESCE(u.Surname, '') + '(#' + CAST(u.ID AS varchar(20)) + ')' AS UserName," +
-                "o.Unit, o.Quantity, o.Price, o.Currency, o.Status, o.Date, " +
+                "COALESCE(u2.Name, '') + ' ' + COALESCE(u2.Surname, '') + '(#' + CAST(u2.ID AS varchar(20)) + ')' AS RequisitionsOwner," +
+                "o.ID, o.Item, o.Unit, o.Quantity, o.Price, o.Currency, o.Status, o.Date, " +
                 "CASE WHEN o.ApprovedByID = 0 THEN 'Beklemede' END AS ApprovedBy " +
                 "FROM Offers o " +
                 "INNER JOIN Suppliers s ON o.SupplierID = s.ID " +
                 "INNER JOIN Requisitions r ON o.RequisitionsID = r.ID " +
-                "INNER JOIN Users u ON o.UserID = u.ID ");
+                "INNER JOIN Users u ON o.UserID = u.ID " +
+                "INNER JOIN Users u2 ON r.UserID = u2.ID ");
             
             dataGridView1.DataSource= dt;
             dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
             dataGridView1.AutoGenerateColumns = true;
 
+            dataGridView1.Columns["ID"].Visible = false;
             dataGridView1.Columns["SupplierName"].HeaderText = "Tedarikçi";
-            dataGridView1.Columns["RequisitionsName"].HeaderText = "Ürünü Talep Eden Kişi";
+            dataGridView1.Columns["RequisitionsOwner"].HeaderText = "Ürünü Talep Eden Kişi";
             dataGridView1.Columns["UserName"].HeaderText = "Satınalma Sorumlusu";
+            dataGridView1.Columns["Item"].HeaderText = "Ürün";
             dataGridView1.Columns["Unit"].HeaderText = "Birim";
             dataGridView1.Columns["Quantity"].HeaderText = "Miktar";
             dataGridView1.Columns["Price"].HeaderText = "Fiyat";
@@ -54,7 +57,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                 && !string.IsNullOrEmpty(textBoxPrice.Text)
                 && !string.IsNullOrEmpty(comboBoxCurrency.Text))
             {
-                // Kullanıcıya emin misiniz? sorusu sorulur
+
                 DialogResult result = MessageBox.Show(
                     "Kaydı oluşturmak istediğinize emin misiniz?",   // Mesaj
                     "Onay",                                          // Başlık
@@ -62,15 +65,15 @@ namespace SatinAlmaYonetimSistemi.Forms
                     MessageBoxIcon.Question                          // Soru ikonu
                 );
 
-                // Kullanıcı "Yes" derse kayıt işlemi yapılır
                 if (result == DialogResult.Yes)
                 {
 
                     var data = new Dictionary<string, object>
                     {
                         {"UserID",1  },//!!!! Login yapan kullanıcı eklenecek
-                        {"SupplierID" ,1 },//!!!! Supplier id eklenecek
-                        {"ItemID" ,1 },// item id eklencek
+                        {"SupplierID" ,comboBoxSuppliers.SelectedValue },
+                        {"RequisitionsID" ,4 },//talep eden kişiden çekilecek
+                        {"Item" ,textBoxItem.Text },
                         {"Unit" ,comboBoxUnit.Text },
                         {"Quantity" ,textBoxQuantity.Text },
                         {"Price" ,textBoxPrice.Text },
@@ -104,14 +107,14 @@ namespace SatinAlmaYonetimSistemi.Forms
                 MessageBoxIcon.Question                          // Soru ikonu
                 );
 
-                // Kullanıcı "Yes" derse kayıt işlemi yapılır
                 if (result == DialogResult.Yes)
                 {
                     var data = new Dictionary<string, object>
                     {
                         {"UserID",1  },//!!!! Login yapan kullanıcı eklenecek
-                        {"SupplierID" ,1 },//!!!! Supplier id eklenecek
-                        {"ItemID" ,1 },// item id eklencek
+                        {"SupplierID" ,comboBoxSuppliers.SelectedValue },
+                        {"RequisitionsID" ,4 },//talep eden kişide çekilecek
+                        {"Item" ,textBoxItem.Text },
                         {"Unit" ,comboBoxUnit.Text },
                         {"Quantity" ,textBoxQuantity.Text },
                         {"Price" ,textBoxPrice.Text },
@@ -188,6 +191,8 @@ namespace SatinAlmaYonetimSistemi.Forms
                 textBoxQuantity.Text = row.Cells["Quantity"].Value.ToString();
                 textBoxPrice.Text = row.Cells["Price"].Value.ToString();
                 comboBoxCurrency.Text = row.Cells["Currency"].Value.ToString();
+                textBoxRequisitionOwner.Text = row.Cells["RequisitionsOwner"].Value.ToString();
+                textBoxItem.Text = row.Cells["Item"].Value.ToString();
             }
         }
 
@@ -205,6 +210,5 @@ namespace SatinAlmaYonetimSistemi.Forms
         {
             DeleteData();
         }
-
     }
 }

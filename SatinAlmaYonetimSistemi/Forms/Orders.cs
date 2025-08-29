@@ -23,22 +23,25 @@ namespace SatinAlmaYonetimSistemi.Forms
         private void ReadData()
         {
             DataTable dt = CRUD.Read("SELECT " +
-                "o.Item, o.Unit, o.Quantity, o.Price, o.Currency, o.Status, o.Date, o.InvoiceID, " +
+                "o.Item, o.Unit, o.Quantity, o.Price, o.Currency, o.Status, o.Date, " +
                 "s.Name AS Supplier, " +
-                "r.RequisitionOwner AS RequisitionName, " +
-                "COALESCE(u.Name, '') + ' ' + COALESCE(u.Surname, '') + '(#' + CAST(u.ID AS varchar(20)) + ')' AS UserName " +
+                "i.Name AS Invoice, " +
+                "COALESCE(u.Name, '') + ' ' + COALESCE(u.Surname, '') + '(#' + CAST(u.ID AS varchar(20)) + ')' AS UserName, " +
+                "COALESCE(u2.Name, '') + ' ' + COALESCE(u2.Surname, '') + '(#' + CAST(u2.ID AS varchar(20)) + ')' AS RequisitionsOwner " +
                 "FROM Orders o " +
                 "INNER JOIN Suppliers s ON o.SupplierID = s.ID " +
                 "INNER JOIN Requisitions r ON o.RequisitionsID = r.ID " +
-                "INNER JOIN Users u ON o.UserID = u.ID");
+                "INNER JOIN Invoices i ON o.InvoiceID = i.ID " +
+                "INNER JOIN Users u ON o.UserID = u.ID "+
+                "INNER JOIN Users u2 ON r.UserID = u2.ID");
             dataGridView1.DataSource = dt;
             dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
             dataGridView1.AutoGenerateColumns = true;
 
             dataGridView1.Columns["Supplier"].HeaderText = "Tedarikçi";
-            dataGridView1.Columns["RequisitionName"].HeaderText = "Talep Eden Kişi";
-            dataGridView1.Columns["UserName"].HeaderText = "Kullanıcı";
-            dataGridView1.Columns["InvoiceID"].HeaderText = "Fatura Kodu";
+            dataGridView1.Columns["RequisitionsOwner"].HeaderText = "Talep Eden Kişi";
+            dataGridView1.Columns["UserName"].HeaderText = "Satınalma Sorumlusu";
+            dataGridView1.Columns["Invoice"].HeaderText = "Fatura";
             dataGridView1.Columns["Item"].HeaderText = "Ürün";
             dataGridView1.Columns["Unit"].HeaderText = "Birim";
             dataGridView1.Columns["Quantity"].HeaderText = "Miktar";
@@ -71,9 +74,9 @@ namespace SatinAlmaYonetimSistemi.Forms
                     var data = new Dictionary<string, object>
                     {
                         {"UserID",1  },//!!!! Login yapan kullanıcı eklenecek
-                        {"SupplierID",1  },//!!!! Login yapan kullanıcı eklenecek
-                        {"InvoiceID",1  },//!!!! Login yapan kullanıcı eklenecek
-                        {"ItemID",1  },//!!!! Login yapan kullanıcı eklenecek
+                        {"SupplierID",comboBoxSuppliers.SelectedValue },
+                        {"InvoiceID",textBoxInvoice.Text  },
+                        {"Item",textBoxItem.Text  },
                         {"Unit" ,comboBoxUnit.Text },
                         {"Quantity" ,textBoxQuantity.Text },
                         {"Price" ,textBoxPrice.Text },
@@ -210,6 +213,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                 textBoxQuantity.Text = row.Cells["Quantity"].Value.ToString();
                 textBoxPrice.Text = row.Cells["Price"].Value.ToString();
                 comboBoxCurrency.Text = row.Cells["Currency"].Value.ToString();
+                textBoxInvoice.Text = row.Cells["Invoice"].Value.ToString();
             }
         }
     }

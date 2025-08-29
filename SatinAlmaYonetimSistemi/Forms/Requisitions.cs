@@ -7,7 +7,7 @@ using Data;
 namespace SatinAlmaYonetimSistemi.Forms
 {
     public partial class Requisitions : Form
-    {
+    {//Create & update için userid işlemleri tamamlanacak
         public Requisitions()
         {
             InitializeComponent();
@@ -59,7 +59,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                         {"Unit" ,comboBoxUnit.Text },
                         {"Quantity" ,textBoxQuantity.Text },
                         {"Description" ,textBoxDescription.Text },
-                        {"DateTime", DateTime.Now},
+                        {"Date", DateTime.Now},
                     };
                     CRUD.Create("Requisitions", data);
 
@@ -88,18 +88,15 @@ namespace SatinAlmaYonetimSistemi.Forms
                 MessageBoxIcon.Question                          // Soru ikonu
                 );
 
-                // Kullanıcı "Yes" derse kayıt işlemi yapılır
+                
                 if (result == DialogResult.Yes)
                 {
-                    // Buraya kayıt kodlarını yaz
                     var data = new Dictionary<string, object>
                     {
-                        {"UserID",1  },//!!!! Login yapan kullanıcı eklenecek
                         {"Item" ,textBoxItem.Text },
                         {"Unit" ,comboBoxUnit.Text },
                         {"Quantity" ,textBoxQuantity.Text },
                         {"Description" ,textBoxDescription.Text },
-                        {"DateTime", DateTime.Now},
                     };
                     string condition = $"ID = '{dataGridView1.SelectedRows[0].Cells["ID"].Value}'";
                     CRUD.Update("Requisitions", data, condition);
@@ -122,7 +119,7 @@ namespace SatinAlmaYonetimSistemi.Forms
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 DialogResult result = MessageBox.Show(
-                "Veriyi silmek istediğinize emin misiniz?",   // Mesaj
+                "Veriyi silmek istediğinize emin misiniz?",     // Mesaj
                 "Onay",                                          // Başlık
                 MessageBoxButtons.YesNo,                         // Evet / Hayır butonları
                 MessageBoxIcon.Question                          // Soru ikonu

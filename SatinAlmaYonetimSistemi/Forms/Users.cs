@@ -7,7 +7,7 @@ using System.Windows.Forms;
 namespace SatinAlmaYonetimSistemi.Forms
 {
     public partial class Users : Form
-    {
+    {//Create & Update için CreatedByID işlemi güncelleneck
         public Users()
         {
             InitializeComponent();
@@ -44,7 +44,6 @@ namespace SatinAlmaYonetimSistemi.Forms
                 && !string.IsNullOrEmpty(textBoxUsername.Text)
                 && !string.IsNullOrEmpty(textBoxPassword.Text)
                 && !string.IsNullOrEmpty(textBoxName.Text)
-                && !string.IsNullOrEmpty(textBoxName.Text)
                 && !string.IsNullOrEmpty(textBoxSurname.Text)
                 && !string.IsNullOrEmpty(textBoxEmail.Text)
                 && !string.IsNullOrEmpty(textBoxPhoneNumber.Text)
@@ -80,7 +79,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                         {"Email", textBoxEmail.Text},
                         {"PhoneNum", textBoxPhoneNumber.Text},
                         {"IsActive", isActive},
-                        {"CreatedAt", 1},//değişecek!!!!
+                        {"CreatedByID", 1},//değişecek!!!
                     };
                     CRUD.Create("Users", data);
 
@@ -109,7 +108,6 @@ namespace SatinAlmaYonetimSistemi.Forms
                 MessageBoxIcon.Question                          // Soru ikonu
                 );
 
-                // Kullanıcı "Yes" derse kayıt işlemi yapılır
                 if (result == DialogResult.Yes)
                 {
                     int isActive;
@@ -132,7 +130,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                         {"Email", textBoxEmail.Text},
                         {"PhoneNum", textBoxPhoneNumber.Text},
                         {"IsActive", isActive},
-                        {"CreatedAt", 1},//kullanıcı id kaydı
+                        {"CreatedByID", 1},//kullanıcı id kaydı
 
                     };
                     string condition = $"ID = '{dataGridView1.SelectedRows[0].Cells["ID"].Value}'";
