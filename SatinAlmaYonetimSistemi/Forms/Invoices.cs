@@ -12,28 +12,53 @@ using System.Windows.Forms;
 namespace SatinAlmaYonetimSistemi.Forms
 {
     public partial class Invoices : Form
-    {//en son tamamlanacak
+    {
         public Invoices()
         {
             InitializeComponent();
             ReadData();
+            SetComboBoxData();
         }
+
         private void ReadData()
         {
-            DataTable dt = CRUD.Read("SELECT * FROM Invoices");
+            DataTable dt = CRUD.Read
+                ("SELECT " +
+                "i.InvoiceNumber," +
+                "i.ID," +
+                "i.InvoiceDate," +
+                "s.Name AS SupplierName," +
+                "i.TotalAmount," +
+                "i.Currency," +
+                "i.TaxAmount," +
+                "i.CreatedDate," +
+                "i.CreatedBy " +
+                "FROM Invoices i " +
+                "INNER JOIN Suppliers s ON i.SupplierID = s.ID");
             dataGridView1.DataSource = dt;
             dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
             dataGridView1.AutoGenerateColumns = true;
 
             
-            dataGridView1.Columns["Name"].HeaderText = "Fatura";
+            dataGridView1.Columns["InvoiceNumber"].HeaderText = "Fatura Numarası";
+            dataGridView1.Columns["ID"].Visible = false;
+            dataGridView1.Columns["InvoiceDate"].HeaderText = "Fatura Tarihi";
+            dataGridView1.Columns["SupplierName"].HeaderText = "Tedarikçi";
+            dataGridView1.Columns["TotalAmount"].HeaderText = "Toplam Tutar";
+            dataGridView1.Columns["Currency"].HeaderText = "Para Birimi";
+            dataGridView1.Columns["TaxAmount"].HeaderText = "Toplam Vergi";
+            dataGridView1.Columns["CreatedDate"].HeaderText = "Oluşturma Tarihi";
+            dataGridView1.Columns["CreatedBy"].HeaderText = "Oluşturan Kişi";
         }
         
         private void CreateData()
         {
-            if (!string.IsNullOrEmpty(textBoxItem.Text)
-                && !string.IsNullOrEmpty(textBoxItem.Text)
-                && !string.IsNullOrEmpty(comboBoxUnit.Text))
+            if (!string.IsNullOrEmpty(textBoxInvoiceNum.Text)
+                && !string.IsNullOrEmpty(dateTimeInvoice.Text)
+                && !string.IsNullOrEmpty(comboBoxSuppliers.Text)
+                && !string.IsNullOrEmpty(textBoxTotalAmount.Text)
+                && !string.IsNullOrEmpty(comboBoxCurrency.Text)
+                && !string.IsNullOrEmpty(textBoxTotalTax.Text))
             {
                 DialogResult result = MessageBox.Show(
                     "Kaydı oluşturmak istediğinize emin misiniz?",   // Mesaj
@@ -47,11 +72,16 @@ namespace SatinAlmaYonetimSistemi.Forms
 
                     var data = new Dictionary<string, object>
                     {
-                        {"Name" ,textBoxItem.Text },
-                        {"Unit" ,comboBoxUnit.Text },
-                        {"Quantity" ,textBoxQuantity.Text },
+                        {"InvoiceNumber" ,textBoxInvoiceNum.Text },
+                        {"InvoiceDate" ,dateTimeInvoice.Value },
+                        {"SupplierID" ,comboBoxSuppliers.SelectedValue },
+                        {"TotalAmount" ,textBoxTotalAmount.Text },
+                        {"Currency" ,comboBoxCurrency.Text },
+                        {"TaxAmount" ,textBoxTotalTax.Text },
+                        {"CreatedDate" , DateTime.Now},
+                        {"CreatedBy" ,1},//değişecek
                     };
-                    CRUD.Create("Stocks", data);
+                    CRUD.Create("Invoices", data);
 
                     MessageBox.Show("Kayıt başarıyla oluşturuldu.", "Bilgi");
                     ReadData();
@@ -82,12 +112,17 @@ namespace SatinAlmaYonetimSistemi.Forms
                 {
                     var data = new Dictionary<string, object>
                     {
-                        {"Name" ,textBoxItem.Text },
-                        {"Unit" ,comboBoxUnit.Text },
-                        {"Quantity" ,textBoxQuantity.Text },
+                        {"InvoiceNumber" ,textBoxInvoiceNum.Text },
+                        {"InvoiceDate" ,dateTimeInvoice.Value },
+                        {"SupplierID" ,comboBoxSuppliers.SelectedValue },
+                        {"TotalAmount" ,textBoxTotalAmount.Text },
+                        {"Currency" ,comboBoxCurrency.Text },
+                        {"TaxAmount" ,textBoxTotalTax.Text },
+                        {"CreatedDate" , DateTime.Now},
+                        {"CreatedBy" ,1},//değişecek
                     };
                     string condition = $"ID = '{dataGridView1.SelectedRows[0].Cells["ID"].Value}'";
-                    CRUD.Update("Stocks", data, condition);
+                    CRUD.Update("Invoices", data, condition);
                     MessageBox.Show("Kayıt başarıyla güncellendi.", "Bilgi");
                     ReadData();
                 }
@@ -116,7 +151,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                 if (result == DialogResult.Yes)
                 {
                     string condition = $"ID = '{dataGridView1.SelectedRows[0].Cells["ID"].Value}'";
-                    CRUD.Delete("Stocks", condition);
+                    CRUD.Delete("Invoices", condition);
                     MessageBox.Show("Veri başarıyla silindi.");
                     ReadData();
                 }
@@ -129,6 +164,15 @@ namespace SatinAlmaYonetimSistemi.Forms
             {
                 MessageBox.Show("Lütfen bir satır seçin.");
             }
+        }
+
+        private void SetComboBoxData()
+        {
+            DataTable supplierName = CRUD.Read("SELECT ID, Name FROM Suppliers ORDER BY Name");
+            comboBoxSuppliers.DataSource = supplierName;
+            comboBoxSuppliers.DisplayMember = "Name";
+            comboBoxSuppliers.ValueMember = "ID";
+            comboBoxSuppliers.SelectedItem = null;
         }
 
         private void buttonExit_Click(object sender, EventArgs e)
@@ -157,16 +201,14 @@ namespace SatinAlmaYonetimSistemi.Forms
         {
             if (e.RowIndex >= 0)
             {
-                //DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-                //textBoxItem.Text = row.Cells["Name"].Value.ToString();
-                //comboBoxUnit.Text = row.Cells["Unit"].Value.ToString();
-                //textBoxQuantity.Text = row.Cells["Quantity"].Value.ToString();
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                textBoxInvoiceNum.Text = row.Cells["InvoiceNumber"].Value.ToString();
+                dateTimeInvoice.Text = row.Cells["InvoiceDate"].Value.ToString();
+                comboBoxSuppliers.Text = row.Cells["SupplierName"].Value.ToString();
+                textBoxTotalAmount.Text = row.Cells["TotalAmount"].Value.ToString();
+                comboBoxCurrency.Text = row.Cells["Currency"].Value.ToString();
+                textBoxTotalTax.Text = row.Cells["TaxAmount"].Value.ToString();
             }
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }
