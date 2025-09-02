@@ -59,6 +59,12 @@
     <Compile Include="Forms\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\OrderInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OrderInvoice.Designer.cs">
+      <DependentUpon>OrderInvoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Requisitions.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OrderInvoice.resx">
+      <DependentUpon>OrderInvoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Requisitions.resx">
       <DependentUpon>Requisitions.cs</DependentUpon>

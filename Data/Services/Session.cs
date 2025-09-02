@@ -10,5 +10,7 @@ namespace Data.Services
     {
         public static int UserID { get; set; }
         public static string Username { get; set; }
+        public static string UserRole { get; set; }
+
     }
 }

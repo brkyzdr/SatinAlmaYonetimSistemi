@@ -28,61 +28,67 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonRequisitions = new System.Windows.Forms.Button();
+            this.buttonRequisitionsAnswer = new System.Windows.Forms.Button();
+            this.buttonInvoices = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
+            this.buttonSuppliers = new System.Windows.Forms.Button();
+            this.buttonOffers = new System.Windows.Forms.Button();
+            this.buttonOrders = new System.Windows.Forms.Button();
+            this.buttonOffersAnswer = new System.Windows.Forms.Button();
+            this.buttonUsers = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // buttonRequisitions
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Window;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(288, 140);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Taleplerim";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonRequisitions.BackColor = System.Drawing.SystemColors.Window;
+            this.buttonRequisitions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonRequisitions.Enabled = false;
+            this.buttonRequisitions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRequisitions.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRequisitions.Location = new System.Drawing.Point(3, 3);
+            this.buttonRequisitions.Name = "buttonRequisitions";
+            this.buttonRequisitions.Size = new System.Drawing.Size(288, 140);
+            this.buttonRequisitions.TabIndex = 1;
+            this.buttonRequisitions.Text = "Taleplerim";
+            this.buttonRequisitions.UseVisualStyleBackColor = false;
+            this.buttonRequisitions.Visible = false;
+            this.buttonRequisitions.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // buttonRequisitionsAnswer
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.Window;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(3, 149);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(288, 140);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Gelen Talepler";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.buttonRequisitionsAnswer.BackColor = System.Drawing.SystemColors.Window;
+            this.buttonRequisitionsAnswer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonRequisitionsAnswer.Enabled = false;
+            this.buttonRequisitionsAnswer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRequisitionsAnswer.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRequisitionsAnswer.Location = new System.Drawing.Point(3, 149);
+            this.buttonRequisitionsAnswer.Name = "buttonRequisitionsAnswer";
+            this.buttonRequisitionsAnswer.Size = new System.Drawing.Size(288, 140);
+            this.buttonRequisitionsAnswer.TabIndex = 2;
+            this.buttonRequisitionsAnswer.Text = "Gelen Talepler";
+            this.buttonRequisitionsAnswer.UseVisualStyleBackColor = false;
+            this.buttonRequisitionsAnswer.Visible = false;
+            this.buttonRequisitionsAnswer.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // buttonInvoices
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.Window;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(3, 295);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(288, 140);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Faturalar";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.buttonInvoices.BackColor = System.Drawing.SystemColors.Window;
+            this.buttonInvoices.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonInvoices.Enabled = false;
+            this.buttonInvoices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInvoices.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonInvoices.Location = new System.Drawing.Point(3, 295);
+            this.buttonInvoices.Name = "buttonInvoices";
+            this.buttonInvoices.Size = new System.Drawing.Size(288, 140);
+            this.buttonInvoices.TabIndex = 3;
+            this.buttonInvoices.Text = "Faturalar";
+            this.buttonInvoices.UseVisualStyleBackColor = false;
+            this.buttonInvoices.Visible = false;
+            this.buttonInvoices.Click += new System.EventHandler(this.button3_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -90,14 +96,14 @@
             this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.Linen;
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.flowLayoutPanel1.Controls.Add(this.button1);
-            this.flowLayoutPanel1.Controls.Add(this.button2);
-            this.flowLayoutPanel1.Controls.Add(this.button3);
-            this.flowLayoutPanel1.Controls.Add(this.button5);
-            this.flowLayoutPanel1.Controls.Add(this.button4);
-            this.flowLayoutPanel1.Controls.Add(this.button6);
-            this.flowLayoutPanel1.Controls.Add(this.button7);
-            this.flowLayoutPanel1.Controls.Add(this.button10);
+            this.flowLayoutPanel1.Controls.Add(this.buttonRequisitions);
+            this.flowLayoutPanel1.Controls.Add(this.buttonRequisitionsAnswer);
+            this.flowLayoutPanel1.Controls.Add(this.buttonInvoices);
+            this.flowLayoutPanel1.Controls.Add(this.buttonSuppliers);
+            this.flowLayoutPanel1.Controls.Add(this.buttonOffers);
+            this.flowLayoutPanel1.Controls.Add(this.buttonOrders);
+            this.flowLayoutPanel1.Controls.Add(this.buttonOffersAnswer);
+            this.flowLayoutPanel1.Controls.Add(this.buttonUsers);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(309, 139);
             this.flowLayoutPanel1.MaximumSize = new System.Drawing.Size(608, 620);
@@ -106,75 +112,85 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(594, 589);
             this.flowLayoutPanel1.TabIndex = 6;
             // 
-            // button5
+            // buttonSuppliers
             // 
-            this.button5.BackColor = System.Drawing.SystemColors.Window;
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(3, 441);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(288, 140);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "Tedarikçiler";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.buttonSuppliers.BackColor = System.Drawing.SystemColors.Window;
+            this.buttonSuppliers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonSuppliers.Enabled = false;
+            this.buttonSuppliers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSuppliers.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSuppliers.Location = new System.Drawing.Point(3, 441);
+            this.buttonSuppliers.Name = "buttonSuppliers";
+            this.buttonSuppliers.Size = new System.Drawing.Size(288, 140);
+            this.buttonSuppliers.TabIndex = 5;
+            this.buttonSuppliers.Text = "Tedarikçiler";
+            this.buttonSuppliers.UseVisualStyleBackColor = false;
+            this.buttonSuppliers.Visible = false;
+            this.buttonSuppliers.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button4
+            // buttonOffers
             // 
-            this.button4.BackColor = System.Drawing.SystemColors.Window;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(297, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(288, 140);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Teklifler";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.buttonOffers.BackColor = System.Drawing.SystemColors.Window;
+            this.buttonOffers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonOffers.Enabled = false;
+            this.buttonOffers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOffers.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonOffers.Location = new System.Drawing.Point(297, 3);
+            this.buttonOffers.Name = "buttonOffers";
+            this.buttonOffers.Size = new System.Drawing.Size(288, 140);
+            this.buttonOffers.TabIndex = 4;
+            this.buttonOffers.Text = "Teklifler";
+            this.buttonOffers.UseVisualStyleBackColor = false;
+            this.buttonOffers.Visible = false;
+            this.buttonOffers.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button6
+            // buttonOrders
             // 
-            this.button6.BackColor = System.Drawing.SystemColors.Window;
-            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(297, 149);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(288, 140);
-            this.button6.TabIndex = 6;
-            this.button6.Text = "Siparişler";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.buttonOrders.BackColor = System.Drawing.SystemColors.Window;
+            this.buttonOrders.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonOrders.Enabled = false;
+            this.buttonOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOrders.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonOrders.Location = new System.Drawing.Point(297, 149);
+            this.buttonOrders.Name = "buttonOrders";
+            this.buttonOrders.Size = new System.Drawing.Size(288, 140);
+            this.buttonOrders.TabIndex = 6;
+            this.buttonOrders.Text = "Siparişler";
+            this.buttonOrders.UseVisualStyleBackColor = false;
+            this.buttonOrders.Visible = false;
+            this.buttonOrders.Click += new System.EventHandler(this.button6_Click);
             // 
-            // button7
+            // buttonOffersAnswer
             // 
-            this.button7.BackColor = System.Drawing.SystemColors.Window;
-            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(297, 295);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(288, 140);
-            this.button7.TabIndex = 7;
-            this.button7.Text = "Satın Alma Talepleri";
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.buttonOffersAnswer.BackColor = System.Drawing.SystemColors.Window;
+            this.buttonOffersAnswer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonOffersAnswer.Enabled = false;
+            this.buttonOffersAnswer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOffersAnswer.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonOffersAnswer.Location = new System.Drawing.Point(297, 295);
+            this.buttonOffersAnswer.Name = "buttonOffersAnswer";
+            this.buttonOffersAnswer.Size = new System.Drawing.Size(288, 140);
+            this.buttonOffersAnswer.TabIndex = 7;
+            this.buttonOffersAnswer.Text = "Satın Alma Talepleri";
+            this.buttonOffersAnswer.UseVisualStyleBackColor = false;
+            this.buttonOffersAnswer.Visible = false;
+            this.buttonOffersAnswer.Click += new System.EventHandler(this.button7_Click);
             // 
-            // button10
+            // buttonUsers
             // 
-            this.button10.BackColor = System.Drawing.SystemColors.Window;
-            this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Location = new System.Drawing.Point(297, 441);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(288, 140);
-            this.button10.TabIndex = 10;
-            this.button10.Text = "Kullanıcı İşlemleri";
-            this.button10.UseVisualStyleBackColor = false;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.buttonUsers.BackColor = System.Drawing.SystemColors.Window;
+            this.buttonUsers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonUsers.Enabled = false;
+            this.buttonUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUsers.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonUsers.Location = new System.Drawing.Point(297, 441);
+            this.buttonUsers.Name = "buttonUsers";
+            this.buttonUsers.Size = new System.Drawing.Size(288, 140);
+            this.buttonUsers.TabIndex = 10;
+            this.buttonUsers.Text = "Kullanıcı İşlemleri";
+            this.buttonUsers.UseVisualStyleBackColor = false;
+            this.buttonUsers.Visible = false;
+            this.buttonUsers.Click += new System.EventHandler(this.button10_Click);
             // 
             // button8
             // 
@@ -223,15 +239,15 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonRequisitions;
+        private System.Windows.Forms.Button buttonRequisitionsAnswer;
+        private System.Windows.Forms.Button buttonInvoices;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button buttonOffers;
+        private System.Windows.Forms.Button buttonSuppliers;
+        private System.Windows.Forms.Button buttonOrders;
+        private System.Windows.Forms.Button buttonOffersAnswer;
+        private System.Windows.Forms.Button buttonUsers;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Label label1;
     }

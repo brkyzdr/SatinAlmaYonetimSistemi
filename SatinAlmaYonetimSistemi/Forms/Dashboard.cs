@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,66 @@ namespace SatinAlmaYonetimSistemi.Forms
         public Dashboard()
         {
             InitializeComponent();
+            DashboardManager();
+        }
+
+        private void DashboardManager()
+        {
+            switch (Session.UserRole)
+            {
+                case "Admin":
+                    buttonRequisitions.Enabled = true;
+                    buttonRequisitions.Visible = true;
+
+                    buttonOffers.Enabled = true;
+                    buttonOffers.Visible = true;
+
+                    buttonRequisitionsAnswer.Enabled = true;
+                    buttonRequisitionsAnswer.Visible = true;
+
+                    buttonOrders.Enabled = true;
+                    buttonOrders.Visible = true;
+
+                    buttonInvoices.Enabled = true;
+                    buttonInvoices.Visible = true;
+
+                    buttonOffersAnswer.Enabled = true;
+                    buttonOffersAnswer.Visible = true;
+
+                    buttonSuppliers.Enabled = true;
+                    buttonSuppliers.Visible = true;
+
+                    buttonUsers.Enabled = true;
+                    buttonUsers.Visible = true;
+                    break;
+
+                case "Normal Kullanıcı":
+                    buttonRequisitions.Enabled = true;
+                    buttonRequisitions.Visible = true;
+                    break;
+
+                case "Satınalma Sorumlusu":
+                    buttonOffers.Enabled = true;
+                    buttonOffers.Visible = true;
+
+                    buttonRequisitionsAnswer.Enabled = true;
+                    buttonRequisitionsAnswer.Visible = true;
+
+                    buttonOrders.Enabled = true;
+                    buttonOrders.Visible = true;
+
+                    buttonInvoices.Enabled = true;
+                    buttonInvoices.Visible = true;
+
+                    buttonSuppliers.Enabled = true;
+                    buttonSuppliers.Visible = true;
+                    break;
+
+                case "Patron":
+                    buttonOffersAnswer.Enabled = true;
+                    buttonOffersAnswer.Visible = true;
+                    break;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

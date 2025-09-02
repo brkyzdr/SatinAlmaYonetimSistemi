@@ -33,7 +33,7 @@ namespace SatinAlmaYonetimSistemi.Forms
             string uEsc = userName.Replace("'", "''");
             string pEsc = password.Replace("'", "''");
 
-            DataTable dt = CRUD.Read($@"SELECT TOP 1 [ID], [Username] FROM [Users] WITH (NOLOCK) WHERE [Username] = '{uEsc}' AND [PasswordHash] = '{pEsc}';");
+            DataTable dt = CRUD.Read($@"SELECT TOP 1 [ID], [Username], [Role] FROM [Users] WITH (NOLOCK) WHERE [Username] = '{uEsc}' AND [PasswordHash] = '{pEsc}';");
 
             if (!string.IsNullOrEmpty(textBoxUsername.Text) && !string.IsNullOrEmpty(textBoxPassword.Text))
             {
@@ -43,6 +43,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                    
                     Session.UserID = Convert.ToInt32(row["ID"]);
                     Session.Username = Convert.ToString(row["Username"]);
+                    Session.UserRole = Convert.ToString(row["Role"]);
                     
                     var dashboard = new Dashboard();
                     dashboard.Show();

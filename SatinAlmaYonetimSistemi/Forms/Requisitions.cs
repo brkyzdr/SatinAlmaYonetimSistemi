@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using Data;
+using Data.Services;
 
 namespace SatinAlmaYonetimSistemi.Forms
 {
     public partial class Requisitions : Form
-    {//Create & update için userid işlemleri tamamlanacak
+    {
         public Requisitions()
         {
             InitializeComponent();
@@ -17,13 +18,14 @@ namespace SatinAlmaYonetimSistemi.Forms
         private void ReadData()
         {
             DataTable dt = CRUD.Read("SELECT " +
-                "r.Item, r.Unit, r.Quantity, r.Description, r.Status, r.Date," +
+                "r.ID, r.Item, r.Quantity, r.Unit, r.Description, r.Status, r.Date," +
                 "CASE WHEN r.ApprovedByID = 0 THEN 'Beklemede' END AS ApprovedBy " +
                 "FROM Requisitions r");
             dataGridView1.DataSource = dt;
             dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
             dataGridView1.AutoGenerateColumns = true;
 
+            dataGridView1.Columns["ID"].Visible = false;
             dataGridView1.Columns["Item"].HeaderText = "Ürün";
             dataGridView1.Columns["Unit"].HeaderText = "Birim";
             dataGridView1.Columns["Quantity"].HeaderText = "Miktar";
@@ -40,7 +42,6 @@ namespace SatinAlmaYonetimSistemi.Forms
                 && !string.IsNullOrEmpty(textBoxQuantity.Text)
                 && !string.IsNullOrEmpty(textBoxDescription.Text))
             {
-                // Kullanıcıya emin misiniz? sorusu sorulur
                 DialogResult result = MessageBox.Show(
                     "Kaydı oluşturmak istediğinize emin misiniz?",   // Mesaj
                     "Onay",                                          // Başlık
@@ -48,13 +49,12 @@ namespace SatinAlmaYonetimSistemi.Forms
                     MessageBoxIcon.Question                          // Soru ikonu
                 );
 
-                // Kullanıcı "Yes" derse kayıt işlemi yapılır
                 if (result == DialogResult.Yes)
                 {
 
                     var data = new Dictionary<string, object>
                     {
-                        {"UserID",1  },//!!!! Login yapan kullanıcı eklenecek
+                        {"UserID",Session.UserID },
                         {"Item" ,textBoxItem.Text },
                         {"Unit" ,comboBoxUnit.Text },
                         {"Quantity" ,textBoxQuantity.Text },
