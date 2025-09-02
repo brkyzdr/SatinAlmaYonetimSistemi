@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Data.Services
 {
-    public static class LoginManager
+    public static class Session
     {
-        static DataTable dt =CRUD.Read("SELECT * FROM Users");
-      
+        public static int UserID { get; set; }
+        public static string Username { get; set; }
     }
 }
