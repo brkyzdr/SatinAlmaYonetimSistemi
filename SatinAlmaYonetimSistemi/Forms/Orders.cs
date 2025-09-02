@@ -20,7 +20,7 @@ namespace SatinAlmaYonetimSistemi.Forms
             DataTable dt = CRUD.Read("SELECT " +
                 "o.ID, o.Item, o.Unit, o.Quantity, o.Price, o.Currency, o.Status, o.Date, " +
                 "s.Name AS Supplier, " +
-                "i.Name AS Invoice, " +
+                "i.InvoiceNumber AS Invoice, " +
                 "COALESCE(u.Name, '') + ' ' + COALESCE(u.Surname, '') + '(#' + CAST(u.ID AS varchar(20)) + ')' AS UserName, " +
                 "COALESCE(u2.Name, '') + ' ' + COALESCE(u2.Surname, '') + '(#' + CAST(u2.ID AS varchar(20)) + ')' AS RequisitionsOwner " +
                 "FROM Orders o " +
@@ -209,8 +209,13 @@ namespace SatinAlmaYonetimSistemi.Forms
                 textBoxQuantity.Text = row.Cells["Quantity"].Value.ToString();
                 textBoxPrice.Text = row.Cells["Price"].Value.ToString();
                 comboBoxCurrency.Text = row.Cells["Currency"].Value.ToString();
-                textBoxInvoice.Text = row.Cells["Invoice"].Value.ToString();
             }
+        }
+
+        private void buttonInvoice_Click(object sender, EventArgs e)
+        {
+            OrderInvoice orderInvoice = new OrderInvoice();
+            orderInvoice.Show();
         }
     }
 }

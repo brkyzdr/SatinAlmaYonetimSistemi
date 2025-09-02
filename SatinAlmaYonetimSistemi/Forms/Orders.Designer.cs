@@ -50,9 +50,8 @@
             this.textBoxQuantity = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.buttonInvoice = new System.Windows.Forms.Button();
             this.textBoxItem = new System.Windows.Forms.TextBox();
-            this.textBoxInvoice = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -106,7 +105,7 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Linen;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -304,6 +303,7 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox2.Controls.Add(this.buttonInvoice);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.textBoxItem);
@@ -311,18 +311,29 @@
             this.groupBox2.Controls.Add(this.comboBoxSuppliers);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.comboBoxCurrency);
-            this.groupBox2.Controls.Add(this.textBoxInvoice);
             this.groupBox2.Controls.Add(this.textBoxPrice);
             this.groupBox2.Controls.Add(this.comboBoxUnit);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Location = new System.Drawing.Point(12, 95);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(326, 693);
             this.groupBox2.TabIndex = 29;
             this.groupBox2.TabStop = false;
+            // 
+            // buttonInvoice
+            // 
+            this.buttonInvoice.BackColor = System.Drawing.Color.OldLace;
+            this.buttonInvoice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInvoice.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonInvoice.Location = new System.Drawing.Point(11, 473);
+            this.buttonInvoice.Name = "buttonInvoice";
+            this.buttonInvoice.Size = new System.Drawing.Size(309, 60);
+            this.buttonInvoice.TabIndex = 5;
+            this.buttonInvoice.Text = "Fatura";
+            this.buttonInvoice.UseVisualStyleBackColor = false;
+            this.buttonInvoice.Click += new System.EventHandler(this.buttonInvoice_Click);
             // 
             // textBoxItem
             // 
@@ -332,26 +343,6 @@
             this.textBoxItem.Name = "textBoxItem";
             this.textBoxItem.Size = new System.Drawing.Size(311, 31);
             this.textBoxItem.TabIndex = 18;
-            // 
-            // textBoxInvoice
-            // 
-            this.textBoxInvoice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxInvoice.Location = new System.Drawing.Point(9, 468);
-            this.textBoxInvoice.Name = "textBoxInvoice";
-            this.textBoxInvoice.ReadOnly = true;
-            this.textBoxInvoice.Size = new System.Drawing.Size(311, 31);
-            this.textBoxInvoice.TabIndex = 17;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 442);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(81, 25);
-            this.label7.TabIndex = 20;
-            this.label7.Text = "Fatura";
             // 
             // Orders
             // 
@@ -397,7 +388,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox textBoxItem;
-        private System.Windows.Forms.TextBox textBoxInvoice;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button buttonInvoice;
     }
 }
