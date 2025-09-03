@@ -1,4 +1,5 @@
 ﻿using Data;
+using Data.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,8 +17,8 @@ namespace SatinAlmaYonetimSistemi.Forms
         public Invoices()
         {
             InitializeComponent();
-            ReadData();
             SetComboBoxData();
+            ReadData();   
         }
 
         private void ReadData()
@@ -79,7 +80,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                         {"Currency" ,comboBoxCurrency.Text },
                         {"TaxAmount" ,textBoxTotalTax.Text },
                         {"CreatedDate" , DateTime.Now},
-                        {"CreatedBy" ,1},//değişecek
+                        {"CreatedBy" ,Session.UserID},
                     };
                     CRUD.Create("Invoices", data);
 
@@ -119,7 +120,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                         {"Currency" ,comboBoxCurrency.Text },
                         {"TaxAmount" ,textBoxTotalTax.Text },
                         {"CreatedDate" , DateTime.Now},
-                        {"CreatedBy" ,1},//değişecek
+                        {"CreatedBy" ,Session.UserID},
                     };
                     string condition = $"ID = '{dataGridView1.SelectedRows[0].Cells["ID"].Value}'";
                     CRUD.Update("Invoices", data, condition);

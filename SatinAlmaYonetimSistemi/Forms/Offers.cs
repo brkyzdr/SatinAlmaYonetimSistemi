@@ -1,4 +1,5 @@
 ﻿using Data;
+using Data.Services;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,8 +12,8 @@ namespace SatinAlmaYonetimSistemi.Forms
         public Offers()
         {
             InitializeComponent();
-            ReadData();
             SetComboBoxData();
+            ReadData();           
         }
 
         private void ReadData()
@@ -70,7 +71,7 @@ namespace SatinAlmaYonetimSistemi.Forms
 
                     var data = new Dictionary<string, object>
                     {
-                        {"UserID",1  },//!!!! Login yapan kullanıcı eklenecek
+                        {"UserID",Session.UserID  },
                         {"SupplierID" ,comboBoxSuppliers.SelectedValue },
                         {"RequisitionsID" ,4 },//talep eden kişiden çekilecek
                         {"Item" ,textBoxItem.Text },
@@ -111,7 +112,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                 {
                     var data = new Dictionary<string, object>
                     {
-                        {"UserID",1  },//!!!! Login yapan kullanıcı eklenecek
+                        {"UserID",Session.UserID  },
                         {"SupplierID" ,comboBoxSuppliers.SelectedValue },
                         {"RequisitionsID" ,4 },//talep eden kişide çekilecek
                         {"Item" ,textBoxItem.Text },

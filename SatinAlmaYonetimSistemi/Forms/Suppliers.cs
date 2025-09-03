@@ -47,7 +47,6 @@ namespace SatinAlmaYonetimSistemi.Forms
                 && !string.IsNullOrEmpty(comboBoxIsActive.Text)
                 )
             {
-                // Kullanıcıya emin misiniz? sorusu sorulur
                 DialogResult result = MessageBox.Show(
                     "Kaydı oluşturmak istediğinize emin misiniz?",   // Mesaj
                     "Onay",                                          // Başlık
@@ -55,7 +54,6 @@ namespace SatinAlmaYonetimSistemi.Forms
                     MessageBoxIcon.Question                          // Soru ikonu
                 );
 
-                // Kullanıcı "Yes" derse kayıt işlemi yapılır
                 if (result == DialogResult.Yes)
                 {
                     int isActive;

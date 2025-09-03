@@ -1,4 +1,5 @@
 ﻿using Data;
+using Data.Services;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,6 +9,8 @@ namespace SatinAlmaYonetimSistemi.Forms
 {
     public partial class Orders : Form
     {
+        private int dataGridViewInvoiceID;
+
         public Orders()
         {
             InitializeComponent();
@@ -15,10 +18,11 @@ namespace SatinAlmaYonetimSistemi.Forms
             SetComboBoxData();
         }
 
-        private void ReadData()
+        public void ReadData()
         {
-            DataTable dt = CRUD.Read("SELECT " +
-                "o.ID, o.Item, o.Unit, o.Quantity, o.Price, o.Currency, o.Status, o.Date, " +
+            DataTable dt = CRUD.Read(
+                "SELECT " +
+                "o.ID, o.Item, o.Unit, o.Quantity, o.Price, o.Currency, o.Status, o.Date, o.InvoiceID, " +
                 "s.Name AS Supplier, " +
                 "i.InvoiceNumber AS Invoice, " +
                 "COALESCE(u.Name, '') + ' ' + COALESCE(u.Surname, '') + '(#' + CAST(u.ID AS varchar(20)) + ')' AS UserName, " +
@@ -29,6 +33,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                 "INNER JOIN Invoices i ON o.InvoiceID = i.ID " +
                 "INNER JOIN Users u ON o.UserID = u.ID "+
                 "INNER JOIN Users u2 ON r.UserID = u2.ID");
+
             dataGridView1.DataSource = dt;
             dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
             dataGridView1.AutoGenerateColumns = true;
@@ -45,6 +50,7 @@ namespace SatinAlmaYonetimSistemi.Forms
             dataGridView1.Columns["Currency"].HeaderText = "Para Birimi";
             dataGridView1.Columns["Status"].HeaderText = "Durum";
             dataGridView1.Columns["Date"].HeaderText = "Tarih";
+            dataGridView1.Columns["InvoiceID"].Visible = false;
 
         }
 
@@ -69,9 +75,8 @@ namespace SatinAlmaYonetimSistemi.Forms
 
                     var data = new Dictionary<string, object>
                     {
-                        {"UserID",1  },//!!!! Login yapan kullanıcı eklenecek
+                        {"UserID",Session.UserID  },
                         {"SupplierID",comboBoxSuppliers.SelectedValue },
-                        {"InvoiceID",1  },
                         {"RequisitionsID",4 },//talep eden kişi eklenecek
                         {"Item",textBoxItem.Text  },
                         {"Unit" ,comboBoxUnit.Text },
@@ -111,9 +116,8 @@ namespace SatinAlmaYonetimSistemi.Forms
                 {
                     var data = new Dictionary<string, object>
                     {
-                        {"UserID",1  },//!!!! Login yapan kullanıcı eklenecek
+                        {"UserID",Session.UserID  },
                         {"SupplierID",comboBoxSuppliers.SelectedValue  },
-                        {"InvoiceID",1},
                         {"RequisitionsID",4},//talep eden kişi eklenecek
                         {"Item",textBoxItem.Text  },
                         {"Unit" ,comboBoxUnit.Text },
@@ -209,13 +213,20 @@ namespace SatinAlmaYonetimSistemi.Forms
                 textBoxQuantity.Text = row.Cells["Quantity"].Value.ToString();
                 textBoxPrice.Text = row.Cells["Price"].Value.ToString();
                 comboBoxCurrency.Text = row.Cells["Currency"].Value.ToString();
+                dataGridViewInvoiceID = (int)row.Cells["InvoiceID"].Value;
+                buttonInvoice.Enabled = true;
             }
         }
 
         private void buttonInvoice_Click(object sender, EventArgs e)
         {
-            OrderInvoice orderInvoice = new OrderInvoice();
-            orderInvoice.Show();
+            Session.InvoiceID = dataGridViewInvoiceID;
+
+            using (var f = new OrderInvoice())
+            {
+                f.Owner = this;
+                f.ShowDialog();
+            }
         }
     }
 }

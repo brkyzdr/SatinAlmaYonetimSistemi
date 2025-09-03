@@ -93,10 +93,12 @@ namespace SatinAlmaYonetimSistemi.Forms
                 {
                     var data = new Dictionary<string, object>
                     {
+                        {"UserID",Session.UserID },
                         {"Item" ,textBoxItem.Text },
                         {"Unit" ,comboBoxUnit.Text },
                         {"Quantity" ,textBoxQuantity.Text },
                         {"Description" ,textBoxDescription.Text },
+                        {"Date", DateTime.Now},
                     };
                     string condition = $"ID = '{dataGridView1.SelectedRows[0].Cells["ID"].Value}'";
                     CRUD.Update("Requisitions", data, condition);

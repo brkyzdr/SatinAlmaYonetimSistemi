@@ -1,4 +1,5 @@
 ﻿using Data;
+using Data.Services;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,7 +8,7 @@ using System.Windows.Forms;
 namespace SatinAlmaYonetimSistemi.Forms
 {
     public partial class Users : Form
-    {//Create & Update için CreatedByID işlemi güncelleneck
+    {
         public Users()
         {
             InitializeComponent();
@@ -79,7 +80,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                         {"Email", textBoxEmail.Text},
                         {"PhoneNum", textBoxPhoneNumber.Text},
                         {"IsActive", isActive},
-                        {"CreatedByID", 1},//değişecek!!!
+                        {"CreatedByID", Session.UserID},
                     };
                     CRUD.Create("Users", data);
 
@@ -130,7 +131,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                         {"Email", textBoxEmail.Text},
                         {"PhoneNum", textBoxPhoneNumber.Text},
                         {"IsActive", isActive},
-                        {"CreatedByID", 1},//kullanıcı id kaydı
+                        {"CreatedByID", Session.UserID},
 
                     };
                     string condition = $"ID = '{dataGridView1.SelectedRows[0].Cells["ID"].Value}'";

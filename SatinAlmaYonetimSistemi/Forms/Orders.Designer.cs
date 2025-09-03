@@ -325,6 +325,7 @@
             // buttonInvoice
             // 
             this.buttonInvoice.BackColor = System.Drawing.Color.OldLace;
+            this.buttonInvoice.Enabled = false;
             this.buttonInvoice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInvoice.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonInvoice.Location = new System.Drawing.Point(11, 473);

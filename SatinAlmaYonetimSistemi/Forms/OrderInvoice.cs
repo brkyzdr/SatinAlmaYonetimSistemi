@@ -2,12 +2,7 @@
 using Data.Services;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SatinAlmaYonetimSistemi.Forms
@@ -17,8 +12,8 @@ namespace SatinAlmaYonetimSistemi.Forms
         public OrderInvoice()
         {
             InitializeComponent();
-            ReadData();
             FillComboBox();
+            ReadData();       
         }
 
         private void ReadData()
@@ -35,8 +30,9 @@ namespace SatinAlmaYonetimSistemi.Forms
                 "i.CreatedDate," +
                 "i.CreatedBy " +
                 "FROM Invoices i " +
-                "INNER JOIN Suppliers s ON i.SupplierID = s.ID");
-
+                "INNER JOIN Suppliers s ON i.SupplierID = s.ID " +
+                $"WHERE i.ID = {Session.InvoiceID} ");
+            
             textBoxInvoiceNum.Text = dt.Rows[0]["InvoiceNumber"].ToString();
             dateTimePickerInvoice.Text = dt.Rows[0]["InvoiceDate"].ToString();
             comboBoxSupplier.Text = dt.Rows[0]["SupplierName"].ToString();
@@ -69,10 +65,21 @@ namespace SatinAlmaYonetimSistemi.Forms
                         {"CreatedDate" , DateTime.Now},
                         {"CreatedBy" ,Session.UserID},
                     };
-                CRUD.Create("Invoices", data);
-
+                if (Session.InvoiceID == 0)
+                    CRUD.Create("Invoices", data);
+                else
+                {
+                    string condition = $"ID = '{Session.InvoiceID}'";
+                    CRUD.Update("Invoices", data, condition);
+                }
                 MessageBox.Show("Kayıt başarıyla oluşturuldu.", "Bilgi");
-                ReadData();
+                Session.InvoiceID = 0;
+
+                if (this.Owner is Orders parent)
+                {
+                    parent.ReadData();
+                }
+                this.Close();
             }
             else
             {
@@ -92,11 +99,12 @@ namespace SatinAlmaYonetimSistemi.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SaveData();
+            SaveData();          
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Session.InvoiceID = 0;
             this.Close();
         }
     }
