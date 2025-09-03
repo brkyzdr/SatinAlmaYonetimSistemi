@@ -39,18 +39,18 @@
             this.buttonExit = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dateTimeInvoice = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.comboBoxCurrency = new System.Windows.Forms.ComboBox();
+            this.comboBoxSuppliers = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.textBoxTotalAmount = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxTotalTax = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxInvoiceNum = new System.Windows.Forms.TextBox();
-            this.dateTimeInvoice = new System.Windows.Forms.DateTimePicker();
-            this.comboBoxSuppliers = new System.Windows.Forms.ComboBox();
-            this.textBoxTotalAmount = new System.Windows.Forms.TextBox();
-            this.comboBoxCurrency = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -104,7 +104,7 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Linen;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -194,6 +194,15 @@
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             // 
+            // dateTimeInvoice
+            // 
+            this.dateTimeInvoice.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimeInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimeInvoice.Location = new System.Drawing.Point(11, 116);
+            this.dateTimeInvoice.Name = "dateTimeInvoice";
+            this.dateTimeInvoice.Size = new System.Drawing.Size(308, 29);
+            this.dateTimeInvoice.TabIndex = 15;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -224,6 +233,43 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Fatura Numarası";
             // 
+            // comboBoxCurrency
+            // 
+            this.comboBoxCurrency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCurrency.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxCurrency.FormattingEnabled = true;
+            this.comboBoxCurrency.Items.AddRange(new object[] {
+            "TRY",
+            "USD",
+            "EUR",
+            "GBP",
+            "RUB",
+            "CNY"});
+            this.comboBoxCurrency.Location = new System.Drawing.Point(10, 331);
+            this.comboBoxCurrency.Name = "comboBoxCurrency";
+            this.comboBoxCurrency.Size = new System.Drawing.Size(309, 33);
+            this.comboBoxCurrency.TabIndex = 12;
+            // 
+            // comboBoxSuppliers
+            // 
+            this.comboBoxSuppliers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSuppliers.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxSuppliers.FormattingEnabled = true;
+            this.comboBoxSuppliers.Items.AddRange(new object[] {
+            "Adet",
+            "Kg",
+            "Gr",
+            "L",
+            "Ml",
+            "M",
+            "Cm",
+            "Metrekare",
+            "Metreküp"});
+            this.comboBoxSuppliers.Location = new System.Drawing.Point(11, 185);
+            this.comboBoxSuppliers.Name = "comboBoxSuppliers";
+            this.comboBoxSuppliers.Size = new System.Drawing.Size(309, 33);
+            this.comboBoxSuppliers.TabIndex = 12;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -233,6 +279,15 @@
             this.label2.Size = new System.Drawing.Size(147, 25);
             this.label2.TabIndex = 14;
             this.label2.Text = "Fatura Tarihi";
+            // 
+            // textBoxTotalAmount
+            // 
+            this.textBoxTotalAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxTotalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTotalAmount.Location = new System.Drawing.Point(10, 257);
+            this.textBoxTotalAmount.Name = "textBoxTotalAmount";
+            this.textBoxTotalAmount.Size = new System.Drawing.Size(309, 31);
+            this.textBoxTotalAmount.TabIndex = 13;
             // 
             // label4
             // 
@@ -271,61 +326,6 @@
             this.textBoxInvoiceNum.Name = "textBoxInvoiceNum";
             this.textBoxInvoiceNum.Size = new System.Drawing.Size(309, 31);
             this.textBoxInvoiceNum.TabIndex = 13;
-            // 
-            // dateTimeInvoice
-            // 
-            this.dateTimeInvoice.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimeInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimeInvoice.Location = new System.Drawing.Point(11, 116);
-            this.dateTimeInvoice.Name = "dateTimeInvoice";
-            this.dateTimeInvoice.Size = new System.Drawing.Size(308, 29);
-            this.dateTimeInvoice.TabIndex = 15;
-            // 
-            // comboBoxSuppliers
-            // 
-            this.comboBoxSuppliers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxSuppliers.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxSuppliers.FormattingEnabled = true;
-            this.comboBoxSuppliers.Items.AddRange(new object[] {
-            "Adet",
-            "Kg",
-            "Gr",
-            "L",
-            "Ml",
-            "M",
-            "Cm",
-            "Metrekare",
-            "Metreküp"});
-            this.comboBoxSuppliers.Location = new System.Drawing.Point(11, 185);
-            this.comboBoxSuppliers.Name = "comboBoxSuppliers";
-            this.comboBoxSuppliers.Size = new System.Drawing.Size(309, 33);
-            this.comboBoxSuppliers.TabIndex = 12;
-            // 
-            // textBoxTotalAmount
-            // 
-            this.textBoxTotalAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxTotalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTotalAmount.Location = new System.Drawing.Point(10, 257);
-            this.textBoxTotalAmount.Name = "textBoxTotalAmount";
-            this.textBoxTotalAmount.Size = new System.Drawing.Size(309, 31);
-            this.textBoxTotalAmount.TabIndex = 13;
-            // 
-            // comboBoxCurrency
-            // 
-            this.comboBoxCurrency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxCurrency.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxCurrency.FormattingEnabled = true;
-            this.comboBoxCurrency.Items.AddRange(new object[] {
-            "TRY",
-            "USD",
-            "EUR",
-            "GBP",
-            "RUB",
-            "CNY"});
-            this.comboBoxCurrency.Location = new System.Drawing.Point(10, 331);
-            this.comboBoxCurrency.Name = "comboBoxCurrency";
-            this.comboBoxCurrency.Size = new System.Drawing.Size(309, 33);
-            this.comboBoxCurrency.TabIndex = 12;
             // 
             // Invoices
             // 

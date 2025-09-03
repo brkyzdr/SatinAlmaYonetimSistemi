@@ -9,6 +9,8 @@ namespace SatinAlmaYonetimSistemi.Forms
 {
     public partial class Offers : Form
     {
+        private int RequisitionsOwnerID;
+
         public Offers()
         {
             InitializeComponent();
@@ -23,6 +25,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                 "s.Name AS SupplierName," +
                 "COALESCE(u.Name, '') + ' ' + COALESCE(u.Surname, '') + '(#' + CAST(u.ID AS varchar(20)) + ')' AS UserName," +
                 "COALESCE(u2.Name, '') + ' ' + COALESCE(u2.Surname, '') + '(#' + CAST(u2.ID AS varchar(20)) + ')' AS RequisitionsOwner," +
+                "u2.ID AS RequisitionsOwnerID," +
                 "o.ID, o.Item, o.Unit, o.Quantity, o.Price, o.Currency, o.Status, o.Date, " +
                 "CASE WHEN o.ApprovedByID = 0 THEN 'Beklemede' END AS ApprovedBy " +
                 "FROM Offers o " +
@@ -47,6 +50,7 @@ namespace SatinAlmaYonetimSistemi.Forms
             dataGridView1.Columns["Status"].HeaderText = "Durum";
             dataGridView1.Columns["ApprovedBy"].HeaderText = "Onaylayan Kişi";
             dataGridView1.Columns["Date"].HeaderText = "Tarih";                            
+            dataGridView1.Columns["RequisitionsOwnerID"].Visible = false;                            
         }
 
         private void CreateData()
@@ -73,7 +77,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                     {
                         {"UserID",Session.UserID  },
                         {"SupplierID" ,comboBoxSuppliers.SelectedValue },
-                        {"RequisitionsID" ,4 },//talep eden kişiden çekilecek
+                        {"RequisitionsID" ,RequisitionsOwnerID },
                         {"Item" ,textBoxItem.Text },
                         {"Unit" ,comboBoxUnit.Text },
                         {"Quantity" ,textBoxQuantity.Text },
@@ -114,7 +118,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                     {
                         {"UserID",Session.UserID  },
                         {"SupplierID" ,comboBoxSuppliers.SelectedValue },
-                        {"RequisitionsID" ,4 },//talep eden kişide çekilecek
+                        {"RequisitionsID" ,RequisitionsOwnerID },
                         {"Item" ,textBoxItem.Text },
                         {"Unit" ,comboBoxUnit.Text },
                         {"Quantity" ,textBoxQuantity.Text },
@@ -194,6 +198,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                 comboBoxCurrency.Text = row.Cells["Currency"].Value.ToString();
                 textBoxRequisitionOwner.Text = row.Cells["RequisitionsOwner"].Value.ToString();
                 textBoxItem.Text = row.Cells["Item"].Value.ToString();
+                RequisitionsOwnerID=(int)row.Cells["RequisitionsOwnerID"].Value;
             }
         }
 
