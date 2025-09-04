@@ -9,11 +9,12 @@ namespace SatinAlmaYonetimSistemi.Forms
 {
     public partial class OrderInvoice : Form
     {
+        int invoiceID=0;
         public OrderInvoice()
         {
             InitializeComponent();
             FillComboBox();
-            ReadData();       
+            ReadData();
         }
 
         private void ReadData()
@@ -31,19 +32,22 @@ namespace SatinAlmaYonetimSistemi.Forms
                 "i.CreatedBy " +
                 "FROM Invoices i " +
                 "INNER JOIN Suppliers s ON i.SupplierID = s.ID " +
-                $"WHERE i.ID = {Session.InvoiceID} ");
-            
-            textBoxInvoiceNum.Text = dt.Rows[0]["InvoiceNumber"].ToString();
-            dateTimePickerInvoice.Text = dt.Rows[0]["InvoiceDate"].ToString();
-            comboBoxSupplier.Text = dt.Rows[0]["SupplierName"].ToString();
-            textBoxTotalAmount.Text = dt.Rows[0]["TotalAmount"].ToString();
-            comboBoxCurrency.Text = dt.Rows[0]["Currency"].ToString();
-            textBoxTax.Text = dt.Rows[0]["TaxAmount"].ToString();
+                $"WHERE i.OrderID = {Session.OrderID} ");
+
+            if (dt.Rows.Count>0)
+            {
+                textBoxInvoiceNum.Text = dt.Rows[0]["InvoiceNumber"].ToString();
+                dateTimePickerInvoice.Text = dt.Rows[0]["InvoiceDate"].ToString();
+                comboBoxSupplier.Text = dt.Rows[0]["SupplierName"].ToString();
+                textBoxTotalAmount.Text = dt.Rows[0]["TotalAmount"].ToString();
+                comboBoxCurrency.Text = dt.Rows[0]["Currency"].ToString();
+                textBoxTax.Text = dt.Rows[0]["TaxAmount"].ToString();
+                if(dt.Rows[0]["ID"]!=null) invoiceID = (int)(dt.Rows[0]["ID"]);
+            }         
         }
 
         private void SaveData()
         {
-
             DialogResult result = MessageBox.Show(
                 "Kaydı oluşturmak istediğinize emin misiniz?",   // Mesaj
                 "Onay",                                          // Başlık
@@ -64,16 +68,17 @@ namespace SatinAlmaYonetimSistemi.Forms
                         {"TaxAmount" ,textBoxTax.Text },
                         {"CreatedDate" , DateTime.Now},
                         {"CreatedBy" ,Session.UserID},
+                        {"OrderID" ,Session.OrderID},
                     };
-                if (Session.InvoiceID == 0)
+                if (invoiceID == 0)
                     CRUD.Create("Invoices", data);
                 else
                 {
-                    string condition = $"ID = '{Session.InvoiceID}'";
+                    string condition = $"ID = '{invoiceID}'";
                     CRUD.Update("Invoices", data, condition);
                 }
                 MessageBox.Show("Kayıt başarıyla oluşturuldu.", "Bilgi");
-                Session.InvoiceID = 0;
+                Session.OrderID = 0;
 
                 if (this.Owner is Orders parent)
                 {
@@ -99,12 +104,12 @@ namespace SatinAlmaYonetimSistemi.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SaveData();          
+            SaveData();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Session.InvoiceID = 0;
+            Session.OrderID = 0;
             this.Close();
         }
     }

@@ -7,11 +7,11 @@ using System.Windows.Forms;
 
 namespace SatinAlmaYonetimSistemi.Forms
 {
-    public partial class Orders : Form
+    public partial class MyOrders : Form
     {
         private int dataGridViewOrderID;
 
-        public Orders()
+        public MyOrders()
         {
             InitializeComponent();
             ReadData();
@@ -31,8 +31,9 @@ namespace SatinAlmaYonetimSistemi.Forms
                 "INNER JOIN Suppliers s ON o.SupplierID = s.ID " +
                 "INNER JOIN Requisitions r ON o.RequisitionsID = r.ID " +
                 "LEFT JOIN Invoices i ON o.ID = i.orderID " +
-                "INNER JOIN Users u ON o.UserID = u.ID "+
-                "INNER JOIN Users u2 ON r.UserID = u2.ID");
+                "INNER JOIN Users u ON o.UserID = u.ID " +
+                "INNER JOIN Users u2 ON r.UserID = u2.ID "+
+                $"WHERE o.UserID={(int)Session.UserID} ");
 
             dataGridView1.DataSource = dt;
             dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
@@ -71,7 +72,6 @@ namespace SatinAlmaYonetimSistemi.Forms
 
                 if (result == DialogResult.Yes)
                 {
-
                     var data = new Dictionary<string, object>
                     {
                         {"UserID",Session.UserID  },
@@ -146,7 +146,7 @@ namespace SatinAlmaYonetimSistemi.Forms
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 DialogResult result = MessageBox.Show(
-                "Veriyi silmek istediğinize emin misiniz?",   // Mesaj
+                "Veriyi silmek istediğinize emin misiniz?",      // Mesaj
                 "Onay",                                          // Başlık
                 MessageBoxButtons.YesNo,                         // Evet / Hayır butonları
                 MessageBoxIcon.Question                          // Soru ikonu
@@ -213,7 +213,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                 textBoxPrice.Text = row.Cells["Price"].Value.ToString();
                 comboBoxCurrency.Text = row.Cells["Currency"].Value.ToString();
 
-                dataGridViewOrderID = (int)row.Cells["ID"].Value;
+                dataGridViewOrderID = (int)row.Cells["InvoiceID"].Value;
 
                 buttonInvoice.Enabled = true;
             }
