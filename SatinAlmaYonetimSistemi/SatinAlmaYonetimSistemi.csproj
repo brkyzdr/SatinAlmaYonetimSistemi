@@ -65,6 +65,12 @@
     <Compile Include="Forms\OrderInvoice.Designer.cs">
       <DependentUpon>OrderInvoice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MyOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MyOrders.Designer.cs">
+      <DependentUpon>MyOrders.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Requisitions.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\OrderInvoice.resx">
       <DependentUpon>OrderInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MyOrders.resx">
+      <DependentUpon>MyOrders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Requisitions.resx">
       <DependentUpon>Requisitions.cs</DependentUpon>

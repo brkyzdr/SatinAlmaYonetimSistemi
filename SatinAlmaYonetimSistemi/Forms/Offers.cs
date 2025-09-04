@@ -173,7 +173,7 @@ namespace SatinAlmaYonetimSistemi.Forms
         
         private void SetComboBoxData()
         {
-            DataTable supplierName = CRUD.Read("SELECT ID, Name FROM Suppliers ORDER BY Name");
+            DataTable supplierName = CRUD.Read("SELECT ID, Name FROM Suppliers WHERE IsActive=1 ORDER BY Name  ");
             comboBoxSuppliers.DataSource = supplierName;
             comboBoxSuppliers.DisplayMember = "Name";
             comboBoxSuppliers.ValueMember = "ID";

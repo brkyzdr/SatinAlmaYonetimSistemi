@@ -39,6 +39,7 @@
             this.buttonUsers = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonMyOrders = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,12 +105,12 @@
             this.flowLayoutPanel1.Controls.Add(this.buttonOrders);
             this.flowLayoutPanel1.Controls.Add(this.buttonOffersAnswer);
             this.flowLayoutPanel1.Controls.Add(this.buttonUsers);
+            this.flowLayoutPanel1.Controls.Add(this.buttonMyOrders);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(309, 139);
-            this.flowLayoutPanel1.MaximumSize = new System.Drawing.Size(608, 620);
-            this.flowLayoutPanel1.MinimumSize = new System.Drawing.Size(400, 8);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(161, 149);
+            this.flowLayoutPanel1.MaximumSize = new System.Drawing.Size(886, 444);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(594, 589);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(886, 444);
             this.flowLayoutPanel1.TabIndex = 6;
             // 
             // buttonSuppliers
@@ -119,7 +120,7 @@
             this.buttonSuppliers.Enabled = false;
             this.buttonSuppliers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSuppliers.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSuppliers.Location = new System.Drawing.Point(3, 441);
+            this.buttonSuppliers.Location = new System.Drawing.Point(297, 3);
             this.buttonSuppliers.Name = "buttonSuppliers";
             this.buttonSuppliers.Size = new System.Drawing.Size(288, 140);
             this.buttonSuppliers.TabIndex = 5;
@@ -135,7 +136,7 @@
             this.buttonOffers.Enabled = false;
             this.buttonOffers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonOffers.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonOffers.Location = new System.Drawing.Point(297, 3);
+            this.buttonOffers.Location = new System.Drawing.Point(297, 149);
             this.buttonOffers.Name = "buttonOffers";
             this.buttonOffers.Size = new System.Drawing.Size(288, 140);
             this.buttonOffers.TabIndex = 4;
@@ -151,7 +152,7 @@
             this.buttonOrders.Enabled = false;
             this.buttonOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonOrders.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonOrders.Location = new System.Drawing.Point(297, 149);
+            this.buttonOrders.Location = new System.Drawing.Point(297, 295);
             this.buttonOrders.Name = "buttonOrders";
             this.buttonOrders.Size = new System.Drawing.Size(288, 140);
             this.buttonOrders.TabIndex = 6;
@@ -167,7 +168,7 @@
             this.buttonOffersAnswer.Enabled = false;
             this.buttonOffersAnswer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonOffersAnswer.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonOffersAnswer.Location = new System.Drawing.Point(297, 295);
+            this.buttonOffersAnswer.Location = new System.Drawing.Point(591, 3);
             this.buttonOffersAnswer.Name = "buttonOffersAnswer";
             this.buttonOffersAnswer.Size = new System.Drawing.Size(288, 140);
             this.buttonOffersAnswer.TabIndex = 7;
@@ -183,7 +184,7 @@
             this.buttonUsers.Enabled = false;
             this.buttonUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUsers.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUsers.Location = new System.Drawing.Point(297, 441);
+            this.buttonUsers.Location = new System.Drawing.Point(591, 149);
             this.buttonUsers.Name = "buttonUsers";
             this.buttonUsers.Size = new System.Drawing.Size(288, 140);
             this.buttonUsers.TabIndex = 10;
@@ -216,6 +217,22 @@
             this.label1.Size = new System.Drawing.Size(602, 39);
             this.label1.TabIndex = 8;
             this.label1.Text = "SATINALMA YÖNETİM UYGULAMASI";
+            // 
+            // buttonMyOrders
+            // 
+            this.buttonMyOrders.BackColor = System.Drawing.SystemColors.Window;
+            this.buttonMyOrders.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonMyOrders.Enabled = false;
+            this.buttonMyOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMyOrders.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonMyOrders.Location = new System.Drawing.Point(591, 295);
+            this.buttonMyOrders.Name = "buttonMyOrders";
+            this.buttonMyOrders.Size = new System.Drawing.Size(288, 140);
+            this.buttonMyOrders.TabIndex = 6;
+            this.buttonMyOrders.Text = "Siparişlerim";
+            this.buttonMyOrders.UseVisualStyleBackColor = false;
+            this.buttonMyOrders.Visible = false;
+            this.buttonMyOrders.Click += new System.EventHandler(this.button99_Click);
             // 
             // Dashboard
             // 
@@ -250,5 +267,6 @@
         private System.Windows.Forms.Button buttonUsers;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonMyOrders;
     }
 }

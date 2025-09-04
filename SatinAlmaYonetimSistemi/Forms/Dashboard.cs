@@ -35,6 +35,8 @@ namespace SatinAlmaYonetimSistemi.Forms
 
                     buttonOrders.Enabled = true;
                     buttonOrders.Visible = true;
+                    buttonMyOrders.Enabled = true;
+                    buttonMyOrders.Visible = true;
 
                     buttonInvoices.Enabled = true;
                     buttonInvoices.Visible = true;
@@ -61,14 +63,14 @@ namespace SatinAlmaYonetimSistemi.Forms
                     buttonRequisitionsAnswer.Enabled = true;
                     buttonRequisitionsAnswer.Visible = true;
 
-                    buttonOrders.Enabled = true;
-                    buttonOrders.Visible = true;
-
                     buttonInvoices.Enabled = true;
                     buttonInvoices.Visible = true;
 
                     buttonSuppliers.Enabled = true;
                     buttonSuppliers.Visible = true;
+
+                    buttonMyOrders.Enabled = true;
+                    buttonMyOrders.Visible = true;
                     break;
 
                 case "Patron":
@@ -137,6 +139,13 @@ namespace SatinAlmaYonetimSistemi.Forms
         private void button8_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button99_Click(object sender, EventArgs e)
+        {
+            MyOrders myOrders = new MyOrders();
+            myOrders.Show();
+            this.Close();
         }
     }
 }
