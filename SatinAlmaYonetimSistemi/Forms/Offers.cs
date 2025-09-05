@@ -3,6 +3,7 @@ using Data.Services;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Text;
 using System.Windows.Forms;
 
 namespace SatinAlmaYonetimSistemi.Forms
@@ -26,7 +27,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                 "COALESCE(u.Name, '') + ' ' + COALESCE(u.Surname, '') + '(#' + CAST(u.ID AS varchar(20)) + ')' AS UserName," +
                 "COALESCE(u2.Name, '') + ' ' + COALESCE(u2.Surname, '') + '(#' + CAST(u2.ID AS varchar(20)) + ')' AS RequisitionsOwner," +
                 "u2.ID AS RequisitionsOwnerID," +
-                "o.ID, o.Item, o.Unit, o.Quantity, o.Price, o.Currency, o.Status, o.Date, " +
+                "o.ID, o.Item, o.Unit, o.Quantity, o.Price, o.Currency, o.Status, o.Date, r.Item AS RItem, " +
                 "CASE WHEN o.ApprovedByID = 0 THEN 'Beklemede' END AS ApprovedBy " +
                 "FROM Offers o " +
                 "INNER JOIN Suppliers s ON o.SupplierID = s.ID " +
@@ -51,6 +52,7 @@ namespace SatinAlmaYonetimSistemi.Forms
             dataGridView1.Columns["ApprovedBy"].HeaderText = "Onaylayan Kişi";
             dataGridView1.Columns["Date"].HeaderText = "Tarih";                            
             dataGridView1.Columns["RequisitionsOwnerID"].Visible = false;                            
+            dataGridView1.Columns["RItem"].Visible = false;                            
         }
 
         private void CreateData()
@@ -177,7 +179,20 @@ namespace SatinAlmaYonetimSistemi.Forms
             comboBoxSuppliers.DataSource = supplierName;
             comboBoxSuppliers.DisplayMember = "Name";
             comboBoxSuppliers.ValueMember = "ID";
-            comboBoxSuppliers.SelectedItem = null;   
+            comboBoxSuppliers.SelectedItem = null;
+
+
+            DataTable RequisitionOwner = CRUD.Read
+               ("SELECT " +
+               "r.UserID, r.ID, " +
+               "COALESCE(u.Name, '') + ' ' + COALESCE(u.Surname, '') + '(#' + CAST(u.ID AS varchar(20)) + ')' + ', ' + COALESCE(r.Item, '')  AS RequisitionsOwner " +
+               "FROM Requisitions r " +
+               "INNER JOIN Users u ON r.UserID=u.ID " +
+               "WHERE r.Status LIKE '%Onayland%' ");
+            comboBoxRequisitionOwner.DataSource = RequisitionOwner;
+            comboBoxRequisitionOwner.DisplayMember = "RequisitionsOwner";
+            comboBoxRequisitionOwner.ValueMember = "ID";
+            comboBoxRequisitionOwner.SelectedItem = null;
         }
 
         private void buttonExit_Click(object sender, EventArgs e)
@@ -196,9 +211,9 @@ namespace SatinAlmaYonetimSistemi.Forms
                 textBoxQuantity.Text = row.Cells["Quantity"].Value.ToString();
                 textBoxPrice.Text = row.Cells["Price"].Value.ToString();
                 comboBoxCurrency.Text = row.Cells["Currency"].Value.ToString();
-                textBoxRequisitionOwner.Text = row.Cells["RequisitionsOwner"].Value.ToString();
                 textBoxItem.Text = row.Cells["Item"].Value.ToString();
                 RequisitionsOwnerID=(int)row.Cells["RequisitionsOwnerID"].Value;
+                comboBoxRequisitionOwner.Text= (row.Cells["RequisitionsOwner"].Value.ToString()) + ", " + (row.Cells["RItem"].Value.ToString());
             }
         }
 

@@ -213,7 +213,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                 textBoxPrice.Text = row.Cells["Price"].Value.ToString();
                 comboBoxCurrency.Text = row.Cells["Currency"].Value.ToString();
 
-                dataGridViewOrderID = (int)row.Cells["InvoiceID"].Value;
+                dataGridViewOrderID = (int)row.Cells["ID"].Value;
 
                 buttonInvoice.Enabled = true;
             }

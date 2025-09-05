@@ -37,15 +37,15 @@
             this.buttonOrders = new System.Windows.Forms.Button();
             this.buttonOffersAnswer = new System.Windows.Forms.Button();
             this.buttonUsers = new System.Windows.Forms.Button();
+            this.buttonMyOrders = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonMyOrders = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonRequisitions
             // 
-            this.buttonRequisitions.BackColor = System.Drawing.SystemColors.Window;
+            this.buttonRequisitions.BackColor = System.Drawing.Color.AntiqueWhite;
             this.buttonRequisitions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonRequisitions.Enabled = false;
             this.buttonRequisitions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -61,7 +61,7 @@
             // 
             // buttonRequisitionsAnswer
             // 
-            this.buttonRequisitionsAnswer.BackColor = System.Drawing.SystemColors.Window;
+            this.buttonRequisitionsAnswer.BackColor = System.Drawing.Color.AntiqueWhite;
             this.buttonRequisitionsAnswer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonRequisitionsAnswer.Enabled = false;
             this.buttonRequisitionsAnswer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -77,7 +77,7 @@
             // 
             // buttonInvoices
             // 
-            this.buttonInvoices.BackColor = System.Drawing.SystemColors.Window;
+            this.buttonInvoices.BackColor = System.Drawing.Color.AntiqueWhite;
             this.buttonInvoices.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonInvoices.Enabled = false;
             this.buttonInvoices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -115,7 +115,7 @@
             // 
             // buttonSuppliers
             // 
-            this.buttonSuppliers.BackColor = System.Drawing.SystemColors.Window;
+            this.buttonSuppliers.BackColor = System.Drawing.Color.AntiqueWhite;
             this.buttonSuppliers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonSuppliers.Enabled = false;
             this.buttonSuppliers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -131,7 +131,7 @@
             // 
             // buttonOffers
             // 
-            this.buttonOffers.BackColor = System.Drawing.SystemColors.Window;
+            this.buttonOffers.BackColor = System.Drawing.Color.AntiqueWhite;
             this.buttonOffers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonOffers.Enabled = false;
             this.buttonOffers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -147,7 +147,7 @@
             // 
             // buttonOrders
             // 
-            this.buttonOrders.BackColor = System.Drawing.SystemColors.Window;
+            this.buttonOrders.BackColor = System.Drawing.Color.AntiqueWhite;
             this.buttonOrders.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonOrders.Enabled = false;
             this.buttonOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -163,7 +163,7 @@
             // 
             // buttonOffersAnswer
             // 
-            this.buttonOffersAnswer.BackColor = System.Drawing.SystemColors.Window;
+            this.buttonOffersAnswer.BackColor = System.Drawing.Color.AntiqueWhite;
             this.buttonOffersAnswer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonOffersAnswer.Enabled = false;
             this.buttonOffersAnswer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -179,7 +179,7 @@
             // 
             // buttonUsers
             // 
-            this.buttonUsers.BackColor = System.Drawing.SystemColors.Window;
+            this.buttonUsers.BackColor = System.Drawing.Color.AntiqueWhite;
             this.buttonUsers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonUsers.Enabled = false;
             this.buttonUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -192,6 +192,22 @@
             this.buttonUsers.UseVisualStyleBackColor = false;
             this.buttonUsers.Visible = false;
             this.buttonUsers.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // buttonMyOrders
+            // 
+            this.buttonMyOrders.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.buttonMyOrders.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonMyOrders.Enabled = false;
+            this.buttonMyOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMyOrders.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonMyOrders.Location = new System.Drawing.Point(591, 295);
+            this.buttonMyOrders.Name = "buttonMyOrders";
+            this.buttonMyOrders.Size = new System.Drawing.Size(288, 140);
+            this.buttonMyOrders.TabIndex = 6;
+            this.buttonMyOrders.Text = "Siparişlerim";
+            this.buttonMyOrders.UseVisualStyleBackColor = false;
+            this.buttonMyOrders.Visible = false;
+            this.buttonMyOrders.Click += new System.EventHandler(this.button99_Click);
             // 
             // button8
             // 
@@ -217,22 +233,6 @@
             this.label1.Size = new System.Drawing.Size(602, 39);
             this.label1.TabIndex = 8;
             this.label1.Text = "SATINALMA YÖNETİM UYGULAMASI";
-            // 
-            // buttonMyOrders
-            // 
-            this.buttonMyOrders.BackColor = System.Drawing.SystemColors.Window;
-            this.buttonMyOrders.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonMyOrders.Enabled = false;
-            this.buttonMyOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMyOrders.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonMyOrders.Location = new System.Drawing.Point(591, 295);
-            this.buttonMyOrders.Name = "buttonMyOrders";
-            this.buttonMyOrders.Size = new System.Drawing.Size(288, 140);
-            this.buttonMyOrders.TabIndex = 6;
-            this.buttonMyOrders.Text = "Siparişlerim";
-            this.buttonMyOrders.UseVisualStyleBackColor = false;
-            this.buttonMyOrders.Visible = false;
-            this.buttonMyOrders.Click += new System.EventHandler(this.button99_Click);
             // 
             // Dashboard
             // 

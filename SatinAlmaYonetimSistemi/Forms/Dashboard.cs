@@ -89,7 +89,7 @@ namespace SatinAlmaYonetimSistemi.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            OffersAnswer requests = new OffersAnswer();
+            RequisitionsAnswer requests = new RequisitionsAnswer();
             requests.Show();
             this.Close();
         }
@@ -124,7 +124,7 @@ namespace SatinAlmaYonetimSistemi.Forms
 
         private void button7_Click(object sender, EventArgs e)
         {
-            RequisitionsAnswer purchaseOrders = new RequisitionsAnswer();
+            OffersAnswer purchaseOrders = new OffersAnswer();
             purchaseOrders.Show();
             this.Close();
         }
