@@ -28,24 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxOffersAnswer = new System.Windows.Forms.ComboBox();
-            this.textBoxSupplier = new System.Windows.Forms.TextBox();
-            this.textBoxItem = new System.Windows.Forms.TextBox();
-            this.textBoxUnit = new System.Windows.Forms.TextBox();
-            this.textBoxQuantity = new System.Windows.Forms.TextBox();
-            this.textBoxPrice = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBoxCurrency = new System.Windows.Forms.TextBox();
+            this.textBoxPrice = new System.Windows.Forms.TextBox();
+            this.textBoxQuantity = new System.Windows.Forms.TextBox();
+            this.textBoxUnit = new System.Windows.Forms.TextBox();
+            this.textBoxItem = new System.Windows.Forms.TextBox();
+            this.textBoxSupplier = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonRefuse = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -55,45 +56,45 @@
             // 
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Linen;
-            this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Linen;
+            this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView.BackgroundColor = System.Drawing.Color.Linen;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Linen;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.SeaShell;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Linen;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SeaShell;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.SeaShell;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.SeaShell;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView.EnableHeadersVisualStyles = false;
             this.dataGridView.GridColor = System.Drawing.Color.Gray;
             this.dataGridView.Location = new System.Drawing.Point(344, 101);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.AntiqueWhite;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.AntiqueWhite;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.ShowCellToolTips = false;
             this.dataGridView.Size = new System.Drawing.Size(844, 687);
@@ -106,7 +107,7 @@
             this.buttonSave.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSave.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSave.Location = new System.Drawing.Point(6, 628);
+            this.buttonSave.Location = new System.Drawing.Point(6, 544);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(314, 60);
             this.buttonSave.TabIndex = 7;
@@ -141,35 +142,6 @@
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox2.Controls.Add(this.textBoxCurrency);
-            this.groupBox2.Controls.Add(this.textBoxPrice);
-            this.groupBox2.Controls.Add(this.textBoxQuantity);
-            this.groupBox2.Controls.Add(this.textBoxUnit);
-            this.groupBox2.Controls.Add(this.textBoxItem);
-            this.groupBox2.Controls.Add(this.textBoxSupplier);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.buttonSave);
-            this.groupBox2.Location = new System.Drawing.Point(12, 94);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(326, 694);
-            this.groupBox2.TabIndex = 10;
-            this.groupBox2.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(149, 25);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Seçilen Teklif";
-            this.label1.Visible = false;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -194,46 +166,36 @@
             this.comboBoxOffersAnswer.Name = "comboBoxOffersAnswer";
             this.comboBoxOffersAnswer.Size = new System.Drawing.Size(517, 33);
             this.comboBoxOffersAnswer.TabIndex = 8;
+            this.comboBoxOffersAnswer.SelectedIndexChanged += new System.EventHandler(this.comboBoxOffersAnswer_SelectedIndexChanged);
             // 
-            // textBoxSupplier
+            // groupBox2
             // 
-            this.textBoxSupplier.Enabled = false;
-            this.textBoxSupplier.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSupplier.Location = new System.Drawing.Point(6, 64);
-            this.textBoxSupplier.Name = "textBoxSupplier";
-            this.textBoxSupplier.Size = new System.Drawing.Size(314, 33);
-            this.textBoxSupplier.TabIndex = 10;
-            this.textBoxSupplier.Visible = false;
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox2.Controls.Add(this.textBoxCurrency);
+            this.groupBox2.Controls.Add(this.textBoxPrice);
+            this.groupBox2.Controls.Add(this.textBoxQuantity);
+            this.groupBox2.Controls.Add(this.textBoxUnit);
+            this.groupBox2.Controls.Add(this.textBoxItem);
+            this.groupBox2.Controls.Add(this.textBoxSupplier);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.buttonRefuse);
+            this.groupBox2.Controls.Add(this.buttonSave);
+            this.groupBox2.Location = new System.Drawing.Point(12, 94);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(326, 694);
+            this.groupBox2.TabIndex = 10;
+            this.groupBox2.TabStop = false;
             // 
-            // textBoxItem
+            // textBoxCurrency
             // 
-            this.textBoxItem.Enabled = false;
-            this.textBoxItem.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxItem.Location = new System.Drawing.Point(6, 103);
-            this.textBoxItem.Name = "textBoxItem";
-            this.textBoxItem.Size = new System.Drawing.Size(314, 33);
-            this.textBoxItem.TabIndex = 10;
-            this.textBoxItem.Visible = false;
-            // 
-            // textBoxUnit
-            // 
-            this.textBoxUnit.Enabled = false;
-            this.textBoxUnit.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUnit.Location = new System.Drawing.Point(6, 142);
-            this.textBoxUnit.Name = "textBoxUnit";
-            this.textBoxUnit.Size = new System.Drawing.Size(314, 33);
-            this.textBoxUnit.TabIndex = 10;
-            this.textBoxUnit.Visible = false;
-            // 
-            // textBoxQuantity
-            // 
-            this.textBoxQuantity.Enabled = false;
-            this.textBoxQuantity.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxQuantity.Location = new System.Drawing.Point(6, 181);
-            this.textBoxQuantity.Name = "textBoxQuantity";
-            this.textBoxQuantity.Size = new System.Drawing.Size(314, 33);
-            this.textBoxQuantity.TabIndex = 10;
-            this.textBoxQuantity.Visible = false;
+            this.textBoxCurrency.Enabled = false;
+            this.textBoxCurrency.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCurrency.Location = new System.Drawing.Point(6, 259);
+            this.textBoxCurrency.Name = "textBoxCurrency";
+            this.textBoxCurrency.Size = new System.Drawing.Size(314, 33);
+            this.textBoxCurrency.TabIndex = 10;
+            this.textBoxCurrency.Visible = false;
             // 
             // textBoxPrice
             // 
@@ -245,15 +207,70 @@
             this.textBoxPrice.TabIndex = 10;
             this.textBoxPrice.Visible = false;
             // 
-            // textBoxCurrency
+            // textBoxQuantity
             // 
-            this.textBoxCurrency.Enabled = false;
-            this.textBoxCurrency.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCurrency.Location = new System.Drawing.Point(6, 259);
-            this.textBoxCurrency.Name = "textBoxCurrency";
-            this.textBoxCurrency.Size = new System.Drawing.Size(314, 33);
-            this.textBoxCurrency.TabIndex = 10;
-            this.textBoxCurrency.Visible = false;
+            this.textBoxQuantity.Enabled = false;
+            this.textBoxQuantity.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxQuantity.Location = new System.Drawing.Point(6, 181);
+            this.textBoxQuantity.Name = "textBoxQuantity";
+            this.textBoxQuantity.Size = new System.Drawing.Size(314, 33);
+            this.textBoxQuantity.TabIndex = 10;
+            this.textBoxQuantity.Visible = false;
+            // 
+            // textBoxUnit
+            // 
+            this.textBoxUnit.Enabled = false;
+            this.textBoxUnit.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUnit.Location = new System.Drawing.Point(6, 142);
+            this.textBoxUnit.Name = "textBoxUnit";
+            this.textBoxUnit.Size = new System.Drawing.Size(314, 33);
+            this.textBoxUnit.TabIndex = 10;
+            this.textBoxUnit.Visible = false;
+            // 
+            // textBoxItem
+            // 
+            this.textBoxItem.Enabled = false;
+            this.textBoxItem.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxItem.Location = new System.Drawing.Point(6, 103);
+            this.textBoxItem.Name = "textBoxItem";
+            this.textBoxItem.Size = new System.Drawing.Size(314, 33);
+            this.textBoxItem.TabIndex = 10;
+            this.textBoxItem.Visible = false;
+            // 
+            // textBoxSupplier
+            // 
+            this.textBoxSupplier.Enabled = false;
+            this.textBoxSupplier.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSupplier.Location = new System.Drawing.Point(6, 64);
+            this.textBoxSupplier.Name = "textBoxSupplier";
+            this.textBoxSupplier.Size = new System.Drawing.Size(314, 33);
+            this.textBoxSupplier.TabIndex = 10;
+            this.textBoxSupplier.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(149, 25);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Seçilen Teklif";
+            this.label1.Visible = false;
+            // 
+            // buttonRefuse
+            // 
+            this.buttonRefuse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonRefuse.BackColor = System.Drawing.Color.LightCoral;
+            this.buttonRefuse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRefuse.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRefuse.Location = new System.Drawing.Point(6, 628);
+            this.buttonRefuse.Name = "buttonRefuse";
+            this.buttonRefuse.Size = new System.Drawing.Size(314, 60);
+            this.buttonRefuse.TabIndex = 7;
+            this.buttonRefuse.Text = "Tüm Teklifleri Reddet";
+            this.buttonRefuse.UseVisualStyleBackColor = false;
+            this.buttonRefuse.Click += new System.EventHandler(this.buttonRefuse_Click);
             // 
             // OffersAnswer
             // 
@@ -294,5 +311,6 @@
         private System.Windows.Forms.TextBox textBoxUnit;
         private System.Windows.Forms.TextBox textBoxItem;
         private System.Windows.Forms.TextBox textBoxSupplier;
+        private System.Windows.Forms.Button buttonRefuse;
     }
 }
