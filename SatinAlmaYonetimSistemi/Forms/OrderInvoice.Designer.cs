@@ -30,19 +30,19 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBoxInvoiceNum = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePickerInvoice = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBoxSupplier = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBoxTotalAmount = new System.Windows.Forms.TextBox();
-            this.comboBoxCurrency = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBoxTax = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.comboBoxCurrency = new System.Windows.Forms.ComboBox();
+            this.comboBoxSupplier = new System.Windows.Forms.ComboBox();
+            this.dateTimePickerInvoice = new System.Windows.Forms.DateTimePicker();
+            this.textBoxTax = new System.Windows.Forms.TextBox();
+            this.textBoxTotalAmount = new System.Windows.Forms.TextBox();
+            this.textBoxInvoiceNum = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,89 +81,31 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
-            // textBoxInvoiceNum
+            // button2
             // 
-            this.textBoxInvoiceNum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxInvoiceNum.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxInvoiceNum.Location = new System.Drawing.Point(38, 144);
-            this.textBoxInvoiceNum.Name = "textBoxInvoiceNum";
-            this.textBoxInvoiceNum.Size = new System.Drawing.Size(482, 33);
-            this.textBoxInvoiceNum.TabIndex = 1;
+            this.button2.BackColor = System.Drawing.Color.LightCoral;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(459, 12);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(97, 59);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "ÇIK";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label2
+            // button1
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(33, 119);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(188, 25);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Fatura Numarası";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // dateTimePickerInvoice
-            // 
-            this.dateTimePickerInvoice.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerInvoice.Location = new System.Drawing.Point(38, 224);
-            this.dateTimePickerInvoice.Name = "dateTimePickerInvoice";
-            this.dateTimePickerInvoice.Size = new System.Drawing.Size(482, 33);
-            this.dateTimePickerInvoice.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(33, 199);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(147, 25);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Fatura Tarihi";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // comboBoxSupplier
-            // 
-            this.comboBoxSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxSupplier.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxSupplier.FormattingEnabled = true;
-            this.comboBoxSupplier.Location = new System.Drawing.Point(38, 304);
-            this.comboBoxSupplier.Name = "comboBoxSupplier";
-            this.comboBoxSupplier.Size = new System.Drawing.Size(482, 33);
-            this.comboBoxSupplier.TabIndex = 3;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(33, 279);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(108, 25);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Tedarikçi";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(33, 359);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(153, 25);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Toplam Tutar";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBoxTotalAmount
-            // 
-            this.textBoxTotalAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxTotalAmount.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTotalAmount.Location = new System.Drawing.Point(38, 395);
-            this.textBoxTotalAmount.Name = "textBoxTotalAmount";
-            this.textBoxTotalAmount.Size = new System.Drawing.Size(335, 33);
-            this.textBoxTotalAmount.TabIndex = 1;
+            this.button1.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(153, 548);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(248, 59);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "KAYDET";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // comboBoxCurrency
             // 
@@ -182,6 +124,67 @@
             this.comboBoxCurrency.Size = new System.Drawing.Size(141, 33);
             this.comboBoxCurrency.TabIndex = 3;
             // 
+            // comboBoxSupplier
+            // 
+            this.comboBoxSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSupplier.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxSupplier.FormattingEnabled = true;
+            this.comboBoxSupplier.Location = new System.Drawing.Point(38, 304);
+            this.comboBoxSupplier.Name = "comboBoxSupplier";
+            this.comboBoxSupplier.Size = new System.Drawing.Size(482, 33);
+            this.comboBoxSupplier.TabIndex = 3;
+            // 
+            // dateTimePickerInvoice
+            // 
+            this.dateTimePickerInvoice.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerInvoice.Location = new System.Drawing.Point(38, 224);
+            this.dateTimePickerInvoice.Name = "dateTimePickerInvoice";
+            this.dateTimePickerInvoice.Size = new System.Drawing.Size(482, 33);
+            this.dateTimePickerInvoice.TabIndex = 2;
+            // 
+            // textBoxTax
+            // 
+            this.textBoxTax.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxTax.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTax.Location = new System.Drawing.Point(38, 464);
+            this.textBoxTax.Name = "textBoxTax";
+            this.textBoxTax.Size = new System.Drawing.Size(482, 33);
+            this.textBoxTax.TabIndex = 1;
+            this.textBoxTax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTax_KeyPress);
+            this.textBoxTax.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxTax_Validating);
+            // 
+            // textBoxTotalAmount
+            // 
+            this.textBoxTotalAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxTotalAmount.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTotalAmount.Location = new System.Drawing.Point(38, 395);
+            this.textBoxTotalAmount.Name = "textBoxTotalAmount";
+            this.textBoxTotalAmount.Size = new System.Drawing.Size(335, 33);
+            this.textBoxTotalAmount.TabIndex = 1;
+            this.textBoxTotalAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTotalAmount_KeyPress);
+            this.textBoxTotalAmount.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxTotalAmount_Validating);
+            // 
+            // textBoxInvoiceNum
+            // 
+            this.textBoxInvoiceNum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxInvoiceNum.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxInvoiceNum.Location = new System.Drawing.Point(38, 144);
+            this.textBoxInvoiceNum.Name = "textBoxInvoiceNum";
+            this.textBoxInvoiceNum.Size = new System.Drawing.Size(482, 33);
+            this.textBoxInvoiceNum.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(33, 279);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(108, 25);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Tedarikçi";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label6
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -194,40 +197,41 @@
             this.label6.Text = "Vergi Tutarı";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBoxTax
+            // label3
             // 
-            this.textBoxTax.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxTax.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTax.Location = new System.Drawing.Point(38, 464);
-            this.textBoxTax.Name = "textBoxTax";
-            this.textBoxTax.Size = new System.Drawing.Size(482, 33);
-            this.textBoxTax.TabIndex = 1;
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(33, 199);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(147, 25);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Fatura Tarihi";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button1
+            // label5
             // 
-            this.button1.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(153, 548);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(248, 59);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "KAYDET";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(33, 359);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(153, 25);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Toplam Tutar";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button2
+            // label2
             // 
-            this.button2.BackColor = System.Drawing.Color.LightCoral;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(459, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(97, 59);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "ÇIK";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(33, 119);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(188, 25);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Fatura Numarası";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // OrderInvoice
             // 

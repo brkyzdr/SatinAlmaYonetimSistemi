@@ -229,5 +229,65 @@ namespace SatinAlmaYonetimSistemi.Forms
                 f.ShowDialog();
             }
         }
+
+        private void textBoxQuantity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Sayı, kontrol (backspace vb.) veya nokta/virgül dışındaki her şeyi engelle
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+
+            // Hem nokta hem virgül girişini tek bir "decimal ayırıcı" kabul et (noktayı tercih edelim)
+            if (e.KeyChar == ',')
+            {
+                e.KeyChar = '.'; // virgül yazılırsa nokta yap
+            }
+
+            // Birden fazla nokta olmasını engelle
+            if (e.KeyChar == '.' && (sender as System.Windows.Forms.TextBox).Text.Contains("."))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxQuantity_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!decimal.TryParse(textBoxQuantity.Text, out decimal value) || value <= 0)
+            {
+                MessageBox.Show("Lütfen sıfırdan büyük bir sayı giriniz.", "Geçersiz Giriş", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Cancel = true; // focus TextBox'ta kalır
+            }
+        }
+
+        private void textBoxPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Sayı, kontrol (backspace vb.) veya nokta/virgül dışındaki her şeyi engelle
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+
+            // Hem nokta hem virgül girişini tek bir "decimal ayırıcı" kabul et (noktayı tercih edelim)
+            if (e.KeyChar == ',')
+            {
+                e.KeyChar = '.'; // virgül yazılırsa nokta yap
+            }
+
+            // Birden fazla nokta olmasını engelle
+            if (e.KeyChar == '.' && (sender as System.Windows.Forms.TextBox).Text.Contains("."))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxPrice_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!decimal.TryParse(textBoxPrice.Text, out decimal value) || value <= 0)
+            {
+                MessageBox.Show("Lütfen sıfırdan büyük bir sayı giriniz.", "Geçersiz Giriş", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Cancel = true; // focus TextBox'ta kalır
+            }
+        }
     }
 }
