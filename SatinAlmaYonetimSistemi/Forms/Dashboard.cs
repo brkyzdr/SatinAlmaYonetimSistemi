@@ -147,5 +147,11 @@ namespace SatinAlmaYonetimSistemi.Forms
             myOrders.Show();
             this.Close();
         }
+
+        private void buttonProfil_Click(object sender, EventArgs e)
+        {
+            Profile profile = new Profile();
+            profile.Show();
+        }
     }
 }

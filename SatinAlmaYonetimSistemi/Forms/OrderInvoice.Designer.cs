@@ -151,6 +151,7 @@
             this.textBoxTax.Size = new System.Drawing.Size(482, 33);
             this.textBoxTax.TabIndex = 1;
             this.textBoxTax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTax_KeyPress);
+            this.textBoxTax.Leave += new System.EventHandler(this.textBoxTax_Leave);
             this.textBoxTax.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxTax_Validating);
             // 
             // textBoxTotalAmount
@@ -162,6 +163,7 @@
             this.textBoxTotalAmount.Size = new System.Drawing.Size(335, 33);
             this.textBoxTotalAmount.TabIndex = 1;
             this.textBoxTotalAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTotalAmount_KeyPress);
+            this.textBoxTotalAmount.Leave += new System.EventHandler(this.textBoxTotalAmount_Leave);
             this.textBoxTotalAmount.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxTotalAmount_Validating);
             // 
             // textBoxInvoiceNum

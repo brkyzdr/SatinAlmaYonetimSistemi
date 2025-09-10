@@ -41,7 +41,7 @@ namespace SatinAlmaYonetimSistemi.Forms
         private void CreateData()
         {
             if (!string.IsNullOrEmpty(textBoxSupplier.Text)
-                && !string.IsNullOrEmpty(textBoxPhoneNumber.Text)
+                && !string.IsNullOrEmpty(maskedTextBoxPhoneNumber.Text)
                 && !string.IsNullOrEmpty(textBoxEmail.Text)
                 && !string.IsNullOrEmpty(textBoxAddress.Text)
                 && !string.IsNullOrEmpty(comboBoxIsActive.Text)
@@ -66,10 +66,16 @@ namespace SatinAlmaYonetimSistemi.Forms
                         isActive=0;
                     }
 
+                    maskedTextBoxPhoneNumber.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                    string digits = maskedTextBoxPhoneNumber.Text;      // "905551234567" gibi
+
+                    // Ülke kodunu maskeden/combodan alıyorsan uygula; yoksa kullanıcı zaten +90 ile girmişse:
+                    string e164 = "+" + digits;
+
                     var data = new Dictionary<string, object>
                     {
                         {"Name" ,textBoxSupplier.Text },
-                        {"Phone" ,textBoxPhoneNumber.Text },
+                        {"Phone" ,e164 },
                         {"Email" ,textBoxEmail.Text },
                         {"Address" ,textBoxAddress.Text },
                         {"IsActive", isActive},
@@ -114,10 +120,16 @@ namespace SatinAlmaYonetimSistemi.Forms
                         isActive = 0;
                     }
 
+                    maskedTextBoxPhoneNumber.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                    string digits = maskedTextBoxPhoneNumber.Text;      // "905551234567" gibi
+
+                    // Ülke kodunu maskeden/combodan alıyorsan uygula; yoksa kullanıcı zaten +90 ile girmişse:
+                    string e164 = "+" + digits;
+
                     var data = new Dictionary<string, object>
                     {
                         {"Name" ,textBoxSupplier.Text },
-                        {"Phone" ,textBoxPhoneNumber.Text },
+                        {"Phone" ,e164 },
                         {"Email" ,textBoxEmail.Text },
                         {"Address" ,textBoxAddress.Text },
                         {"IsActive", isActive},
@@ -195,7 +207,7 @@ namespace SatinAlmaYonetimSistemi.Forms
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
                 textBoxSupplier.Text = row.Cells["Name"].Value.ToString();
-                textBoxPhoneNumber.Text = row.Cells["Phone"].Value.ToString();
+                maskedTextBoxPhoneNumber.Text = row.Cells["Phone"].Value.ToString();
                 textBoxEmail.Text = row.Cells["Email"].Value.ToString();
                 textBoxAddress.Text = row.Cells["Address"].Value.ToString();
                 comboBoxIsActive.Text = row.Cells["Status"].Value.ToString();
@@ -206,34 +218,34 @@ namespace SatinAlmaYonetimSistemi.Forms
             }
         }
 
-        private void textBoxPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // Sayı, kontrol (backspace vb.) veya nokta/virgül dışındaki her şeyi engelle
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != ',')
-            {
-                e.Handled = true;
-            }
+        //private void textBoxPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    // Sayı, kontrol (backspace vb.) veya nokta/virgül dışındaki her şeyi engelle
+        //    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != ',')
+        //    {
+        //        e.Handled = true;
+        //    }
 
-            // Hem nokta hem virgül girişini tek bir "decimal ayırıcı" kabul et (noktayı tercih edelim)
-            if (e.KeyChar == ',')
-            {
-                e.KeyChar = '.'; // virgül yazılırsa nokta yap
-            }
+        //    // Hem nokta hem virgül girişini tek bir "decimal ayırıcı" kabul et (noktayı tercih edelim)
+        //    if (e.KeyChar == ',')
+        //    {
+        //        e.KeyChar = '.'; // virgül yazılırsa nokta yap
+        //    }
 
-            // Birden fazla nokta olmasını engelle
-            if (e.KeyChar == '.' && (sender as System.Windows.Forms.TextBox).Text.Contains("."))
-            {
-                e.Handled = true;
-            }
-        }
+        //    // Birden fazla nokta olmasını engelle
+        //    if (e.KeyChar == '.' && (sender as System.Windows.Forms.TextBox).Text.Contains("."))
+        //    {
+        //        e.Handled = true;
+        //    }
+        //}
 
-        private void textBoxPhoneNumber_Validating(object sender, CancelEventArgs e)
-        {
-            if (!decimal.TryParse(textBoxPhoneNumber.Text, out decimal value) || value <= 0)
-            {
-                MessageBox.Show("Lütfen sıfırdan büyük bir sayı giriniz.", "Geçersiz Giriş", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                e.Cancel = true; // focus TextBox'ta kalır
-            }
-        }
+        //private void textBoxPhoneNumber_Validating(object sender, CancelEventArgs e)
+        //{
+        //    if (!decimal.TryParse(textBoxPhoneNumber.Text, out decimal value) || value <= 0)
+        //    {
+        //        MessageBox.Show("Lütfen sıfırdan büyük bir sayı giriniz.", "Geçersiz Giriş", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //        e.Cancel = true; // focus TextBox'ta kalır
+        //    }
+        //}
     }
 }

@@ -210,9 +210,18 @@ namespace SatinAlmaYonetimSistemi.Forms
                 comboBoxSuppliers.Text = row.Cells["Supplier"].Value.ToString();
                 textBoxItem.Text = row.Cells["Item"].Value.ToString();
                 comboBoxUnit.Text = row.Cells["Unit"].Value.ToString();
-                textBoxQuantity.Text = row.Cells["Quantity"].Value.ToString();
-                textBoxPrice.Text = row.Cells["Price"].Value.ToString();
+                textBoxQuantity.Text = row.Cells["Quantity"].Value.ToString();               
                 comboBoxCurrency.Text = row.Cells["Currency"].Value.ToString();
+
+                var value = row.Cells["Price"].Value.ToString();
+                if (value != null && decimal.TryParse(value.ToString(), out decimal price))
+                {
+                    // Binlik ayraçlı olarak TextBox’a ata
+                    textBoxPrice.Text = price.ToString("N0"); // 1.000
+                                                                    // veya
+                                                                    // textBoxPrice.Text = price.ToString("N2"); // 1.000,00
+                }
+
 
                 dataGridViewOrderID = (int)row.Cells["ID"].Value;
 
@@ -288,6 +297,21 @@ namespace SatinAlmaYonetimSistemi.Forms
             {
                 MessageBox.Show("Lütfen sıfırdan büyük bir sayı giriniz.", "Geçersiz Giriş", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 e.Cancel = true; // focus TextBox'ta kalır
+            }
+        }
+
+        private void textBoxPrice_Leave(object sender, EventArgs e)
+        {
+            if (decimal.TryParse(textBoxPrice.Text, out decimal value) && value > 0)
+            {
+                // Sayıyı binlik ayraçlı formatla (ör. 1.000 veya 1.000,00)
+                textBoxPrice.Text = value.ToString("N0"); // 1.000
+                                                                // textBoxPrice.Text = value.ToString("N2"); // 1.000,00
+            }
+            else
+            {
+                // Geçersiz giriş olursa temizle veya uyarı ver
+                textBoxPrice.Text = string.Empty;
             }
         }
     }

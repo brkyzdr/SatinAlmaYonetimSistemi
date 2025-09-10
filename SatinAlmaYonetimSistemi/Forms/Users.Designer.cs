@@ -50,11 +50,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxSurname = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBoxPhoneNumber = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.comboBoxRole = new System.Windows.Forms.ComboBox();
             this.comboBoxIsActive = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.maskedTextBoxPhoneNumber = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -298,18 +298,6 @@
             this.label7.TabIndex = 12;
             this.label7.Text = "Telefon Numarası";
             // 
-            // textBoxPhoneNumber
-            // 
-            this.textBoxPhoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPhoneNumber.Location = new System.Drawing.Point(9, 490);
-            this.textBoxPhoneNumber.MaxLength = 15;
-            this.textBoxPhoneNumber.Name = "textBoxPhoneNumber";
-            this.textBoxPhoneNumber.Size = new System.Drawing.Size(310, 31);
-            this.textBoxPhoneNumber.TabIndex = 13;
-            this.textBoxPhoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPhoneNumber_KeyPress);
-            this.textBoxPhoneNumber.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxPhoneNumber_Validating);
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -353,11 +341,11 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox2.Controls.Add(this.maskedTextBoxPhoneNumber);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.comboBoxIsActive);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.comboBoxRole);
-            this.groupBox2.Controls.Add(this.textBoxPhoneNumber);
             this.groupBox2.Controls.Add(this.textBoxSurname);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.textBoxEmail);
@@ -374,6 +362,16 @@
             this.groupBox2.Size = new System.Drawing.Size(325, 693);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
+            // 
+            // maskedTextBoxPhoneNumber
+            // 
+            this.maskedTextBoxPhoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.maskedTextBoxPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBoxPhoneNumber.Location = new System.Drawing.Point(7, 490);
+            this.maskedTextBoxPhoneNumber.Mask = "+000 - (999) 000-0000";
+            this.maskedTextBoxPhoneNumber.Name = "maskedTextBoxPhoneNumber";
+            this.maskedTextBoxPhoneNumber.Size = new System.Drawing.Size(310, 31);
+            this.maskedTextBoxPhoneNumber.TabIndex = 26;
             // 
             // Users
             // 
@@ -417,10 +415,10 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxSurname;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBoxPhoneNumber;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboBoxRole;
         private System.Windows.Forms.ComboBox comboBoxIsActive;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxPhoneNumber;
     }
 }

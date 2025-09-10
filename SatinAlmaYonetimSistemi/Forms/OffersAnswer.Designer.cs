@@ -206,6 +206,7 @@
             this.textBoxPrice.Size = new System.Drawing.Size(314, 33);
             this.textBoxPrice.TabIndex = 10;
             this.textBoxPrice.Visible = false;
+            this.textBoxPrice.Leave += new System.EventHandler(this.textBoxPrice_Leave);
             // 
             // textBoxQuantity
             // 

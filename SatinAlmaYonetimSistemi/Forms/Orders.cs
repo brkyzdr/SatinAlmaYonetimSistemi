@@ -10,6 +10,7 @@ namespace SatinAlmaYonetimSistemi.Forms
     public partial class Orders : Form
     {
         private int dataGridViewOrderID;
+        private int requisitionID;
 
         public Orders()
         {
@@ -22,7 +23,7 @@ namespace SatinAlmaYonetimSistemi.Forms
         {
             DataTable dt = CRUD.Read(
                 "SELECT " +
-                "o.ID, o.Item, o.Unit, o.Quantity, o.Price, o.Currency, o.Status, o.Date, " +
+                "o.ID, o.Item, o.Unit, o.Quantity, o.Price, o.Currency, o.Status, o.Date, o.RequisitionsID,  " +
                 "s.Name AS Supplier, " +
                 "i.InvoiceNumber AS Invoice, " +
                 "COALESCE(u.Name, '') + ' ' + COALESCE(u.Surname, '') + '(#' + CAST(u.ID AS varchar(20)) + ')' AS UserName, " +
@@ -43,6 +44,7 @@ namespace SatinAlmaYonetimSistemi.Forms
             dataGridView1.Columns["UserName"].HeaderText = "Satınalma Sorumlusu";
             dataGridView1.Columns["Invoice"].HeaderText = "Fatura";
             dataGridView1.Columns["ID"].Visible = false;
+            dataGridView1.Columns["RequisitionsID"].Visible = false;
             dataGridView1.Columns["Item"].HeaderText = "Ürün";
             dataGridView1.Columns["Unit"].HeaderText = "Birim";
             dataGridView1.Columns["Quantity"].HeaderText = "Miktar";
@@ -76,7 +78,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                     {
                         {"UserID",Session.UserID  },
                         {"SupplierID",comboBoxSuppliers.SelectedValue },
-                        {"RequisitionsID",4 },//talep eden kişi eklenecek
+                        {"RequisitionsID",requisitionID },
                         {"Item",textBoxItem.Text  },
                         {"Unit" ,comboBoxUnit.Text },
                         {"Quantity" ,textBoxQuantity.Text },
@@ -117,7 +119,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                     {
                         {"UserID",Session.UserID  },
                         {"SupplierID",comboBoxSuppliers.SelectedValue  },
-                        {"RequisitionsID",4},//talep eden kişi eklenecek
+                        {"RequisitionsID",requisitionID},
                         {"Item",textBoxItem.Text  },
                         {"Unit" ,comboBoxUnit.Text },
                         {"Quantity" ,textBoxQuantity.Text },
@@ -210,9 +212,18 @@ namespace SatinAlmaYonetimSistemi.Forms
                 textBoxItem.Text = row.Cells["Item"].Value.ToString();
                 comboBoxUnit.Text = row.Cells["Unit"].Value.ToString();
                 textBoxQuantity.Text = row.Cells["Quantity"].Value.ToString();
-                textBoxPrice.Text = row.Cells["Price"].Value.ToString();
-                comboBoxCurrency.Text = row.Cells["Currency"].Value.ToString();
+                var value = row.Cells["Price"].Value.ToString();
+                if (value != null && decimal.TryParse(value.ToString(), out decimal price))
+                {
+                    // Binlik ayraçlı olarak TextBox’a ata
+                    textBoxPrice.Text = price.ToString("N0"); // 1.000
+                                                                    // veya
+                                                                    // textBoxPrice.Text = price.ToString("N2"); // 1.000,00
+                }
 
+                comboBoxCurrency.Text = row.Cells["Currency"].Value.ToString();
+                requisitionID = (int)row.Cells["RequisitionsID"].Value;
+                
                 dataGridViewOrderID = (int)row.Cells["ID"].Value;
 
                 buttonInvoice.Enabled = true;
@@ -287,6 +298,21 @@ namespace SatinAlmaYonetimSistemi.Forms
             {
                 MessageBox.Show("Lütfen sıfırdan büyük bir sayı giriniz.", "Geçersiz Giriş", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 e.Cancel = true; // focus TextBox'ta kalır
+            }
+        }
+
+        private void textBoxPrice_Leave(object sender, EventArgs e)
+        {
+            if (decimal.TryParse(textBoxPrice.Text, out decimal value) && value > 0)
+            {
+                // Sayıyı binlik ayraçlı formatla (ör. 1.000 veya 1.000,00)
+                textBoxPrice.Text = value.ToString("N0"); // 1.000
+                                                                // textBoxPrice.Text = value.ToString("N2"); // 1.000,00
+            }
+            else
+            {
+                // Geçersiz giriş olursa temizle veya uyarı ver
+                textBoxPrice.Text = string.Empty;
             }
         }
     }

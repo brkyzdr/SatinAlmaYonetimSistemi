@@ -40,6 +40,7 @@
             this.buttonMyOrders = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonProfil = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -234,12 +235,27 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "SATINALMA YÖNETİM UYGULAMASI";
             // 
+            // buttonProfil
+            // 
+            this.buttonProfil.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.buttonProfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonProfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonProfil.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonProfil.Location = new System.Drawing.Point(12, 12);
+            this.buttonProfil.Name = "buttonProfil";
+            this.buttonProfil.Size = new System.Drawing.Size(83, 45);
+            this.buttonProfil.TabIndex = 1;
+            this.buttonProfil.Text = "Profil";
+            this.buttonProfil.UseVisualStyleBackColor = false;
+            this.buttonProfil.Click += new System.EventHandler(this.buttonProfil_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaShell;
             this.ClientSize = new System.Drawing.Size(1200, 800);
+            this.Controls.Add(this.buttonProfil);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -268,5 +284,6 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonMyOrders;
+        private System.Windows.Forms.Button buttonProfil;
     }
 }

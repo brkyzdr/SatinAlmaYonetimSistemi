@@ -207,9 +207,26 @@ namespace SatinAlmaYonetimSistemi.Forms
                 textBoxInvoiceNum.Text = row.Cells["InvoiceNumber"].Value.ToString();
                 dateTimeInvoice.Text = row.Cells["InvoiceDate"].Value.ToString();
                 comboBoxSuppliers.Text = row.Cells["SupplierName"].Value.ToString();
-                textBoxTotalAmount.Text = row.Cells["TotalAmount"].Value.ToString();
+
+                var value = row.Cells["TotalAmount"].Value.ToString();
+                if (value != null && decimal.TryParse(value.ToString(), out decimal price))
+                {
+                    // Binlik ayraçlı olarak TextBox’a ata
+                    textBoxTotalAmount.Text = price.ToString("N0"); // 1.000
+                                                              // veya
+                                                              // textBoxPrice.Text = price.ToString("N2"); // 1.000,00
+                }
+
                 comboBoxCurrency.Text = row.Cells["Currency"].Value.ToString();
-                textBoxTotalTax.Text = row.Cells["TaxAmount"].Value.ToString();
+
+                var value2 = row.Cells["TaxAmount"].Value.ToString();
+                if (value2 != null && decimal.TryParse(value2.ToString(), out decimal price2))
+                {
+                    // Binlik ayraçlı olarak TextBox’a ata
+                    textBoxTotalTax.Text = price2.ToString("N0"); // 1.000
+                                                                    // veya
+                                                                    // textBoxPrice.Text = price.ToString("N2"); // 1.000,00
+                }
             }
         }
 
@@ -270,6 +287,36 @@ namespace SatinAlmaYonetimSistemi.Forms
             {
                 MessageBox.Show("Lütfen sıfırdan büyük bir sayı giriniz.", "Geçersiz Giriş", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 e.Cancel = true; // focus TextBox'ta kalır
+            }
+        }
+
+        private void textBoxTotalAmount_Leave(object sender, EventArgs e)
+        {
+            if (decimal.TryParse(textBoxTotalAmount.Text, out decimal value) && value > 0)
+            {
+                // Sayıyı binlik ayraçlı formatla (ör. 1.000 veya 1.000,00)
+                textBoxTotalAmount.Text = value.ToString("N0"); // 1.000
+                                                          // textBoxPrice.Text = value.ToString("N2"); // 1.000,00
+            }
+            else
+            {
+                // Geçersiz giriş olursa temizle veya uyarı ver
+                textBoxTotalAmount.Text = string.Empty;
+            }
+        }
+
+        private void textBoxTotalTax_Leave(object sender, EventArgs e)
+        {
+            if (decimal.TryParse(textBoxTotalTax.Text, out decimal value) && value > 0)
+            {
+                // Sayıyı binlik ayraçlı formatla (ör. 1.000 veya 1.000,00)
+                textBoxTotalTax.Text = value.ToString("N0"); // 1.000
+                                                                // textBoxPrice.Text = value.ToString("N2"); // 1.000,00
+            }
+            else
+            {
+                // Geçersiz giriş olursa temizle veya uyarı ver
+                textBoxTotalTax.Text = string.Empty;
             }
         }
     }

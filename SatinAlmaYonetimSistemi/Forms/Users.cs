@@ -9,6 +9,8 @@ namespace SatinAlmaYonetimSistemi.Forms
 {
     public partial class Users : Form
     {
+        string password;
+
         public Users()
         {
             InitializeComponent();
@@ -29,12 +31,13 @@ namespace SatinAlmaYonetimSistemi.Forms
        
             dataGridView1.Columns["Role"].HeaderText = "Rol";
             dataGridView1.Columns["Username"].HeaderText = "Kullanıcı Adı";
-            dataGridView1.Columns["PasswordHash"].HeaderText = "Şifre";
+            dataGridView1.Columns["PasswordHash"].HeaderText = "Şifre (Hash)";
             dataGridView1.Columns["Name"].HeaderText = "İsim";
             dataGridView1.Columns["Surname"].HeaderText = "Soyisim";
             dataGridView1.Columns["Email"].HeaderText = "E-posta";
             dataGridView1.Columns["PhoneNum"].HeaderText = "Telefon Numarası";
             dataGridView1.Columns["CreatedBy"].HeaderText = "Oluşturan Kişi";
+            dataGridView1.Columns["PasswordHash"].Visible = false;
             dataGridView1.Columns["IsActive"].Visible = false;
             dataGridView1.Columns["Status"].HeaderText = "Aktiflik";
         }
@@ -47,7 +50,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                 && !string.IsNullOrEmpty(textBoxName.Text)
                 && !string.IsNullOrEmpty(textBoxSurname.Text)
                 && !string.IsNullOrEmpty(textBoxEmail.Text)
-                && !string.IsNullOrEmpty(textBoxPhoneNumber.Text)
+                && !string.IsNullOrEmpty(maskedTextBoxPhoneNumber.Text)
                 && !string.IsNullOrEmpty(comboBoxIsActive.Text))
             {
 
@@ -70,15 +73,31 @@ namespace SatinAlmaYonetimSistemi.Forms
                         isActive = 0;
                     }
 
+                    string rawPassword = textBoxPassword.Text ?? string.Empty;
+                    if (rawPassword.Length < 8) // minimum politika
+                    {
+                        MessageBox.Show("Parola en az 8 karakter olmalıdır.");
+                        return;
+                    }
+
+                    string passwordHash = PasswordHasher.CreateHash(rawPassword);
+
+                    maskedTextBoxPhoneNumber.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                    string digits = maskedTextBoxPhoneNumber.Text;      // "905551234567" gibi
+
+                    // Ülke kodunu maskeden/combodan alıyorsan uygula; yoksa kullanıcı zaten +90 ile girmişse:
+                    string e164 = "+" + digits;
+                  
+
                     var data = new Dictionary<string, object>
                     {
                         {"Role" ,comboBoxRole.Text },
                         {"Username" ,textBoxUsername.Text },
-                        {"PasswordHash" ,textBoxPassword.Text },
+                        {"PasswordHash" ,passwordHash },
                         {"Name" ,textBoxName.Text },
                         {"Surname", textBoxSurname.Text},
                         {"Email", textBoxEmail.Text},
-                        {"PhoneNum", textBoxPhoneNumber.Text},
+                        {"PhoneNum", e164},
                         {"IsActive", isActive},
                         {"CreatedByID", Session.UserID},
                     };
@@ -121,15 +140,24 @@ namespace SatinAlmaYonetimSistemi.Forms
                         isActive = 0;
                     }
 
+                    
+
+                    maskedTextBoxPhoneNumber.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                    string digits = maskedTextBoxPhoneNumber.Text;      // "905551234567" gibi
+
+                    // Ülke kodunu maskeden/combodan alıyorsan uygula; yoksa kullanıcı zaten +90 ile girmişse:
+                    string e164 = "+" + digits;
+
+
                     var data = new Dictionary<string, object>
                     {
                         {"Role" ,comboBoxRole.Text },
                         {"Username" ,textBoxUsername.Text },
-                        {"PasswordHash" ,textBoxPassword.Text },
+                        {"PasswordHash" ,password },
                         {"Name" ,textBoxName.Text },
                         {"Surname", textBoxSurname.Text},
                         {"Email", textBoxEmail.Text},
-                        {"PhoneNum", textBoxPhoneNumber.Text},
+                        {"PhoneNum", e164},
                         {"IsActive", isActive},
                         {"CreatedByID", Session.UserID},
 
@@ -208,43 +236,24 @@ namespace SatinAlmaYonetimSistemi.Forms
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
                 comboBoxRole.Text = row.Cells["Role"].Value.ToString();
                 textBoxUsername.Text = row.Cells["Username"].Value.ToString();
-                textBoxPassword.Text = row.Cells["PasswordHash"].Value.ToString();
+                password = row.Cells["PasswordHash"].Value.ToString();
+                textBoxPassword.Text = password;
                 textBoxEmail.Text = row.Cells["Email"].Value.ToString();
                 textBoxName.Text = row.Cells["Name"].Value.ToString();
                 textBoxSurname.Text = row.Cells["Surname"].Value.ToString();
-                textBoxPhoneNumber.Text = row.Cells["PhoneNum"].Value.ToString();
+                maskedTextBoxPhoneNumber.Text = row.Cells["PhoneNum"].Value.ToString();
                 comboBoxIsActive.Text = row.Cells["Status"].Value.ToString();
             }
         }
 
-        private void textBoxPhoneNumber_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            if (!decimal.TryParse(textBoxPhoneNumber.Text, out decimal value) || value <= 0)
-            {
-                MessageBox.Show("Lütfen sıfırdan büyük bir sayı giriniz.", "Geçersiz Giriş", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                e.Cancel = true; // focus TextBox'ta kalır
-            }
-        }
+        //private void textBoxPhoneNumber_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        //{
 
-        private void textBoxPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // Sayı, kontrol (backspace vb.) veya nokta/virgül dışındaki her şeyi engelle
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != ',')
-            {
-                e.Handled = true;
-            }
+        //}
 
-            // Hem nokta hem virgül girişini tek bir "decimal ayırıcı" kabul et (noktayı tercih edelim)
-            if (e.KeyChar == ',')
-            {
-                e.KeyChar = '.'; // virgül yazılırsa nokta yap
-            }
+        //private void textBoxPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
+        //{
 
-            // Birden fazla nokta olmasını engelle
-            if (e.KeyChar == '.' && (sender as System.Windows.Forms.TextBox).Text.Contains("."))
-            {
-                e.Handled = true;
-            }
-        }
+        //}
     }
 }

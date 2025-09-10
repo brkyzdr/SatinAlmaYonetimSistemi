@@ -193,9 +193,17 @@ namespace SatinAlmaYonetimSistemi.Forms
                 textBoxSupplier.Text = row.Cells["SupplierName"].Value.ToString();
                 textBoxItem.Text = row.Cells["Item"].Value.ToString();
                 textBoxQuantity.Text = row.Cells["Quantity"].Value.ToString();
-                textBoxUnit.Text = row.Cells["Unit"].Value.ToString();
-                textBoxPrice.Text = row.Cells["Price"].Value.ToString();
+                textBoxUnit.Text = row.Cells["Unit"].Value.ToString();               
                 textBoxCurrency.Text = row.Cells["Currency"].Value.ToString();
+
+                var value = row.Cells["Price"].Value.ToString();
+                if (value != null && decimal.TryParse(value.ToString(), out decimal price))
+                {
+                    // Binlik ayraçlı olarak TextBox’a ata
+                    textBoxPrice.Text = price.ToString("N0"); // 1.000
+                                                                    // veya
+                                                                    // textBoxPrice.Text = price.ToString("N2"); // 1.000,00
+                }
             }
 
             textBoxSupplier.Enabled = true;
@@ -352,5 +360,19 @@ namespace SatinAlmaYonetimSistemi.Forms
             }
         }
 
+        private void textBoxPrice_Leave(object sender, EventArgs e)
+        {
+            if (decimal.TryParse(textBoxPrice.Text, out decimal value) && value > 0)
+            {
+                // Sayıyı binlik ayraçlı formatla (ör. 1.000 veya 1.000,00)
+                textBoxPrice.Text = value.ToString("N0"); // 1.000
+                                                                // textBoxPrice.Text = value.ToString("N2"); // 1.000,00
+            }
+            else
+            {
+                // Geçersiz giriş olursa temizle veya uyarı ver
+                textBoxPrice.Text = string.Empty;
+            }
+        }
     }
 }
