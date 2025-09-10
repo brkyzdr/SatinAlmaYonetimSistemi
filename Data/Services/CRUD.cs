@@ -75,5 +75,21 @@ namespace Data
                 }
             }
         }
+
+        public static int ExecuteNonQuery(string query, Dictionary<string, object> parameters)
+        {
+            using (var conn = new SqlConnection(connectionString))
+            using (var cmd = new SqlCommand(query, conn))
+            {
+                if (parameters != null)
+                {
+                    foreach (var p in parameters)
+                        cmd.Parameters.AddWithValue(p.Key, p.Value ?? DBNull.Value);
+                }
+                conn.Open();
+                return cmd.ExecuteNonQuery();
+            }
+        }
+
     }
 }
