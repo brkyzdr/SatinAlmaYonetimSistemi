@@ -41,6 +41,7 @@
             this.button8 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonProfil = new System.Windows.Forms.Button();
+            this.buttonStocks = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -107,11 +108,12 @@
             this.flowLayoutPanel1.Controls.Add(this.buttonOffersAnswer);
             this.flowLayoutPanel1.Controls.Add(this.buttonUsers);
             this.flowLayoutPanel1.Controls.Add(this.buttonMyOrders);
+            this.flowLayoutPanel1.Controls.Add(this.buttonStocks);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(161, 149);
-            this.flowLayoutPanel1.MaximumSize = new System.Drawing.Size(886, 444);
+            this.flowLayoutPanel1.MaximumSize = new System.Drawing.Size(886, 588);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(886, 444);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(886, 588);
             this.flowLayoutPanel1.TabIndex = 6;
             // 
             // buttonSuppliers
@@ -121,7 +123,7 @@
             this.buttonSuppliers.Enabled = false;
             this.buttonSuppliers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSuppliers.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSuppliers.Location = new System.Drawing.Point(297, 3);
+            this.buttonSuppliers.Location = new System.Drawing.Point(3, 441);
             this.buttonSuppliers.Name = "buttonSuppliers";
             this.buttonSuppliers.Size = new System.Drawing.Size(288, 140);
             this.buttonSuppliers.TabIndex = 5;
@@ -137,7 +139,7 @@
             this.buttonOffers.Enabled = false;
             this.buttonOffers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonOffers.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonOffers.Location = new System.Drawing.Point(297, 149);
+            this.buttonOffers.Location = new System.Drawing.Point(297, 3);
             this.buttonOffers.Name = "buttonOffers";
             this.buttonOffers.Size = new System.Drawing.Size(288, 140);
             this.buttonOffers.TabIndex = 4;
@@ -153,7 +155,7 @@
             this.buttonOrders.Enabled = false;
             this.buttonOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonOrders.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonOrders.Location = new System.Drawing.Point(297, 295);
+            this.buttonOrders.Location = new System.Drawing.Point(297, 149);
             this.buttonOrders.Name = "buttonOrders";
             this.buttonOrders.Size = new System.Drawing.Size(288, 140);
             this.buttonOrders.TabIndex = 6;
@@ -169,7 +171,7 @@
             this.buttonOffersAnswer.Enabled = false;
             this.buttonOffersAnswer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonOffersAnswer.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonOffersAnswer.Location = new System.Drawing.Point(591, 3);
+            this.buttonOffersAnswer.Location = new System.Drawing.Point(297, 295);
             this.buttonOffersAnswer.Name = "buttonOffersAnswer";
             this.buttonOffersAnswer.Size = new System.Drawing.Size(288, 140);
             this.buttonOffersAnswer.TabIndex = 7;
@@ -185,7 +187,7 @@
             this.buttonUsers.Enabled = false;
             this.buttonUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUsers.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUsers.Location = new System.Drawing.Point(591, 149);
+            this.buttonUsers.Location = new System.Drawing.Point(297, 441);
             this.buttonUsers.Name = "buttonUsers";
             this.buttonUsers.Size = new System.Drawing.Size(288, 140);
             this.buttonUsers.TabIndex = 10;
@@ -201,7 +203,7 @@
             this.buttonMyOrders.Enabled = false;
             this.buttonMyOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMyOrders.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonMyOrders.Location = new System.Drawing.Point(591, 295);
+            this.buttonMyOrders.Location = new System.Drawing.Point(591, 3);
             this.buttonMyOrders.Name = "buttonMyOrders";
             this.buttonMyOrders.Size = new System.Drawing.Size(288, 140);
             this.buttonMyOrders.TabIndex = 6;
@@ -218,7 +220,7 @@
             this.button8.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.Location = new System.Drawing.Point(1113, 12);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 75);
+            this.button8.Size = new System.Drawing.Size(78, 75);
             this.button8.TabIndex = 7;
             this.button8.Text = "Çıkış";
             this.button8.UseVisualStyleBackColor = true;
@@ -229,7 +231,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(302, 86);
+            this.label1.Location = new System.Drawing.Point(302, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(602, 39);
             this.label1.TabIndex = 8;
@@ -243,11 +245,27 @@
             this.buttonProfil.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonProfil.Location = new System.Drawing.Point(12, 12);
             this.buttonProfil.Name = "buttonProfil";
-            this.buttonProfil.Size = new System.Drawing.Size(83, 45);
+            this.buttonProfil.Size = new System.Drawing.Size(78, 75);
             this.buttonProfil.TabIndex = 1;
             this.buttonProfil.Text = "Profil";
             this.buttonProfil.UseVisualStyleBackColor = false;
             this.buttonProfil.Click += new System.EventHandler(this.buttonProfil_Click);
+            // 
+            // buttonStocks
+            // 
+            this.buttonStocks.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.buttonStocks.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonStocks.Enabled = false;
+            this.buttonStocks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonStocks.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonStocks.Location = new System.Drawing.Point(591, 149);
+            this.buttonStocks.Name = "buttonStocks";
+            this.buttonStocks.Size = new System.Drawing.Size(288, 140);
+            this.buttonStocks.TabIndex = 6;
+            this.buttonStocks.Text = "Stoklar";
+            this.buttonStocks.UseVisualStyleBackColor = false;
+            this.buttonStocks.Visible = false;
+            this.buttonStocks.Click += new System.EventHandler(this.buttonStocks_Click);
             // 
             // Dashboard
             // 
@@ -285,5 +303,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonMyOrders;
         private System.Windows.Forms.Button buttonProfil;
+        private System.Windows.Forms.Button buttonStocks;
     }
 }

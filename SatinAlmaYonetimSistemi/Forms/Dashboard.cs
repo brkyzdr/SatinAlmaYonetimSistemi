@@ -49,6 +49,9 @@ namespace SatinAlmaYonetimSistemi.Forms
 
                     buttonUsers.Enabled = true;
                     buttonUsers.Visible = true;
+
+                    buttonStocks.Enabled = true;
+                    buttonStocks.Visible = true;
                     break;
 
                 case "Normal Kullanıcı":
@@ -68,6 +71,10 @@ namespace SatinAlmaYonetimSistemi.Forms
 
                     buttonSuppliers.Enabled = true;
                     buttonSuppliers.Visible = true;
+
+                    buttonStocks.Enabled = true;
+                    buttonStocks.Visible = true;
+
 
                     buttonMyOrders.Enabled = true;
                     buttonMyOrders.Visible = true;
@@ -152,6 +159,13 @@ namespace SatinAlmaYonetimSistemi.Forms
         {
             Profile profile = new Profile();
             profile.Show();
+        }
+
+        private void buttonStocks_Click(object sender, EventArgs e)
+        {
+            Stocks stocks = new Stocks();
+            stocks.Show();
+            this.Close();
         }
     }
 }
