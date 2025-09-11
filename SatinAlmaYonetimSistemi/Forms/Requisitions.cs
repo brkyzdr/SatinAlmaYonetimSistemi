@@ -82,6 +82,13 @@ namespace SatinAlmaYonetimSistemi.Forms
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
+
+                if ((dataGridView1.SelectedRows[0].Cells["Status"].Value.ToString()) == "Onaylandı")
+                {
+                    MessageBox.Show("Onaylanmış bir talebi düzenleyemezsiniz!", "Bilgi");
+                    return;
+                }
+
                 DialogResult result = MessageBox.Show(
                 "Kaydı güncellemek istediğinize emin misiniz?",   // Mesaj
                 "Onay",                                          // Başlık

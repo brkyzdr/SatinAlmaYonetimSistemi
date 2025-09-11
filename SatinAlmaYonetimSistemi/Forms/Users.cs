@@ -245,15 +245,5 @@ namespace SatinAlmaYonetimSistemi.Forms
                 comboBoxIsActive.Text = row.Cells["Status"].Value.ToString();
             }
         }
-
-        //private void textBoxPhoneNumber_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-        //{
-
-        //}
-
-        //private void textBoxPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
-        //{
-
-        //}
     }
 }

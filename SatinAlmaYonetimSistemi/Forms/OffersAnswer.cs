@@ -50,40 +50,6 @@ namespace SatinAlmaYonetimSistemi.Forms
             dataGridView.Columns["Date"].HeaderText = "Teklif Tarihi";
         }
 
-        //private void UpdateData()
-        //{
-        //    if (dataGridView.SelectedRows.Count > 0)
-        //    {
-        //        DialogResult result = MessageBox.Show(
-        //        "Kayıt etmek istediğinize emin misiniz?",       // Mesaj
-        //        "Onay",                                          // Başlık
-        //        MessageBoxButtons.YesNo,                         // Evet / Hayır butonları
-        //        MessageBoxIcon.Question                          // Soru ikonu
-        //        );
-
-
-        //        if (result == DialogResult.Yes)
-        //        {
-        //            var data = new Dictionary<string, object>
-        //            {
-        //                {"ApprovedByID",Session.UserID },
-        //                {"Status" , "Onaylandı"},
-        //            };
-        //            string condition = $"ID = '{dataGridView.SelectedRows[0].Cells["ID"].Value}'";
-        //            CRUD.Update("Offers", data, condition);
-        //            MessageBox.Show("Kayıt başarıyla yapıldı.", "Bilgi");
-        //            ReadData(ReqID);
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("İşlem iptal edildi.", "Bilgi");
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Lütfen satır seçin.");
-        //    }
-        //}
 
         private void UpdateData()
         {
@@ -154,17 +120,26 @@ namespace SatinAlmaYonetimSistemi.Forms
         private void SetCombobox()
         {
             comboBoxOffersAnswer.Enabled = true;
+
             DataTable dt = CRUD.Read(
+                ";WITH src AS (" +
                 "SELECT " +
                 "o.RequisitionsID, " +
-                "COALESCE(o.Item, '') + ' | ' + COALESCE(u.Name, '') + ' ' + COALESCE(u.Surname, '') + '(#' + CAST(u.ID AS varchar(20)) +')' AS RequisitionsOwner " +
+                "COALESCE(r .Item, '') + ' | ' + COALESCE(u.Name, '') + ' ' + COALESCE(u.Surname, '') + '(#' + CAST(u.ID AS varchar(20)) +')' AS RequisitionsOwner, " +
+                "ROW_NUMBER() OVER (PARTITION BY o.RequisitionsID ORDER BY o.ID DESC) AS rn " +
                 "FROM Offers o " +
-                "INNER JOIN Requisitions r  ON o.RequisitionsID = r.ID " +
-                "INNER JOIN Users u ON o.UserID=u.ID " +
-                "WHERE o.Status='Onay Bekliyor' ");
+                "INNER JOIN Requisitions r ON o.RequisitionsID = r.ID " +
+                "INNER JOIN Users u        ON o.UserID       = u.ID " + // Requisition sahibi
+                "WHERE o.Status = 'Onay Bekliyor' " +
+                ") " +
+                "SELECT RequisitionsID, RequisitionsOwner " +
+                "FROM src " +
+                "WHERE rn = 1 " +
+                "ORDER BY RequisitionsID DESC");
+
 
             DataView dv = new DataView(dt);
-            DataTable distinct = dv.ToTable(true, "RequisitionsID", "RequisitionsOwner");
+            DataTable distinct = dv.ToTable(true, "RequisitionsOwner", "RequisitionsID");
 
             comboBoxOffersAnswer.DataSource = distinct;
             comboBoxOffersAnswer.DisplayMember = "RequisitionsOwner";
@@ -233,72 +208,6 @@ namespace SatinAlmaYonetimSistemi.Forms
 
 
         }
-
-        //private void buttonRefuse_Click(object sender, EventArgs e)
-        //{
-        //    if (dataGridView.SelectedRows.Count > 0)
-        //    {
-        //        DialogResult result = MessageBox.Show(
-        //            "Tüm teklifleri reddetmek istediğinize emin misiniz?",
-        //            "Onay",
-        //            MessageBoxButtons.YesNo,
-        //            MessageBoxIcon.Question
-        //        );
-
-        //        if (result == DialogResult.Yes)
-        //        {
-        //            // Seçilen satırın ID ve RequisitionsID değerleri
-        //            int selectedOfferID = Convert.ToInt32(dataGridView.SelectedRows[0].Cells["ID"].Value);
-        //            int requisitionID = Convert.ToInt32(dataGridView.SelectedRows[0].Cells["RequisitionsID"].Value);
-
-        //            // 1. Seçili satır → Onaylandı
-        //            var approveData = new Dictionary<string, object>
-        //    {
-        //        { "ApprovedByID", Session.UserID },
-        //        { "Status", "Onaylandı" }
-        //    };
-        //            string approveCondition = $"ID = {selectedOfferID}";
-        //            CRUD.Update("Offers", approveData, approveCondition);
-
-        //            // 2. Aynı RequisitionsID’deki diğer satırlar → Reddedildi
-        //            var rejectData = new Dictionary<string, object>
-        //    {
-        //        { "ApprovedByID", Session.UserID },
-        //        { "Status", "Reddedildi" }
-        //    };
-        //            string rejectCondition = $"RequisitionsID = {requisitionID} AND ID <> {selectedOfferID}";
-        //            CRUD.Update("Offers", rejectData, rejectCondition);
-
-        //            MessageBox.Show("Onaylama işlemi başarılı.", "Bilgi");
-        //            SetCombobox();
-        //            dataGridView.DataSource = null;
-
-        //            textBoxSupplier.Enabled = false;
-        //            textBoxCurrency.Enabled = false;
-        //            textBoxItem.Enabled = false;
-        //            textBoxPrice.Enabled = false;
-        //            textBoxQuantity.Enabled = false;
-        //            textBoxUnit.Enabled = false;
-        //            label1.Enabled = false;
-
-        //            textBoxSupplier.Visible = false;
-        //            textBoxCurrency.Visible = false;
-        //            textBoxItem.Visible = false;
-        //            textBoxPrice.Visible = false;
-        //            textBoxQuantity.Visible = false;
-        //            textBoxUnit.Visible = false;
-        //            label1.Visible = false;
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("İşlem iptal edildi.", "Bilgi");
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Lütfen satır seçin.");
-        //    }
-        //}
 
         private void buttonRefuse_Click(object sender, EventArgs e)
         {

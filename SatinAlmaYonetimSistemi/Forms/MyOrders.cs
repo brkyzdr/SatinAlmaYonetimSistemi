@@ -104,7 +104,7 @@ namespace SatinAlmaYonetimSistemi.Forms
         private void UpdateData()
         {
             if (dataGridView1.SelectedRows.Count > 0)
-            {
+            {                
                 DialogResult result = MessageBox.Show(
                 "Kaydı güncellemek istediğinize emin misiniz?",   // Mesaj
                 "Onay",                                          // Başlık
