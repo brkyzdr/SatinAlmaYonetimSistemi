@@ -26,10 +26,12 @@ namespace SatinAlmaYonetimSistemi.Forms
         {
             DataTable dt = CRUD.Read(
                 "SELECT " +
-                "s.ID, s.ItemCode, s.ItemName,c.CategoryName,s.Unit,s.CreatedDate,s.CreatedBy,s.ModifiedBy,s.IsActive, " +
+                "s.ID, s.ItemCode, s.ItemName,c.CategoryName,s.Unit,s.CreatedDate,s.ModifiedBy,s.IsActive," +
+                "COALESCE(u.Name, '') + ' ' + COALESCE(u.Surname, '') + '(#' + CAST(u.ID AS varchar(20)) + ')' AS UserName " +
                 "CASE WHEN s.IsActive = 1 THEN 'Aktif' ELSE 'Pasif' END AS Status " +
                 "FROM Stocks s " +
-                "INNER JOIN Categories c ON s.Category = c.ID ");
+                "INNER JOIN Categories c ON s.Category = c.ID " +
+                "INNER JOIN Users u ON s.CreatedBy=u.ID");
             dataGridView1.DataSource = dt;
             dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
             dataGridView1.AutoGenerateColumns = true;
@@ -40,7 +42,7 @@ namespace SatinAlmaYonetimSistemi.Forms
             dataGridView1.Columns["CategoryName"].HeaderText = "Kategori";
             dataGridView1.Columns["Unit"].HeaderText = "Birim";
             dataGridView1.Columns["CreatedDate"].HeaderText = "Oluşturulma Tarihi";
-            dataGridView1.Columns["CreatedBy"].HeaderText ="Oluşturan Kişi" ;
+            dataGridView1.Columns["UserName"].HeaderText ="Oluşturan Kişi" ;
             dataGridView1.Columns["ModifiedBy"].HeaderText = "Değiştiren Kişi";
             dataGridView1.Columns["IsActive"].HeaderText = "Aktiflik";
         }
