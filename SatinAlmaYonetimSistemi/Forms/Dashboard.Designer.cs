@@ -38,10 +38,11 @@
             this.buttonOffersAnswer = new System.Windows.Forms.Button();
             this.buttonUsers = new System.Windows.Forms.Button();
             this.buttonMyOrders = new System.Windows.Forms.Button();
+            this.buttonStocks = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonProfil = new System.Windows.Forms.Button();
-            this.buttonStocks = new System.Windows.Forms.Button();
+            this.buttonCategories = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -109,6 +110,7 @@
             this.flowLayoutPanel1.Controls.Add(this.buttonUsers);
             this.flowLayoutPanel1.Controls.Add(this.buttonMyOrders);
             this.flowLayoutPanel1.Controls.Add(this.buttonStocks);
+            this.flowLayoutPanel1.Controls.Add(this.buttonCategories);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(161, 149);
             this.flowLayoutPanel1.MaximumSize = new System.Drawing.Size(886, 588);
@@ -212,6 +214,22 @@
             this.buttonMyOrders.Visible = false;
             this.buttonMyOrders.Click += new System.EventHandler(this.button99_Click);
             // 
+            // buttonStocks
+            // 
+            this.buttonStocks.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.buttonStocks.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonStocks.Enabled = false;
+            this.buttonStocks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonStocks.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonStocks.Location = new System.Drawing.Point(591, 149);
+            this.buttonStocks.Name = "buttonStocks";
+            this.buttonStocks.Size = new System.Drawing.Size(288, 140);
+            this.buttonStocks.TabIndex = 6;
+            this.buttonStocks.Text = "Stoklar";
+            this.buttonStocks.UseVisualStyleBackColor = false;
+            this.buttonStocks.Visible = false;
+            this.buttonStocks.Click += new System.EventHandler(this.buttonStocks_Click);
+            // 
             // button8
             // 
             this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -251,21 +269,21 @@
             this.buttonProfil.UseVisualStyleBackColor = false;
             this.buttonProfil.Click += new System.EventHandler(this.buttonProfil_Click);
             // 
-            // buttonStocks
+            // buttonCategories
             // 
-            this.buttonStocks.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.buttonStocks.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonStocks.Enabled = false;
-            this.buttonStocks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonStocks.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonStocks.Location = new System.Drawing.Point(591, 149);
-            this.buttonStocks.Name = "buttonStocks";
-            this.buttonStocks.Size = new System.Drawing.Size(288, 140);
-            this.buttonStocks.TabIndex = 6;
-            this.buttonStocks.Text = "Stoklar";
-            this.buttonStocks.UseVisualStyleBackColor = false;
-            this.buttonStocks.Visible = false;
-            this.buttonStocks.Click += new System.EventHandler(this.buttonStocks_Click);
+            this.buttonCategories.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.buttonCategories.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonCategories.Enabled = false;
+            this.buttonCategories.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCategories.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCategories.Location = new System.Drawing.Point(591, 295);
+            this.buttonCategories.Name = "buttonCategories";
+            this.buttonCategories.Size = new System.Drawing.Size(288, 140);
+            this.buttonCategories.TabIndex = 6;
+            this.buttonCategories.Text = "Kategoriler";
+            this.buttonCategories.UseVisualStyleBackColor = false;
+            this.buttonCategories.Visible = false;
+            this.buttonCategories.Click += new System.EventHandler(this.buttonCategories_Click);
             // 
             // Dashboard
             // 
@@ -304,5 +322,6 @@
         private System.Windows.Forms.Button buttonMyOrders;
         private System.Windows.Forms.Button buttonProfil;
         private System.Windows.Forms.Button buttonStocks;
+        private System.Windows.Forms.Button buttonCategories;
     }
 }
