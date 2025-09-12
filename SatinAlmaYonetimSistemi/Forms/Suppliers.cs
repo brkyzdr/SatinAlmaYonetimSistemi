@@ -210,11 +210,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                 maskedTextBoxPhoneNumber.Text = row.Cells["Phone"].Value.ToString();
                 textBoxEmail.Text = row.Cells["Email"].Value.ToString();
                 textBoxAddress.Text = row.Cells["Address"].Value.ToString();
-                comboBoxIsActive.Text = row.Cells["Status"].Value.ToString();
-                //if (row.Cells["IsActive"].Value.ToString() == "1")
-                //    comboBoxIsActive.Text = "Aktif";
-                //else
-                //    comboBoxIsActive.Text = "Pasif";
+                comboBoxIsActive.Text = row.Cells["Status"].Value.ToString();              
             }
         }
     }
