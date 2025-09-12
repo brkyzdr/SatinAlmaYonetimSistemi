@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,16 +23,33 @@ namespace SatinAlmaYonetimSistemi.Forms
             ReadData();
         }
 
+        private void SetItemCode()
+        {
+            string category=comboBoxCategory.Text;
+            string lastID=null;
+            DataTable dt = CRUD.Read(
+                "SELECT TOP 1 ID FROM Categories ORDER BY ID DESC"
+                );
+
+            if (dt.Rows.Count > 0)
+            {
+                lastID = dt.Rows[0]["ID"].ToString();
+            }
+
+            itemCode = category + "-" + lastID;
+        }
+
         private void ReadData()
         {
             DataTable dt = CRUD.Read(
                 "SELECT " +
-                "s.ID, s.ItemCode, s.ItemName,c.CategoryName,s.Unit,s.CreatedDate,s.ModifiedBy,s.IsActive," +
-                "COALESCE(u.Name, '') + ' ' + COALESCE(u.Surname, '') + '(#' + CAST(u.ID AS varchar(20)) + ')' AS UserName " +
+                "s.ID, s.ItemCode, s.ItemName, c.CategoryName, s.Unit,s.CreatedDate, s.ModifiedBy, " +
+                "COALESCE(u.Name, '') + ' ' + COALESCE(u.Surname, '') + '(#' + CAST(u.ID AS varchar(20)) + ')' AS UserName, " +
                 "CASE WHEN s.IsActive = 1 THEN 'Aktif' ELSE 'Pasif' END AS Status " +
                 "FROM Stocks s " +
                 "INNER JOIN Categories c ON s.Category = c.ID " +
                 "INNER JOIN Users u ON s.CreatedBy=u.ID");
+
             dataGridView1.DataSource = dt;
             dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
             dataGridView1.AutoGenerateColumns = true;
@@ -44,7 +62,7 @@ namespace SatinAlmaYonetimSistemi.Forms
             dataGridView1.Columns["CreatedDate"].HeaderText = "Oluşturulma Tarihi";
             dataGridView1.Columns["UserName"].HeaderText ="Oluşturan Kişi" ;
             dataGridView1.Columns["ModifiedBy"].HeaderText = "Değiştiren Kişi";
-            dataGridView1.Columns["IsActive"].HeaderText = "Aktiflik";
+            dataGridView1.Columns["Status"].HeaderText = "Aktiflik";
         }
 
         private void CreateData()
@@ -73,7 +91,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                     {
                         isActive = 0;
                     }
-
+                    SetItemCode();
                     var data = new Dictionary<string, object>
                     {
                         {"ItemCode" ,itemCode},
@@ -81,7 +99,7 @@ namespace SatinAlmaYonetimSistemi.Forms
                         {"Unit" ,comboBoxUnit.Text },
                         {"CreatedDate" ,DateTime.Now },
                         {"CreatedBy" ,Session.UserID },
-                        {"Category" ,comboBoxCategory.Text },
+                        {"Category" ,comboBoxCategory.ValueMember },
                         {"IsActive", isActive},
                     };
                     CRUD.Create("Stocks", data);
@@ -126,7 +144,6 @@ namespace SatinAlmaYonetimSistemi.Forms
 
                     var data = new Dictionary<string, object>
                     {
-                        {"ItemCode" ,itemCode},
                         {"ItemName" ,textBoxItemName.Text },
                         {"Unit" ,comboBoxUnit.Text },
                         {"CreatedDate" ,DateTime.Now },
@@ -212,7 +229,15 @@ namespace SatinAlmaYonetimSistemi.Forms
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                textBoxItemName.Text = row.Cells["ItemName"].Value.ToString();
+                textBoxItemCode.Text = row.Cells["ItemCode"].Value.ToString();
+                comboBoxCategory.Text = row.Cells["CategoryName"].Value.ToString();
+                comboBoxUnit.Text = row.Cells["Unit"].Value.ToString();
+                comboBoxIsActive.Text = row.Cells["Status"].Value.ToString();
+            }
         }
     }
 }
